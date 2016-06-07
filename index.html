@@ -282,7 +282,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     {
       "license": "w3c-software-doc",
       "specStatus": "ED",
-      "shortName": "ptd",
+      "shortName": "post-type-discovery",
       "edDraftURI": "https://tantek.github.io/post-type-discovery/",
       "editors": [
       {
@@ -379,12 +379,34 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
           ],
           "status": "Living Specification",
           "publisher": "http://microformats.org"
+        },
+        "Micropub":
+        {
+          "title": "Micropub",
+          "href": "https://www.w3.org/TR/micropub",
+          "authors": [
+            "Aaron Parecki"
+          ],
+          "status": "Working Draft",
+          "publisher": "https://www.w3.org"
+        },
+        "Activitypub":
+        {
+          "title": "ActivityPub",
+          "href": "https://www.w3.org/TR/activitypub",
+          "authors": [
+            "Christopher Allan Webber",
+            "Jessica Tallon",
+            "Owen Shepherd"
+          ],
+          "status": "Working Draft",
+          "publisher": "https://www.w3.org"
         }
       }
     }
   </script>
 </head>
-<body id="respecDocument" role="document" class="h-entry">
+<body id="respecDocument" role="document" class="h-entry toc-inline">
   <div id="respecHeader" role="contentinfo" class="head">
     <p>
       <a class="logo" href="http://www.w3.org/"><img src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" alt="W3C" width="72" height="48"></a>
@@ -395,7 +417,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       <dt>This version:</dt>
       <dd><a class="u-url" href="https://tantek.github.io/post-type-discovery/">https://tantek.github.io/post-type-discovery/</a></dd>
       <dt>Latest published version:</dt>
-      <dd><a href="http://www.w3.org/TR/ptd/">http://www.w3.org/TR/ptd/</a></dd>
+      <dd><a href="http://www.w3.org/TR/post-type-discovery/">http://www.w3.org/TR/post-type-discovery/</a></dd>
       <dt>Latest editor's draft:</dt>
       <dd><a href="https://tantek.github.io/post-type-discovery/">https://tantek.github.io/post-type-discovery/</a></dd>
       <dt>Editor:</dt>
@@ -524,6 +546,9 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     <p><em>This section is non-normative.</em></p>
     <p>
       Post type discovery is an explicit algorithm for inferring the type of a post from other properties of that post.
+    </p>
+    <p>
+      Inferring the type of a post helps provide a bridge between systems without explicit post types (e.g. [<cite><a href="#bib-Micropub" class="bibref">Micropub</a></cite>], jf2) to systems with explicit post types (e.g. [<cite><a href="#bib-ActivityPub" class="bibref">ActivityPub</a></cite>], [<cite><a href="#bib-AS2" class="bibref">AS2</a></cite>]).
     </p>
     <p>The key words "<em title="MUST" class="rfc2119">MUST</em>", "<em title="MUST NOT" class="rfc2119">MUST NOT</em>", "<em title="REQUIRED" class="rfc2119">REQUIRED</em>", "<em title="SHALL" class="rfc2119">SHALL</em>", "<em title="SHALL NOT" class="rfc2119">SHALL NOT</em>", "
       <em title="SHOULD" class="rfc2119">SHOULD</em>", "<em title="SHOULD NOT" class="rfc2119">SHOULD NOT</em>", "<em title="RECOMMENDED" class="rfc2119">RECOMMENDED</em>", "<em title="MAY" class="rfc2119">MAY</em>", and "<em title="OPTIONAL" class="rfc2119">OPTIONAL</em>" in this document are to be interpreted as described in [<cite><a href="#bib-RFC2119" class="bibref">RFC2119</a></cite>].</p>
@@ -806,6 +831,10 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
         <dd>J. Snell; E. Prodromou. https://www.w3.org/. <a property="dc:references" href="https://www.w3.org/TR/activitystreams-core/"><cite>Activity Streams 2.0</cite></a>. Working Draft. URL: <a property="dc:references" href="https://www.w3.org/TR/activitystreams-core/">https://www.w3.org/TR/activitystreams-core/</a>
         </dd><dt id="bib-AS2-vocab">[AS2-vocab]</dt>
         <dd>J. Snell; E. Prodromou. https://www.w3.org/. <a property="dc:references" href="http://www.w3.org/TR/activitystreams-vocabulary"><cite>Activity Vocabulary</cite></a>. Working Draft. URL: <a property="dc:references" href="http://www.w3.org/TR/activitystreams-vocabulary">http://www.w3.org/TR/activitystreams-vocabulary</a>
+        </dd><dt id="bib-ActivityPub">[ActivityPub]</dt>
+        <dd>Christopher Webber; Jessica Tallon; Owen Shepherd. W3C. <a property="dc:references" href="http://www.w3.org/TR/activitypub/"><cite>ActivityPub</cite></a>. 28 January 2016. W3C Working Draft. URL: <a property="dc:references" href="http://www.w3.org/TR/activitypub/">http://www.w3.org/TR/activitypub/</a>
+        </dd><dt id="bib-Micropub">[Micropub]</dt>
+        <dd>Aaron Parecki. https://www.w3.org. <a property="dc:references" href="https://www.w3.org/TR/micropub"><cite>Micropub</cite></a>. Working Draft. URL: <a property="dc:references" href="https://www.w3.org/TR/micropub">https://www.w3.org/TR/micropub</a>
         </dd><dt id="bib-RFC4287">[RFC4287]</dt>
         <dd>M. Nottingham, Ed.; R. Sayre, Ed.. IETF. <a property="dc:references" href="https://tools.ietf.org/html/rfc4287"><cite>The Atom Syndication Format</cite></a>. December 2005. Proposed Standard. URL: <a property="dc:references" href="https://tools.ietf.org/html/rfc4287">https://tools.ietf.org/html/rfc4287</a>
         </dd><dt id="bib-microformats2">[microformats2]</dt>
