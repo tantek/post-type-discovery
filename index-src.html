@@ -61,7 +61,17 @@
               "E. Prodromou"
             ],
             status:   "Working Draft",
-            publisher:  "http://activitystrea.ms"
+            publisher:  "https://www.w3.org/"
+          },
+          "AS2-vocab": {
+            title: "Activity Vocabulary",
+            href: "http://www.w3.org/TR/activitystreams-vocabulary",
+            authors:  [
+              "J. Snell",
+              "E. Prodromou"
+            ],
+            status:   "Working Draft",
+            publisher:  "https://www.w3.org/"
           },
           "h-entry": {
             title: "h-entry",
@@ -254,7 +264,8 @@
       <section id="ex-like">
         <h3>Like Post</h3>
         <p>
-          Here is an example [[h-entry]] post from [http://www.w3.org/TR/activitystreams-vocabulary/#dfn-like Activity Streams 2.0 Vocabulary examples]:
+          Here is an example [[h-entry]] post from 
+          <a href="http://www.w3.org/TR/activitystreams-vocabulary/#dfn-like">Activity Streams 2.0 Vocabulary examples</a> [[AS2-vocab]]:
         </p>
         <pre>
 &lt;div class="h-entry p-name"&gt;
@@ -350,7 +361,8 @@
         <p>
           <ul>
             <li>Live public demo site: https://granary-demo.appspot.com/ </li>
-            <li>Issue(s) related to implementing Post Type Discovery: [https://github.com/snarfed/granary/issues/41 #41]</li>
+            <li>Issue(s) related to implementing Post Type Discovery: 
+              <a href="https://github.com/snarfed/granary/issues/41">#41</a></li>
           </ul>
         </p>
       </section>
@@ -367,6 +379,18 @@
         <p>
           <ul>
             <li>Live example: http://aaronparecki.com/</li>
+          </ul>
+        </p>
+      </section>
+       <section id="mf2util">
+        <h3>mf2util</h3>
+        <p>
+          mf2util exposes a function for post_type_discovery that takes an h-entry and 
+          returns "like", "reply", "note", "article", etc.
+        </p>
+        <p>
+          <ul>
+            <li>Live demo: https://kylewm.com/services/mf2util</li>
           </ul>
         </p>
       </section>
