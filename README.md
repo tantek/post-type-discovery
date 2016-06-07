@@ -1,5 +1,8 @@
 # Post Type Discovery
-This is a stub repository
+
+View editor's draft: https://tantek.github.io/post-type-discovery/
+
+Live generated from respec source: https://tantek.github.io/post-type-discovery/index-src.html
 
 The "Post Type Discovery" specification was developed on the IndieWebCamp wiki:
 * https://indiewebcamp.com/post-type-discovery
