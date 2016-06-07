@@ -143,6 +143,8 @@
             <br>Then it is a repost (AKA "share") post.</li>
           <li>If the post has a "like-of" property with a valid URL, 
             <br>Then it is a like (AKA "favorite") post.</li>
+          <li>If the post has a "video" property with a valid URL, 
+            <br>Then it is a video post. </li>
           <li>If the post has a "photo" property with a valid URL, 
             <br>Then it is a photo post. </li>
           <li>If the post has a "content" property with a non-empty value, 
@@ -221,7 +223,6 @@
           <li><a href="http://indiewebcamp.com/checkin">checkin</a>
           <li><a href="http://indiewebcamp.com/bookmark">bookmark</a>
           <li><a href="http://indiewebcamp.com/quotation">quotation</a>
-          <li><a href="http://indiewebcamp.com/video">video</a>
           <li><a href="http://indiewebcamp.com/audio">audio</a>
           <li><a href="http://indiewebcamp.com/jam">jam</a>
           <li><a href="http://indiewebcamp.com/invitation">invitation</a>
@@ -302,7 +303,14 @@
         A2a: From a presentation perspective, a reply should primarily be displayed as a 
         reply first, and then adapt accordingly to whatever other properties it may have.
       </p>
-
+      <h3> Is a video tag sufficient </h3>
+      <p>
+        Q: Is a video tag sufficient to imply a video post?
+      </p>
+      <p>
+        A: No, video tags can be used for additional content e.g. inside an article. 
+        Only relying on video tag markup would lead to false positives. 
+      </p>
     </section>
   </section>
 
