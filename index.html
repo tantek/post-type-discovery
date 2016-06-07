@@ -53,6 +53,16 @@
             status:   "unofficial",
             publisher:  "http://activitystrea.ms"
           },
+          "AS2": {
+            title: "Activity Streams 2.0",
+            href: "https://www.w3.org/TR/activitystreams-core/",
+            authors:  [
+              "J. Snell",
+              "E. Prodromou"
+            ],
+            status:   "Working Draft",
+            publisher:  "http://activitystrea.ms"
+          },
           "h-entry": {
             title: "h-entry",
             href: "http://microformats.org/wiki/h-entry",
@@ -128,8 +138,8 @@
       <p>
         The Post Type Discovery algorithm ("the algorithm") discovers the type of a 
         post given a data structure representing a post with a flat set of properties 
-        (e.g. Activity Streams (1.0 or 2.0) JSON, or JSON output from parsing 
-        [[microformats2]]), each with one or more values, by following these steps 
+        (e.g. Activity Streams (1.0 or 2.0) JSON, or JSON output from 
+        [[microformats2-parsing]]), each with one or more values, by following these steps 
         until reaching the first "it is a(n) ... post" statement at which point the 
         "..." is the discovered post type.
       </p>
