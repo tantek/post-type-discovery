@@ -54,15 +54,15 @@
             publisher:  "http://activitystrea.ms"
           },
           "h-entry": {
-            title: "Microformats h-entry draft specification",
+            title: "h-entry",
             href: "http://microformats.org/wiki/h-entry",
             authors: [ "Tantek Çelik"],
             status: "Living Specification",
             publisher: "http://microformats.org"
           },
-          "microformats2": {
-            title: "Microformats 2 draft specification",
-            href: "http://microformats.org/wiki/microformats2",
+          "microformats2-parsing": {
+            title: "Microformats 2 Parsing",
+            href: "http://microformats.org/wiki/microformats2-parsing",
             authors: [ "Tantek Çelik"],
             status: "Living Specification",
             publisher: "http://microformats.org"
@@ -85,8 +85,8 @@
 
     <section id='sotd'>
       <p>
-        This is a W3C Editor's Draft, and a snapshot of the IndieWebCamp specification 
-        of the same name, as of 2015-10-14 
+        This is a W3C Editor's Draft, derived from the IndieWebCamp specification 
+        of the same name. 
       </p>
     </section>
     
@@ -114,7 +114,8 @@
         <h3>Synthesizing explicit type formats</h3>
         <p>
           There are existing formats that require explicit post types 
-          (e.g. ActivityStreams [[AS1]]), and code that consumes them expects explicit 
+          (e.g. ActivityStreams [[AS1]]), or are based on explicit post types,
+          (e.g. ActivityStreams2 [[AS2]]), and code that consumes them expects explicit 
           post types. Post type discovery enabling automatic synthesizing of such 
           formats from posts that merely have a set of content related properties.
         </p>
@@ -168,7 +169,7 @@
       </p>
 
       <p>
-        Quoted property names in the algorithm are defined in [h-entry].
+        Quoted property names in the algorithm are defined in [[!h-entry]].
       </p>
 
     </section>
