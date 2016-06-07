@@ -9,7 +9,7 @@
       var respecConfig = {
         license: "w3c-software-doc",
         specStatus: "ED",
-        shortName:  "ptd",
+        shortName:  "post-type-discovery",
         edDraftURI: "https://tantek.github.io/post-type-discovery/",
         editors: [
               {   name:       "Tantek Çelik",
@@ -93,9 +93,26 @@
             authors: [ "Tantek Çelik"],
             status: "Living Specification",
             publisher: "http://microformats.org"
-          }
+          },
+          "Micropub": {
+            title: "Micropub",
+            href: "https://www.w3.org/TR/micropub",
+            authors: [ "Aaron Parecki"],
+            status: "Working Draft",
+            publisher: "https://www.w3.org"
+          },
+          "Activitypub": {
+            title: "ActivityPub",
+            href: "https://www.w3.org/TR/activitypub",
+            authors: [
+              "Christopher Allan Webber",
+              "Jessica Tallon",
+              "Owen Shepherd"
+              ],
+            status: "Working Draft",
+            publisher: "https://www.w3.org"
+          },
         }
-
       };
     </script>
     <link rel="webmention" href="https://webmention.io/w3c/webmention">
@@ -121,6 +138,10 @@
       <h2>Introduction</h2>
       <p>
       Post type discovery is an explicit algorithm for inferring the type of a post from other properties of that post.
+      </p>
+      <p>
+      Inferring the type of a post helps provide a bridge between systems without explicit post types 
+      (e.g. [[Micropub]], jf2) to systems with explicit post types (e.g. [[ActivityPub]], [[AS2]]).
       </p>
       <p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
       "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
