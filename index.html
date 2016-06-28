@@ -17,98 +17,74 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       padding: 0.5em;
       color: #333;
       background: #f8f8f8;
-      -webkit-text-size-adjust: none;
     }
     
     .hljs-comment,
-    .diff .hljs-header {
+    .hljs-quote {
       color: #998;
       font-style: italic;
     }
     
     .hljs-keyword,
-    .css .rule .hljs-keyword,
-    .hljs-winutils,
-    .nginx .hljs-title,
-    .hljs-subst,
-    .hljs-request,
-    .hljs-status {
+    .hljs-selector-tag,
+    .hljs-subst {
       color: #333;
       font-weight: bold;
     }
     
     .hljs-number,
-    .hljs-hexcolor,
-    .ruby .hljs-constant {
+    .hljs-literal,
+    .hljs-variable,
+    .hljs-template-variable,
+    .hljs-tag .hljs-attr {
       color: #008080;
     }
     
     .hljs-string,
-    .hljs-tag .hljs-value,
-    .hljs-doctag,
-    .tex .hljs-formula {
+    .hljs-doctag {
       color: #d14;
     }
     
     .hljs-title,
-    .hljs-id,
-    .scss .hljs-preprocessor {
+    .hljs-section,
+    .hljs-selector-id {
       color: #900;
       font-weight: bold;
     }
     
-    .hljs-list .hljs-keyword,
     .hljs-subst {
       font-weight: normal;
     }
     
-    .hljs-class .hljs-title,
     .hljs-type,
-    .vhdl .hljs-literal,
-    .tex .hljs-command {
+    .hljs-class .hljs-title {
       color: #458;
       font-weight: bold;
     }
     
     .hljs-tag,
-    .hljs-tag .hljs-title,
-    .hljs-rule .hljs-property,
-    .django .hljs-tag .hljs-keyword {
+    .hljs-name,
+    .hljs-attribute {
       color: #000080;
       font-weight: normal;
     }
     
-    .hljs-attribute,
-    .hljs-variable,
-    .lisp .hljs-body,
-    .hljs-name {
-      color: #008080;
-    }
-    
-    .hljs-regexp {
+    .hljs-regexp,
+    .hljs-link {
       color: #009926;
     }
     
     .hljs-symbol,
-    .ruby .hljs-symbol .hljs-string,
-    .lisp .hljs-keyword,
-    .clojure .hljs-keyword,
-    .scheme .hljs-keyword,
-    .tex .hljs-special,
-    .hljs-prompt {
+    .hljs-bullet {
       color: #990073;
     }
     
-    .hljs-built_in {
+    .hljs-built_in,
+    .hljs-builtin-name {
       color: #0086b3;
     }
     
-    .hljs-preprocessor,
-    .hljs-pragma,
-    .hljs-pi,
-    .hljs-doctype,
-    .hljs-shebang,
-    .hljs-cdata {
+    .hljs-meta {
       color: #999;
       font-weight: bold;
     }
@@ -121,12 +97,12 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       background: #dfd;
     }
     
-    .diff .hljs-change {
-      background: #0086b3;
+    .hljs-emphasis {
+      font-style: italic;
     }
     
-    .hljs-chunk {
-      color: #aaa;
+    .hljs-strong {
+      font-weight: bold;
     }
   </style>
   <style id="respec-mainstyle">
@@ -406,13 +382,13 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     }
   </script>
 </head>
-<body id="respecDocument" role="document" class="h-entry">
+<body id="respecDocument" role="document" class="h-entry toc-inline">
   <div id="respecHeader" role="contentinfo" class="head">
     <p>
       <a class="logo" href="http://www.w3.org/"><img src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" alt="W3C" width="72" height="48"></a>
     </p>
     <h1 class="title p-name" id="title" property="dcterms:title">Post Type Discovery</h1>
-    <h2 id="w3c-editor-s-draft-07-june-2016"><abbr title="World Wide Web Consortium">W3C</abbr> Editor's Draft <time property="dcterms:issued" class="dt-published" datetime="2016-06-07">07 June 2016</time></h2>
+    <h2 id="w3c-editor-s-draft-30-june-2016"><abbr title="World Wide Web Consortium">W3C</abbr> Editor's Draft <time property="dcterms:issued" class="dt-published" datetime="2016-06-30">30 June 2016</time></h2>
     <dl>
       <dt>This version:</dt>
       <dd><a class="u-url" href="https://tantek.github.io/post-type-discovery/">https://tantek.github.io/post-type-discovery/</a></dd>
@@ -498,12 +474,13 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   <nav id="toc">
     <h2 resource="#table-of-contents" id="table-of-contents" class="introductory"><span property="xhv:role" resource="xhv:heading">Table of Contents</span></h2>
     <ul role="directory" class="toc">
-      <li class="tocline"><a class="tocxref" href="#introduction"><span class="secno">1. </span>Introduction</a></li>
-      <li class="tocline"><a class="tocxref" href="#usecases"><span class="secno">2. </span>Use Cases</a>
+      <li class="tocline"><a class="tocxref" href="#introduction"><span class="secno">1. </span>Introduction</a>
         <ul class="toc">
-          <li class="tocline"><a class="tocxref" href="#synthesizing"><span class="secno">2.1 </span>Synthesizing explicit type formats</a></li>
+          <li class="tocline"><a class="tocxref" href="#usecases"><span class="secno">1.1 </span>Use Cases</a></li>
+          <li class="tocline"><a class="tocxref" href="#synthesizing"><span class="secno">1.2 </span>Synthesizing explicit type formats</a></li>
         </ul>
       </li>
+      <li class="tocline"><a class="tocxref" href="#conformance"><span class="secno">2. </span>Conformance</a></li>
       <li class="tocline"><a class="tocxref" href="#algorithm"><span class="secno">3. </span>Algorithm</a></li>
       <li class="tocline"><a class="tocxref" href="#methodology"><span class="secno">4. </span>Methodology</a>
         <ul class="toc">
@@ -550,27 +527,36 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     <p>
       Inferring the type of a post helps provide a bridge between systems without explicit post types (e.g. [<cite><a href="#bib-Micropub" class="bibref">Micropub</a></cite>], jf2) to systems with explicit post types (e.g. [<cite><a href="#bib-ActivityPub" class="bibref">ActivityPub</a></cite>], [<cite><a href="#bib-AS2" class="bibref">AS2</a></cite>]).
     </p>
-    <p>The key words "<em title="MUST" class="rfc2119">MUST</em>", "<em title="MUST NOT" class="rfc2119">MUST NOT</em>", "<em title="REQUIRED" class="rfc2119">REQUIRED</em>", "<em title="SHALL" class="rfc2119">SHALL</em>", "<em title="SHALL NOT" class="rfc2119">SHALL NOT</em>", "
-      <em title="SHOULD" class="rfc2119">SHOULD</em>", "<em title="SHOULD NOT" class="rfc2119">SHOULD NOT</em>", "<em title="RECOMMENDED" class="rfc2119">RECOMMENDED</em>", "<em title="MAY" class="rfc2119">MAY</em>", and "<em title="OPTIONAL" class="rfc2119">OPTIONAL</em>" in this document are to be interpreted as described in [<cite><a href="#bib-RFC2119" class="bibref">RFC2119</a></cite>].</p>
-  </section>
 
-  <section property="bibo:hasPart" resource="#usecases" typeof="bibo:Chapter" id="usecases" class="informative">
-    <!--OddPage-->
-    <h2 resource="#h-usecases" id="h-usecases"><span property="xhv:role" resource="xhv:heading"><span class="secno">2. </span>Use Cases</span></h2>
-    <p><em>This section is non-normative.</em></p>
-    <p>
-      Both creation user interfaces, and post presentation designs are evolving to directly use the presence or absence of specific properties (and their values) directly, rather than depending on any kind of explicit "post type", thus why bother discovering a post type in the first place? This section documents the (few) use-case(s) that is/are known to date.
-
-    </p>
+    <section property="bibo:hasPart" resource="#usecases" typeof="bibo:Chapter" id="usecases" class="informative">
+      <h3 resource="#h-usecases" id="h-usecases"><span property="xhv:role" resource="xhv:heading"><span class="secno">1.1 </span>Use Cases</span></h3>
+      <p><em>This section is non-normative.</em></p>
+      <p>
+        Both creation user interfaces, and post presentation designs are evolving to directly use the presence or absence of specific properties (and their values) directly, rather than depending on any kind of explicit "post type", thus why bother discovering a post type in the first place? This section documents the (few) use-case(s) that is/are known to date.
+      </p>
+    </section>
 
     <section property="bibo:hasPart" resource="#synthesizing" typeof="bibo:Chapter" id="synthesizing" class="informative">
-      <h3 resource="#h-synthesizing" id="h-synthesizing"><span property="xhv:role" resource="xhv:heading"><span class="secno">2.1 </span>Synthesizing explicit type formats</span></h3>
+      <h3 resource="#h-synthesizing" id="h-synthesizing"><span property="xhv:role" resource="xhv:heading"><span class="secno">1.2 </span>Synthesizing explicit type formats</span></h3>
       <p><em>This section is non-normative.</em></p>
       <p>
         There are existing formats that require explicit post types (e.g. ActivityStreams [<cite><a href="#bib-AS1" class="bibref">AS1</a></cite>]), or are based on explicit post types, (e.g. ActivityStreams2 [<cite><a href="#bib-AS2" class="bibref">AS2</a></cite>]), and code that consumes them expects explicit post types. Post type discovery enabling automatic synthesizing of such formats from posts that merely have a set of content related properties.
       </p>
-
     </section>
+  </section>
+
+  <section property="bibo:hasPart" resource="#conformance" typeof="bibo:Chapter" id="conformance">
+    <!--OddPage-->
+    <h2 resource="#h-conformance" id="h-conformance"><span property="xhv:role" resource="xhv:heading"><span class="secno">2. </span>Conformance</span></h2>
+    <p>
+      As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.
+    </p>
+    <p id="respecRFC2119">The key words <em class="rfc2119" title="MAY">MAY</em>, <em class="rfc2119" title="MUST">MUST</em>, <em class="rfc2119" title="MUST NOT">MUST NOT</em>, <em class="rfc2119" title="OPTIONAL">OPTIONAL</em>, <em class="rfc2119" title="RECOMMENDED">RECOMMENDED</em>, <em class="rfc2119" title="REQUIRED">REQUIRED</em>, <em class="rfc2119" title="SHALL">SHALL</em>, <em class="rfc2119" title="SHALL NOT">SHALL NOT</em>, <em class="rfc2119" title="SHOULD">SHOULD</em>, and <em class="rfc2119" title="SHOULD NOT">SHOULD NOT</em> are to be interpreted as described in [<cite><a href="#bib-RFC2119" class="bibref">RFC2119</a></cite>].
+    </p>
+
+    <h2 id="conformance-1">Conformance</h2>
+    <p>The key words "<em title="MUST" class="rfc2119">MUST</em>", "<em title="MUST NOT" class="rfc2119">MUST NOT</em>", "<em title="REQUIRED" class="rfc2119">REQUIRED</em>", "<em title="SHALL" class="rfc2119">SHALL</em>", "<em title="SHALL NOT" class="rfc2119">SHALL NOT</em>", "
+      <em title="SHOULD" class="rfc2119">SHOULD</em>", "<em title="SHOULD NOT" class="rfc2119">SHOULD NOT</em>", "<em title="RECOMMENDED" class="rfc2119">RECOMMENDED</em>", "<em title="MAY" class="rfc2119">MAY</em>", and "<em title="OPTIONAL" class="rfc2119">OPTIONAL</em>" in this document are to be interpreted as described in [<cite><a href="#bib-RFC2119" class="bibref">RFC2119</a></cite>].</p>
   </section>
 
   <section property="bibo:hasPart" resource="#algorithm" typeof="bibo:Chapter" id="algorithm">
@@ -690,14 +676,14 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
         Here is an example [<cite><a href="#bib-h-entry" class="bibref">h-entry</a></cite>] post from
         <a href="http://www.w3.org/TR/activitystreams-vocabulary/#dfn-like">Activity Streams 2.0 Vocabulary examples</a> [<cite><a href="#bib-AS2-vocab" class="bibref">AS2-vocab</a></cite>]:
       </p>
-      <pre class="hljs cs">&lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">"h-entry p-name"</span>&gt;
-  &lt;span <span class="hljs-keyword">class</span>=<span class="hljs-string">"p-author h-card"</span>&gt;Sally&lt;/span&gt;
+      <pre class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"h-entry p-name"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"p-author h-card"</span>&gt;</span>Sally<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
   liked
-  &lt;a <span class="hljs-keyword">class</span>=<span class="hljs-string">"u-like-of"</span>
-    href=<span class="hljs-string">"http://example.org/notes/1"</span>&gt;
-    http:<span class="hljs-comment">//example.org/notes/1</span>
-  &lt;/a&gt;
-&lt;/div&gt;</pre>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"u-like-of"</span>
+    <span class="hljs-attr">href</span>=<span class="hljs-string">"http://example.org/notes/1"</span>&gt;</span>
+    http://example.org/notes/1
+  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
 
       <p>
         Following the algorithm, the step "If the post has a "like-of" property with a valid URL" is satisfied and thus the algorithm returns that the post is a "
@@ -707,14 +693,14 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       <p>
         Given this semantic, an implementation can generate (or process as if generated and consumed) the following AS2 JSON, in particular the <code>"@type": "Like"</code> in this output is what is determined by this algorithm:
       </p>
-      <pre class="hljs json">{
-  "<span class="hljs-attribute">@type</span>": <span class="hljs-value"><span class="hljs-string">"Like"</span></span>,
-  "<span class="hljs-attribute">actor</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">@type</span>": <span class="hljs-value"><span class="hljs-string">"Person"</span></span>,
-    "<span class="hljs-attribute">displayName</span>": <span class="hljs-value"><span class="hljs-string">"Sally"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">object</span>": <span class="hljs-value"><span class="hljs-string">"http://example.org/notes/1"</span>
-</span>} </pre>
+      <pre class="hljs xquery">{
+  <span class="hljs-string">"@type"</span>: <span class="hljs-string">"Like"</span>,
+  <span class="hljs-string">"actor"</span>: {
+    <span class="hljs-string">"@type"</span>: <span class="hljs-string">"Person"</span>,
+    <span class="hljs-string">"displayName"</span>: <span class="hljs-string">"Sally"</span>
+  },
+  <span class="hljs-string">"object"</span>: <span class="hljs-string">"http://example.org/notes/1"</span>
+} </pre>
     </section>
   </section>
 
@@ -832,7 +818,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
         </dd><dt id="bib-AS2-vocab">[AS2-vocab]</dt>
         <dd>J. Snell; E. Prodromou. https://www.w3.org/. <a property="dc:references" href="http://www.w3.org/TR/activitystreams-vocabulary"><cite>Activity Vocabulary</cite></a>. Working Draft. URL: <a property="dc:references" href="http://www.w3.org/TR/activitystreams-vocabulary">http://www.w3.org/TR/activitystreams-vocabulary</a>
         </dd><dt id="bib-ActivityPub">[ActivityPub]</dt>
-        <dd>Christopher Webber; Jessica Tallon; Owen Shepherd. W3C. <a property="dc:references" href="http://www.w3.org/TR/activitypub/"><cite>ActivityPub</cite></a>. 28 January 2016. W3C Working Draft. URL: <a property="dc:references" href="http://www.w3.org/TR/activitypub/">http://www.w3.org/TR/activitypub/</a>
+        <dd>Christopher Webber; Jessica Tallon; Owen Shepherd. W3C. <a property="dc:references" href="https://www.w3.org/TR/activitypub/"><cite>ActivityPub</cite></a>. 14 June 2016. W3C Working Draft. URL: <a property="dc:references" href="https://www.w3.org/TR/activitypub/">https://www.w3.org/TR/activitypub/</a>
         </dd><dt id="bib-Micropub">[Micropub]</dt>
         <dd>Aaron Parecki. https://www.w3.org. <a property="dc:references" href="https://www.w3.org/TR/micropub"><cite>Micropub</cite></a>. Working Draft. URL: <a property="dc:references" href="https://www.w3.org/TR/micropub">https://www.w3.org/TR/micropub</a>
         </dd><dt id="bib-RFC4287">[RFC4287]</dt>
@@ -842,12 +828,12 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
         </dd><dt id="bib-microformats2-parsing">[microformats2-parsing]</dt>
         <dd>Tantek Çelik. http://microformats.org. <a property="dc:references" href="http://microformats.org/wiki/microformats2-parsing"><cite>Microformats2 Parsing</cite></a>. Living Specification. URL: <a property="dc:references" href="http://microformats.org/wiki/microformats2-parsing">http://microformats.org/wiki/microformats2-parsing</a>
         </dd><dt id="bib-micropub">[micropub]</dt>
-        <dd>Aaron Parecki. W3C. <a property="dc:references" href="http://www.w3.org/TR/micropub/"><cite>Micropub</cite></a>. 4 May 2016. W3C Working Draft. URL: <a property="dc:references" href="http://www.w3.org/TR/micropub/">http://www.w3.org/TR/micropub/</a>
+        <dd>Aaron Parecki. W3C. <a property="dc:references" href="https://www.w3.org/TR/micropub/"><cite>Micropub</cite></a>. 21 June 2016. W3C Working Draft. URL: <a property="dc:references" href="https://www.w3.org/TR/micropub/">https://www.w3.org/TR/micropub/</a>
         </dd>
       </dl>
     </section>
   </section>
   <p role="navigation" id="back-to-top"><a href="#toc"><abbr title="Back to Top">↑</abbr></a></p>
-  <script src="https://www.w3.org/scripts/TR/2016/fixup.js" defer="" async=""></script>
+  <script src="https://www.w3.org/scripts/TR/2016/fixup.js"></script>
 </body>
 </html>
