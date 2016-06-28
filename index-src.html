@@ -143,21 +143,17 @@
       Inferring the type of a post helps provide a bridge between systems without explicit post types 
       (e.g. [[Micropub]], jf2) to systems with explicit post types (e.g. [[ActivityPub]], [[AS2]]).
       </p>
-      <p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
-      "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
-      document are to be interpreted as described in [[!RFC2119]].</p>
-    </section>
-    
-    <section id='usecases' class='informative'>
-      <h2>Use Cases</h2>
-      <p>
+      
+      <section id='usecases' class='informative'>
+        <h3>Use Cases</h3>
+        <p>
         Both creation user interfaces, and post presentation designs are evolving to 
         directly use the presence or absence of specific properties (and their values) 
         directly, rather than depending on any kind of explicit "post type", thus why 
         bother discovering a post type in the first place? This section documents the 
         (few) use-case(s) that is/are known to date.
-
-      </p>
+        </p>
+      </section>
       <section id='synthesizing' class='informative'>
         <h3>Synthesizing explicit type formats</h3>
         <p>
@@ -167,8 +163,14 @@
           post types. Post type discovery enabling automatic synthesizing of such 
           formats from posts that merely have a set of content related properties.
         </p>
-        
       </section>
+    </section>
+    
+    <section id='conformance'>
+      <h2>Conformance</h2>
+      <p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+      "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+      document are to be interpreted as described in [[!RFC2119]].</p>
     </section>
 
     <section id='algorithm' >
