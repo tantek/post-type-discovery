@@ -168,6 +168,10 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     code {
       color: #C83500;
     }
+    
+    th code {
+      color: inherit;
+    }
     /* --- TOC --- */
     
     .toc a,
@@ -388,7 +392,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       <a class="logo" href="http://www.w3.org/"><img src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" alt="W3C" width="72" height="48"></a>
     </p>
     <h1 class="title p-name" id="title" property="dcterms:title">Post Type Discovery</h1>
-    <h2 id="w3c-editor-s-draft-12-july-2016"><abbr title="World Wide Web Consortium">W3C</abbr> Editor's Draft <time property="dcterms:issued" class="dt-published" datetime="2016-07-12">12 July 2016</time></h2>
+    <h2 id="w3c-editor-s-draft-26-july-2016"><abbr title="World Wide Web Consortium">W3C</abbr> Editor's Draft <time property="dcterms:issued" class="dt-published" datetime="2016-07-26">26 July 2016</time></h2>
     <dl>
       <dt>This version:</dt>
       <dd><a class="u-url" href="https://tantek.github.io/post-type-discovery/">https://tantek.github.io/post-type-discovery/</a></dd>
@@ -480,7 +484,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
           <li class="tocline"><a class="tocxref" href="#synthesizing"><span class="secno">1.2 </span>Synthesizing explicit type formats</a></li>
         </ul>
       </li>
-      <li class="tocline"><a class="tocxref" href="#conformance"><span class="secno">2. </span>Conformance</a></li>
+      <li class="tocline"><a class="tocxref" href="#conform"><span class="secno">2. </span>Conformance</a></li>
       <li class="tocline"><a class="tocxref" href="#algorithm"><span class="secno">3. </span>Algorithm</a></li>
       <li class="tocline"><a class="tocxref" href="#methodology"><span class="secno">4. </span>Methodology</a>
         <ul class="toc">
@@ -545,14 +549,13 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     </section>
   </section>
 
-  <section property="bibo:hasPart" resource="#conformance" typeof="bibo:Chapter" id="conformance">
+  <section property="bibo:hasPart" resource="#conform" typeof="bibo:Chapter" id="conform">
     <!--OddPage-->
-    <h2 resource="#h-conformance" id="h-conformance"><span property="xhv:role" resource="xhv:heading"><span class="secno">2. </span>Conformance</span></h2>
-    <p>
-      As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.
-    </p>
-    <p id="respecRFC2119">The key words <em class="rfc2119" title="MAY">MAY</em>, <em class="rfc2119" title="MUST">MUST</em>, <em class="rfc2119" title="MUST NOT">MUST NOT</em>, <em class="rfc2119" title="OPTIONAL">OPTIONAL</em>, <em class="rfc2119" title="RECOMMENDED">RECOMMENDED</em>, <em class="rfc2119" title="REQUIRED">REQUIRED</em>, <em class="rfc2119" title="SHALL">SHALL</em>, <em class="rfc2119" title="SHALL NOT">SHALL NOT</em>, <em class="rfc2119" title="SHOULD">SHOULD</em>, and <em class="rfc2119" title="SHOULD NOT">SHOULD NOT</em> are to be interpreted as described in [<cite><a href="#bib-RFC2119" class="bibref">RFC2119</a></cite>].
-    </p>
+    <h2 resource="#h-conform" id="h-conform"><span property="xhv:role" resource="xhv:heading"><span class="secno">2. </span>Conformance</span></h2>
+    <p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p>
+    <p>The key words "<em title="MAY" class="rfc2119">MAY</em>", "<em title="MUST" class="rfc2119">MUST</em>", "<em title="MUST NOT" class="rfc2119">MUST NOT</em>", "<em title="OPTIONAL" class="rfc2119">OPTIONAL</em>", "<em title="RECOMMENDED" class="rfc2119">RECOMMENDED</em>", "<em title="REQUIRED" class="rfc2119">REQUIRED</em>", "
+      <em title="SHALL" class="rfc2119">SHALL</em>", "<em title="SHALL NOT" class="rfc2119">SHALL NOT</em>", "<em title="SHOULD" class="rfc2119">SHOULD</em>", and "<em title="SHOULD NOT" class="rfc2119">SHOULD NOT</em>" are to be interpreted as described in [
+      <cite><a href="#bib-RFC2119" class="bibref">RFC2119</a></cite>].</p>
   </section>
 
   <section property="bibo:hasPart" resource="#algorithm" typeof="bibo:Chapter" id="algorithm">
@@ -824,7 +827,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
         </dd><dt id="bib-microformats2-parsing">[microformats2-parsing]</dt>
         <dd>Tantek Çelik. http://microformats.org. <a property="dc:references" href="http://microformats.org/wiki/microformats2-parsing"><cite>Microformats2 Parsing</cite></a>. Living Specification. URL: <a property="dc:references" href="http://microformats.org/wiki/microformats2-parsing">http://microformats.org/wiki/microformats2-parsing</a>
         </dd><dt id="bib-micropub">[micropub]</dt>
-        <dd>Aaron Parecki. W3C. <a property="dc:references" href="https://www.w3.org/TR/micropub/"><cite>Micropub</cite></a>. 21 June 2016. W3C Working Draft. URL: <a property="dc:references" href="https://www.w3.org/TR/micropub/">https://www.w3.org/TR/micropub/</a>
+        <dd>Aaron Parecki. W3C. <a property="dc:references" href="https://www.w3.org/TR/micropub/"><cite>Micropub</cite></a>. 13 July 2016. W3C Working Draft. URL: <a property="dc:references" href="https://www.w3.org/TR/micropub/">https://www.w3.org/TR/micropub/</a>
         </dd>
       </dl>
     </section>
