@@ -224,11 +224,11 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     }
     /* --- DL --- */
     
-    .section dd> p:first-child {
+    .section dd>p:first-child {
       margin-top: 0;
     }
     
-    .section dd> p:last-child {
+    .section dd>p:last-child {
       margin-bottom: 0;
     }
     
@@ -258,6 +258,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   <link rel="webmention" href="https://webmention.io/w3c/webmention">
   <link href="https://www.w3.org/StyleSheets/TR/2016/W3C-ED" rel="stylesheet">
   <!--[if lt IE 9]><script src='https://www.w3.org/2008/site/js/html5shiv.js'></script><![endif]-->
+  <meta content="ReSpec 5.0.4" name="generator">
   <script type="application/json" id="initialUserConfig">
     {
       "license": "w3c-software-doc",
@@ -316,7 +317,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
             "J. Snell",
             "E. Prodromou"
           ],
-          "status": "Working Draft",
+          "status": "Candidate Recommendation",
           "publisher": "https://www.w3.org/"
         },
         "AS2-vocab":
@@ -327,7 +328,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
             "J. Snell",
             "E. Prodromou"
           ],
-          "status": "Working Draft",
+          "status": "Candidate Recommendation",
           "publisher": "https://www.w3.org/"
         },
         "h-entry":
@@ -367,7 +368,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
           "authors": [
             "Aaron Parecki"
           ],
-          "status": "Working Draft",
+          "status": "Candidate Recommendation",
           "publisher": "https://www.w3.org"
         },
         "Activitypub":
@@ -386,18 +387,18 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     }
   </script>
 </head>
-<body id="respecDocument" role="document" class="h-entry toc-inline">
+<body id="respecDocument" role="document" class="h-entry">
   <div id="respecHeader" role="contentinfo" class="head">
     <p>
-      <a class="logo" href="http://www.w3.org/"><img src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" alt="W3C" width="72" height="48"></a>
+      <a class="logo" href="https://www.w3.org/"><img src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" alt="W3C" height="48" width="72"></a>
     </p>
     <h1 class="title p-name" id="title" property="dcterms:title">Post Type Discovery</h1>
-    <h2 id="w3c-editor-s-draft-26-july-2016"><abbr title="World Wide Web Consortium">W3C</abbr> Editor's Draft <time property="dcterms:issued" class="dt-published" datetime="2016-07-26">26 July 2016</time></h2>
+    <h2 id="w3c-editor-s-draft-22-september-2016"><abbr title="World Wide Web Consortium">W3C</abbr> Editor's Draft <time property="dcterms:issued" class="dt-published" datetime="2016-09-22">22 September 2016</time></h2>
     <dl>
       <dt>This version:</dt>
       <dd><a class="u-url" href="https://tantek.github.io/post-type-discovery/">https://tantek.github.io/post-type-discovery/</a></dd>
       <dt>Latest published version:</dt>
-      <dd><a href="http://www.w3.org/TR/post-type-discovery/">http://www.w3.org/TR/post-type-discovery/</a></dd>
+      <dd><a href="https://www.w3.org/TR/post-type-discovery/">https://www.w3.org/TR/post-type-discovery/</a></dd>
       <dt>Latest editor's draft:</dt>
       <dd><a href="https://tantek.github.io/post-type-discovery/">https://tantek.github.io/post-type-discovery/</a></dd>
       <dt>Editor:</dt>
@@ -423,14 +424,14 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       </dd>
     </dl>
     <p class="copyright">
-      <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2016
+      <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2016
 
-      <a href="http://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
-      <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
-      <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>).
-      <abbr title="World Wide Web Consortium">W3C</abbr> <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
-      <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and
-      <a rel="license" href="http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document">permissive document license</a> rules apply.
+      <a href="https://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
+      <a href="https://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
+      <a href="https://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>).
+      <abbr title="World Wide Web Consortium">W3C</abbr> <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+      <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and
+      <a rel="license" href="https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document">permissive document license</a> rules apply.
     </p>
     <hr title="Separator for header">
   </div>
@@ -445,85 +446,87 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   <section id="sotd" class="introductory">
     <h2 resource="#h-sotd" id="h-sotd"><span property="xhv:role" resource="xhv:heading">Status of This Document</span></h2>
     <p>
-      <em>This section describes the status of this document at the time of its publication. Other documents may supersede this document. A list of current <abbr title="World Wide Web Consortium">W3C</abbr> publications and the latest revision of this technical report can be found in the <a href="http://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> technical reports index</a> at http://www.w3.org/TR/.</em>
+      <em>This section describes the status of this document at the time of its publication. Other documents may supersede this document. A list of current <abbr title="World Wide Web Consortium">W3C</abbr> publications and the latest revision of this technical report can be found in the <a href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> technical reports index</a> at https://www.w3.org/TR/.</em>
     </p>
 
     <p>
-      This is a <abbr title="World Wide Web Consortium">W3C</abbr> Editor's Draft, derived from the IndieWebCamp specification of the same name.
+      This is a <abbr title="World Wide Web Consortium">W3C</abbr> specification, derived from the
+      <a href="https://indieweb.org/post-type-discovery">IndieWeb specification</a> of the same name.
     </p>
 
     <p>
       This document was published by the <a href="http://www.w3.org/Social/WG">Social Web Working Group</a> as an Editor's Draft. If you wish to make comments regarding this document, please send them to
       <a href="mailto:public-socialweb@w3.org">public-socialweb@w3.org</a> (<a href="mailto:public-socialweb-request@w3.org?subject=subscribe">subscribe</a>,
-      <a href="http://lists.w3.org/Archives/Public/public-socialweb/">archives</a>). All comments are welcome.
+      <a href="https://lists.w3.org/Archives/Public/public-socialweb/">archives</a>). All comments are welcome.
     </p>
     <p>
       Publication as an Editor's Draft does not imply endorsement by the <abbr title="World Wide Web Consortium">W3C</abbr> Membership. This is a draft document and may be updated, replaced or obsoleted by other documents at any time. It is inappropriate to cite this document as other than work in progress.
     </p>
     <p>
       This document was produced by a group operating under the
-      <a id="sotd_patent" property="w3p:patentRules" href="http://www.w3.org/Consortium/Patent-Policy-20040205/">5 February 2004 <abbr title="World Wide Web Consortium">W3C</abbr> Patent
+      <a id="sotd_patent" property="w3p:patentRules" href="https://www.w3.org/Consortium/Patent-Policy-20040205/">5 February 2004 <abbr title="World Wide Web Consortium">W3C</abbr> Patent
               Policy</a>.
       <abbr title="World Wide Web Consortium">W3C</abbr> maintains a <a href="http://www.w3.org/2004/01/pp-impl/72531/status" rel="disclosure">public list of any patent
                 disclosures</a> made in connection with the deliverables of the group; that page also includes instructions for disclosing a patent. An individual who has actual knowledge of a patent which the individual believes contains
-      <a href="http://www.w3.org/Consortium/Patent-Policy-20040205/#def-essential">Essential
+      <a href="https://www.w3.org/Consortium/Patent-Policy-20040205/#def-essential">Essential
               Claim(s)</a> must disclose the information in accordance with
-      <a href="http://www.w3.org/Consortium/Patent-Policy-20040205/#sec-Disclosure">section
+      <a href="https://www.w3.org/Consortium/Patent-Policy-20040205/#sec-Disclosure">section
               6 of the <abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a>.
     </p>
-    <p>This document is governed by the <a id="w3c_process_revision" href="http://www.w3.org/2015/Process-20150901/">1 September 2015 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
+    <p>This document is governed by the <a id="w3c_process_revision" href="https://www.w3.org/2015/Process-20150901/">1 September 2015 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
     </p>
 
   </section>
   <nav id="toc">
     <h2 resource="#table-of-contents" id="table-of-contents" class="introductory"><span property="xhv:role" resource="xhv:heading">Table of Contents</span></h2>
-    <ul role="directory" class="toc">
+    <ol role="directory" class="toc">
       <li class="tocline"><a class="tocxref" href="#introduction"><span class="secno">1. </span>Introduction</a>
-        <ul class="toc">
+        <ol class="toc">
           <li class="tocline"><a class="tocxref" href="#usecases"><span class="secno">1.1 </span>Use Cases</a></li>
           <li class="tocline"><a class="tocxref" href="#synthesizing"><span class="secno">1.2 </span>Synthesizing explicit type formats</a></li>
-        </ul>
+        </ol>
       </li>
       <li class="tocline"><a class="tocxref" href="#conform"><span class="secno">2. </span>Conformance</a></li>
       <li class="tocline"><a class="tocxref" href="#algorithm"><span class="secno">3. </span>Algorithm</a></li>
       <li class="tocline"><a class="tocxref" href="#methodology"><span class="secno">4. </span>Methodology</a>
-        <ul class="toc">
+        <ol class="toc">
           <li class="tocline"><a class="tocxref" href="#scope"><span class="secno">4.1 </span>Scope</a></li>
           <li class="tocline"><a class="tocxref" href="#order"><span class="secno">4.2 </span>Order</a></li>
-        </ul>
+        </ol>
       </li>
       <li class="tocline"><a class="tocxref" href="#othertypes"><span class="secno">5. </span>Other Types Under Consideration</a></li>
       <li class="tocline"><a class="tocxref" href="#examples"><span class="secno">6. </span>Examples</a>
-        <ul class="toc">
+        <ol class="toc">
           <li class="tocline"><a class="tocxref" href="#ex-like"><span class="secno">6.1 </span>Like Post</a></li>
-        </ul>
+        </ol>
       </li>
       <li class="tocline"><a class="tocxref" href="#faq"><span class="secno">7. </span>FAQ</a>
-        <ul class="toc">
+        <ol class="toc">
           <li class="tocline"><a class="tocxref" href="#what-about-a-photo-reply"><span class="secno">7.1 </span>What about a photo reply</a></li>
-        </ul>
+        </ol>
       </li>
       <li class="tocline"><a class="tocxref" href="#implementations"><span class="secno">8. </span>Implementations</a>
-        <ul class="toc">
+        <ol class="toc">
           <li class="tocline"><a class="tocxref" href="#granary"><span class="secno">8.1 </span>Granary</a></li>
           <li class="tocline"><a class="tocxref" href="#p3k"><span class="secno">8.2 </span>p3k</a></li>
           <li class="tocline"><a class="tocxref" href="#mf2util"><span class="secno">8.3 </span>mf2util</a></li>
-        </ul>
+        </ol>
       </li>
       <li class="tocline"><a class="tocxref" href="#references"><span class="secno">A. </span>References</a>
-        <ul class="toc">
+        <ol class="toc">
           <li class="tocline"><a class="tocxref" href="#normative-references"><span class="secno">A.1 </span>Normative references</a></li>
           <li class="tocline"><a class="tocxref" href="#informative-references"><span class="secno">A.2 </span>Informative references</a></li>
-        </ul>
+        </ol>
       </li>
-    </ul>
+    </ol>
   </nav>
 
 
 
   <section property="bibo:hasPart" resource="#introduction" typeof="bibo:Chapter" id="introduction" class="informative">
     <!--OddPage-->
-    <h2 resource="#h-introduction" id="h-introduction"><span property="xhv:role" resource="xhv:heading"><span class="secno">1. </span>Introduction</span></h2>
+    <h2 resource="#h-introduction" id="h-introduction"><span property="xhv:role" resource="xhv:heading"><span class="secno">1. </span>Introduction</span>
+    </h2>
     <p><em>This section is non-normative.</em></p>
     <p>
       Post type discovery is an explicit algorithm for inferring the type of a post from other properties of that post.
@@ -533,7 +536,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     </p>
 
     <section property="bibo:hasPart" resource="#usecases" typeof="bibo:Chapter" id="usecases" class="informative">
-      <h3 resource="#h-usecases" id="h-usecases"><span property="xhv:role" resource="xhv:heading"><span class="secno">1.1 </span>Use Cases</span></h3>
+      <h3 resource="#h-usecases" id="h-usecases"><span property="xhv:role" resource="xhv:heading"><span class="secno">1.1 </span>Use Cases</span>
+      </h3>
       <p><em>This section is non-normative.</em></p>
       <p>
         Both creation user interfaces, and post presentation designs are evolving to directly use the presence or absence of specific properties (and their values) directly, rather than depending on any kind of explicit "post type", thus why bother discovering a post type in the first place? This section documents the (few) use-case(s) that is/are known to date.
@@ -541,7 +545,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     </section>
 
     <section property="bibo:hasPart" resource="#synthesizing" typeof="bibo:Chapter" id="synthesizing" class="informative">
-      <h3 resource="#h-synthesizing" id="h-synthesizing"><span property="xhv:role" resource="xhv:heading"><span class="secno">1.2 </span>Synthesizing explicit type formats</span></h3>
+      <h3 resource="#h-synthesizing" id="h-synthesizing"><span property="xhv:role" resource="xhv:heading"><span class="secno">1.2 </span>Synthesizing explicit type formats</span>
+      </h3>
       <p><em>This section is non-normative.</em></p>
       <p>
         There are existing formats that require explicit post types (e.g. ActivityStreams [<cite><a href="#bib-AS1" class="bibref">AS1</a></cite>]), or are based on explicit post types, (e.g. ActivityStreams2 [<cite><a href="#bib-AS2" class="bibref">AS2</a></cite>]), and code that consumes them expects explicit post types. Post type discovery enabling automatic synthesizing of such formats from posts that merely have a set of content related properties.
@@ -551,7 +556,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
   <section property="bibo:hasPart" resource="#conform" typeof="bibo:Chapter" id="conform">
     <!--OddPage-->
-    <h2 resource="#h-conform" id="h-conform"><span property="xhv:role" resource="xhv:heading"><span class="secno">2. </span>Conformance</span></h2>
+    <h2 resource="#h-conform" id="h-conform"><span property="xhv:role" resource="xhv:heading"><span class="secno">2. </span>Conformance</span>
+    </h2>
     <p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p>
     <p>The key words "<em title="MAY" class="rfc2119">MAY</em>", "<em title="MUST" class="rfc2119">MUST</em>", "<em title="MUST NOT" class="rfc2119">MUST NOT</em>", "<em title="OPTIONAL" class="rfc2119">OPTIONAL</em>", "<em title="RECOMMENDED" class="rfc2119">RECOMMENDED</em>", "<em title="REQUIRED" class="rfc2119">REQUIRED</em>", "
       <em title="SHALL" class="rfc2119">SHALL</em>", "<em title="SHALL NOT" class="rfc2119">SHALL NOT</em>", "<em title="SHOULD" class="rfc2119">SHOULD</em>", and "<em title="SHOULD NOT" class="rfc2119">SHOULD NOT</em>" are to be interpreted as described in [
@@ -560,7 +566,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
   <section property="bibo:hasPart" resource="#algorithm" typeof="bibo:Chapter" id="algorithm">
     <!--OddPage-->
-    <h2 resource="#h-algorithm" id="h-algorithm"><span property="xhv:role" resource="xhv:heading"><span class="secno">3. </span>Algorithm</span></h2>
+    <h2 resource="#h-algorithm" id="h-algorithm"><span property="xhv:role" resource="xhv:heading"><span class="secno">3. </span>Algorithm</span>
+    </h2>
     <p>
       The Post Type Discovery algorithm ("the algorithm") discovers the type of a post given a data structure representing a post with a flat set of properties (e.g. Activity Streams (1.0 or 2.0) JSON, or JSON output from [
       <cite><a href="#bib-microformats2-parsing" class="bibref">microformats2-parsing</a></cite>]), each with one or more values, by following these steps until reaching the first "it is a(n) ... post" statement at which point the "..." is the discovered post type.
@@ -569,7 +576,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     <p>
     </p>
     <ul>
-      <li>If the post has an "rsvp" property with a valid value,
+      <li>If the post has an "rsvp" property with a valid value (one of "yes", "no", "maybe", "interested"),
         <br>Then it is an RSVP post.</li>
       <li>If the post has an "in-reply-to" property with a valid URL,
         <br>Then it is a reply post.</li>
@@ -609,21 +616,24 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
   <section property="bibo:hasPart" resource="#methodology" typeof="bibo:Chapter" id="methodology" class="informative">
     <!--OddPage-->
-    <h2 resource="#h-methodology" id="h-methodology"><span property="xhv:role" resource="xhv:heading"><span class="secno">4. </span>Methodology</span></h2>
+    <h2 resource="#h-methodology" id="h-methodology"><span property="xhv:role" resource="xhv:heading"><span class="secno">4. </span>Methodology</span>
+    </h2>
     <p><em>This section is non-normative.</em></p>
     <p>
       There are two important aspects to the methodology of the Post Type Discovery algorithm: scope (why is something explicitly in the algorithm), and order (why is something where it is in the algorithm).
     </p>
 
     <section property="bibo:hasPart" resource="#scope" typeof="bibo:Chapter" id="scope">
-      <h3 resource="#h-scope" id="h-scope"><span property="xhv:role" resource="xhv:heading"><span class="secno">4.1 </span>Scope</span></h3>
+      <h3 resource="#h-scope" id="h-scope"><span property="xhv:role" resource="xhv:heading"><span class="secno">4.1 </span>Scope</span>
+      </h3>
       <p>
         The algorithm could attempt to cover innumerable potential hypothetical post types, or take an evidence based approach, focusing on real world publishing practices. This specification does the latter, specifically by placing a minimum bar of documented real world publishing practices of different visually apparent post types on the open web at recent (&lt; 1 year old) permalinks, each with at least three independent implementations that have converged on what properties (and potentially values thereof) they have to imply their visually apparent post types. As a result of being evidence based, it is likely this specification will expand over time as more apparent post types are published by more convergent implementations.
       </p>
     </section>
 
     <section property="bibo:hasPart" resource="#order" typeof="bibo:Chapter" id="order">
-      <h3 resource="#h-order" id="h-order"><span property="xhv:role" resource="xhv:heading"><span class="secno">4.2 </span>Order</span></h3>
+      <h3 resource="#h-order" id="h-order"><span property="xhv:role" resource="xhv:heading"><span class="secno">4.2 </span>Order</span>
+      </h3>
       <p>
         The algorithm must also specify an order (e.g. of precedence) that various properties (and their values) imply various post types. The algorithm is ordered by post types that are in general "richer" in terms of content as well as show greater cognitive effort by the author.
       </p>
@@ -632,7 +642,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
   <section property="bibo:hasPart" resource="#othertypes" typeof="bibo:Chapter" id="othertypes" class="informative">
     <!--OddPage-->
-    <h2 resource="#h-othertypes" id="h-othertypes"><span property="xhv:role" resource="xhv:heading"><span class="secno">5. </span>Other Types Under Consideration</span></h2>
+    <h2 resource="#h-othertypes" id="h-othertypes"><span property="xhv:role" resource="xhv:heading"><span class="secno">5. </span>Other Types Under Consideration</span>
+    </h2>
     <p><em>This section is non-normative.</em></p>
     <p>
       Other types are being considered and will be included in the future iterations of the algorithm based on convergence of publishing patterns and critical mass of adoption thereof.
@@ -666,11 +677,13 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
   <section property="bibo:hasPart" resource="#examples" typeof="bibo:Chapter" id="examples" class="informative">
     <!--OddPage-->
-    <h2 resource="#h-examples" id="h-examples"><span property="xhv:role" resource="xhv:heading"><span class="secno">6. </span>Examples</span></h2>
+    <h2 resource="#h-examples" id="h-examples"><span property="xhv:role" resource="xhv:heading"><span class="secno">6. </span>Examples</span>
+    </h2>
     <p><em>This section is non-normative.</em></p>
 
     <section property="bibo:hasPart" resource="#ex-like" typeof="bibo:Chapter" id="ex-like">
-      <h3 resource="#h-ex-like" id="h-ex-like"><span property="xhv:role" resource="xhv:heading"><span class="secno">6.1 </span>Like Post</span></h3>
+      <h3 resource="#h-ex-like" id="h-ex-like"><span property="xhv:role" resource="xhv:heading"><span class="secno">6.1 </span>Like Post</span>
+      </h3>
       <p>
         Here is an example [<cite><a href="#bib-h-entry" class="bibref">h-entry</a></cite>] post from
         <a href="http://www.w3.org/TR/activitystreams-vocabulary/#dfn-like">Activity Streams 2.0 Vocabulary examples</a> [<cite><a href="#bib-AS2-vocab" class="bibref">AS2-vocab</a></cite>]:
@@ -706,11 +719,13 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
   <section property="bibo:hasPart" resource="#faq" typeof="bibo:Chapter" id="faq" class="informative">
     <!--OddPage-->
-    <h2 resource="#h-faq" id="h-faq"><span property="xhv:role" resource="xhv:heading"><span class="secno">7. </span>FAQ</span></h2>
+    <h2 resource="#h-faq" id="h-faq"><span property="xhv:role" resource="xhv:heading"><span class="secno">7. </span>FAQ</span>
+    </h2>
     <p><em>This section is non-normative.</em></p>
 
     <section property="bibo:hasPart" resource="#what-about-a-photo-reply" typeof="bibo:Chapter" id="what-about-a-photo-reply">
-      <h3 resource="#h-what-about-a-photo-reply" id="h-what-about-a-photo-reply"><span property="xhv:role" resource="xhv:heading"><span class="secno">7.1 </span>What about a photo reply</span></h3>
+      <h3 resource="#h-what-about-a-photo-reply" id="h-what-about-a-photo-reply"><span property="xhv:role" resource="xhv:heading"><span class="secno">7.1 </span>What about a photo reply</span>
+      </h3>
 
       <p>
         Q: What about a reply that includes a photo?
@@ -744,14 +759,16 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
   <section property="bibo:hasPart" resource="#implementations" typeof="bibo:Chapter" id="implementations" class="informative">
     <!--OddPage-->
-    <h2 resource="#h-implementations" id="h-implementations"><span property="xhv:role" resource="xhv:heading"><span class="secno">8. </span>Implementations</span></h2>
+    <h2 resource="#h-implementations" id="h-implementations"><span property="xhv:role" resource="xhv:heading"><span class="secno">8. </span>Implementations</span>
+    </h2>
     <p><em>This section is non-normative.</em></p>
     <p>
       Implementations, in progress, partial, or complete, of Post Type Discovery.
     </p>
 
     <section property="bibo:hasPart" resource="#granary" typeof="bibo:Chapter" id="granary">
-      <h3 resource="#h-granary" id="h-granary"><span property="xhv:role" resource="xhv:heading"><span class="secno">8.1 </span>Granary</span></h3>
+      <h3 resource="#h-granary" id="h-granary"><span property="xhv:role" resource="xhv:heading"><span class="secno">8.1 </span>Granary</span>
+      </h3>
       <p>
         <a href="https://github.com/snarfed/granary/">Granary</a> synthesizes ActivityStreams [<cite><a href="#bib-AS1" class="bibref">AS1</a></cite>], [
         <cite><a href="#bib-microformats2" class="bibref">microformats2</a></cite>], and Atom [<cite><a href="#bib-RFC4287" class="bibref">RFC4287</a></cite>] from various input feeds and sources, and as such has some code that can be considered in progress or even a partial implementation of Post Type Discovery:
@@ -767,7 +784,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     </section>
 
     <section property="bibo:hasPart" resource="#p3k" typeof="bibo:Chapter" id="p3k">
-      <h3 resource="#h-p3k" id="h-p3k"><span property="xhv:role" resource="xhv:heading"><span class="secno">8.2 </span>p3k</span></h3>
+      <h3 resource="#h-p3k" id="h-p3k"><span property="xhv:role" resource="xhv:heading"><span class="secno">8.2 </span>p3k</span>
+      </h3>
       <p>
         <a href="https://indiewebcamp.com/p3k">p3k</a> (a CMS) implements Post Type Discovery internally within its [<cite><a href="#bib-micropub" class="bibref">micropub</a></cite>] endpoint to automatically add posts to various collections. E.g.: if this post is a reply, it goes in the "replies" collection. if it's an RSVP, it goes in the "rsvps" and "replies" collections.
       </p>
@@ -780,7 +798,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     </section>
 
     <section property="bibo:hasPart" resource="#mf2util" typeof="bibo:Chapter" id="mf2util">
-      <h3 resource="#h-mf2util" id="h-mf2util"><span property="xhv:role" resource="xhv:heading"><span class="secno">8.3 </span>mf2util</span></h3>
+      <h3 resource="#h-mf2util" id="h-mf2util"><span property="xhv:role" resource="xhv:heading"><span class="secno">8.3 </span>mf2util</span>
+      </h3>
       <p>
         mf2util exposes a function for post_type_discovery that takes an h-entry and returns "like", "reply", "note", "article", etc.
       </p>
@@ -796,10 +815,12 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
   <section property="bibo:hasPart" resource="#references" typeof="bibo:Chapter" id="references" class="appendix">
     <!--OddPage-->
-    <h2 resource="#h-references" id="h-references"><span property="xhv:role" resource="xhv:heading"><span class="secno">A. </span>References</span></h2>
+    <h2 resource="#h-references" id="h-references"><span property="xhv:role" resource="xhv:heading"><span class="secno">A. </span>References</span>
+    </h2>
 
     <section property="bibo:hasPart" resource="#normative-references" typeof="bibo:Chapter" id="normative-references">
-      <h3 resource="#h-normative-references" id="h-normative-references"><span property="xhv:role" resource="xhv:heading"><span class="secno">A.1 </span>Normative references</span></h3>
+      <h3 resource="#h-normative-references" id="h-normative-references"><span property="xhv:role" resource="xhv:heading"><span class="secno">A.1 </span>Normative references</span>
+      </h3>
       <dl resource="" class="bibliography"><dt id="bib-RFC2119">[RFC2119]</dt>
         <dd>S. Bradner. IETF. <a property="dc:requires" href="https://tools.ietf.org/html/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. March 1997. Best Current Practice. URL: <a property="dc:requires" href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a>
         </dd><dt id="bib-h-entry">[h-entry]</dt>
@@ -809,17 +830,18 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     </section>
 
     <section property="bibo:hasPart" resource="#informative-references" typeof="bibo:Chapter" id="informative-references">
-      <h3 resource="#h-informative-references" id="h-informative-references"><span property="xhv:role" resource="xhv:heading"><span class="secno">A.2 </span>Informative references</span></h3>
+      <h3 resource="#h-informative-references" id="h-informative-references"><span property="xhv:role" resource="xhv:heading"><span class="secno">A.2 </span>Informative references</span>
+      </h3>
       <dl resource="" class="bibliography"><dt id="bib-AS1">[AS1]</dt>
         <dd>J. Snell; M. Atkins; W. Norris; C. Messina; M. Wilkinson; R. Dolin. http://activitystrea.ms. <a property="dc:references" href="http://activitystrea.ms/specs/json/1.0/"><cite>JSON Activity Streams 1.0</cite></a>. unofficial. URL: <a property="dc:references" href="http://activitystrea.ms/specs/json/1.0/">http://activitystrea.ms/specs/json/1.0/</a>
         </dd><dt id="bib-AS2">[AS2]</dt>
-        <dd>J. Snell; E. Prodromou. https://www.w3.org/. <a property="dc:references" href="https://www.w3.org/TR/activitystreams-core/"><cite>Activity Streams 2.0</cite></a>. Working Draft. URL: <a property="dc:references" href="https://www.w3.org/TR/activitystreams-core/">https://www.w3.org/TR/activitystreams-core/</a>
+        <dd>J. Snell; E. Prodromou. https://www.w3.org/. <a property="dc:references" href="https://www.w3.org/TR/activitystreams-core/"><cite>Activity Streams 2.0</cite></a>. Candidate Recommendation. URL: <a property="dc:references" href="https://www.w3.org/TR/activitystreams-core/">https://www.w3.org/TR/activitystreams-core/</a>
         </dd><dt id="bib-AS2-vocab">[AS2-vocab]</dt>
-        <dd>J. Snell; E. Prodromou. https://www.w3.org/. <a property="dc:references" href="http://www.w3.org/TR/activitystreams-vocabulary"><cite>Activity Vocabulary</cite></a>. Working Draft. URL: <a property="dc:references" href="http://www.w3.org/TR/activitystreams-vocabulary">http://www.w3.org/TR/activitystreams-vocabulary</a>
+        <dd>J. Snell; E. Prodromou. https://www.w3.org/. <a property="dc:references" href="http://www.w3.org/TR/activitystreams-vocabulary"><cite>Activity Vocabulary</cite></a>. Candidate Recommendation. URL: <a property="dc:references" href="http://www.w3.org/TR/activitystreams-vocabulary">http://www.w3.org/TR/activitystreams-vocabulary</a>
         </dd><dt id="bib-ActivityPub">[ActivityPub]</dt>
-        <dd>Christopher Webber; Jessica Tallon; Owen Shepherd. W3C. <a property="dc:references" href="https://www.w3.org/TR/activitypub/"><cite>ActivityPub</cite></a>. 14 June 2016. W3C Working Draft. URL: <a property="dc:references" href="https://www.w3.org/TR/activitypub/">https://www.w3.org/TR/activitypub/</a>
+        <dd>Christopher Webber; Jessica Tallon; Owen Shepherd. W3C. <a property="dc:references" href="https://www.w3.org/TR/activitypub/"><cite>ActivityPub</cite></a>. 13 September 2016. W3C Working Draft. URL: <a property="dc:references" href="https://www.w3.org/TR/activitypub/">https://www.w3.org/TR/activitypub/</a>
         </dd><dt id="bib-Micropub">[Micropub]</dt>
-        <dd>Aaron Parecki. https://www.w3.org. <a property="dc:references" href="https://www.w3.org/TR/micropub"><cite>Micropub</cite></a>. Working Draft. URL: <a property="dc:references" href="https://www.w3.org/TR/micropub">https://www.w3.org/TR/micropub</a>
+        <dd>Aaron Parecki. https://www.w3.org. <a property="dc:references" href="https://www.w3.org/TR/micropub"><cite>Micropub</cite></a>. Candidate Recommendation. URL: <a property="dc:references" href="https://www.w3.org/TR/micropub">https://www.w3.org/TR/micropub</a>
         </dd><dt id="bib-RFC4287">[RFC4287]</dt>
         <dd>M. Nottingham, Ed.; R. Sayre, Ed.. IETF. <a property="dc:references" href="https://tools.ietf.org/html/rfc4287"><cite>The Atom Syndication Format</cite></a>. December 2005. Proposed Standard. URL: <a property="dc:references" href="https://tools.ietf.org/html/rfc4287">https://tools.ietf.org/html/rfc4287</a>
         </dd><dt id="bib-microformats2">[microformats2]</dt>
@@ -827,7 +849,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
         </dd><dt id="bib-microformats2-parsing">[microformats2-parsing]</dt>
         <dd>Tantek Çelik. http://microformats.org. <a property="dc:references" href="http://microformats.org/wiki/microformats2-parsing"><cite>Microformats2 Parsing</cite></a>. Living Specification. URL: <a property="dc:references" href="http://microformats.org/wiki/microformats2-parsing">http://microformats.org/wiki/microformats2-parsing</a>
         </dd><dt id="bib-micropub">[micropub]</dt>
-        <dd>Aaron Parecki. W3C. <a property="dc:references" href="https://www.w3.org/TR/micropub/"><cite>Micropub</cite></a>. 13 July 2016. W3C Working Draft. URL: <a property="dc:references" href="https://www.w3.org/TR/micropub/">https://www.w3.org/TR/micropub/</a>
+        <dd>Aaron Parecki. W3C. <a property="dc:references" href="https://www.w3.org/TR/micropub/"><cite>Micropub</cite></a>. 16 August 2016. W3C Candidate Recommendation. URL: <a property="dc:references" href="https://www.w3.org/TR/micropub/">https://www.w3.org/TR/micropub/</a>
         </dd>
       </dl>
     </section>
