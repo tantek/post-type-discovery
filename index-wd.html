@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" typeof="bibo:Document w3p:WD" prefix="bibo: http://purl.org/ontology/bibo/ w3p: http://www.w3.org/2001/02pd/rec54#">
+<html dir="ltr" typeof="bibo:Document w3p:WD" prefix="bibo: http://purl.org/ontology/bibo/ w3p: http://www.w3.org/2001/02pd/rec54#" lang="en">
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta property="dc:language" content="en" lang="">
   <style>
     /*
@@ -245,6 +245,130 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       display: none;
     }
     
+    #respec-ui {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 202px;
+      text-align: right;
+    }
+    
+    #respec-pill,
+    .respec-info-button {
+      background: #fff;
+      height: 2.5em;
+      color: rgb(120, 120, 120);
+      border: 1px solid #ccc;
+      box-shadow: 1px 1px 8px 0 rgba(100, 100, 100, .5);
+    }
+    
+    .respec-info-button {
+      border: none;
+      border-radius: 2em;
+      margin-right: 1em;
+      min-width: 3.5em;
+    }
+    
+    #respec-pill:disabled {
+      margin: 10px auto;
+      font-size: 2.8px;
+      position: relative;
+      text-indent: -9999em;
+      border-top: 1.1em solid rgba(40, 40, 40, 0.2);
+      border-right: 1.1em solid rgba(40, 40, 40, 0.2);
+      border-bottom: 1.1em solid rgba(40, 40, 40, 0.2);
+      border-left: 1.1em solid #ffffff;
+      transform: translateZ(0);
+      animation: respec-spin 1.1s infinite linear;
+      box-shadow: none;
+    }
+    
+    #respec-pill:disabled,
+    #respec-pill:disabled:after {
+      border-radius: 50%;
+      width: 10em;
+      height: 10em;
+    }
+    
+    @keyframes respec-spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    
+    #respec-pill:hover,
+    #respec-pill:focus {
+      color: rgb(0, 0, 0);
+      transition: color .2s
+    }
+    
+    #respec-menu {
+      font-family: sans-serif;
+      background: #fff;
+      box-shadow: 1px 1px 8px 0 rgba(100, 100, 100, .5);
+      width: 200px;
+      display: none;
+      text-align: left;
+      margin-top: 5px;
+      font-size: .8em;
+    }
+    
+    .respec-save-button {
+      background: #fff;
+      border: 1px solid #000;
+      border-radius: 5px;
+      padding: 5px;
+      margin: 5px;
+      display: block;
+      width: 100%;
+      color: #000;
+      text-decoration: none;
+      text-align: center;
+      font-size: inherit;
+    }
+    
+    #respec-ui button:focus,
+    #respec-pill:focus,
+    .respec-option:focus {
+      outline: 0;
+      outline-style: none;
+    }
+    
+    #respec-ui button.respec-pill-error {
+      background-color: red;
+      color: white;
+    }
+    
+    #respec-ui button.respec-pill-warning {
+      background-color: orange;
+      color: white;
+    }
+    
+    #respec-menu button.respec-option {
+      background: white;
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-size: inherit;
+      padding: 1.2em 1.2em;
+    }
+    
+    #respec-menu button.respec-option:hover {
+      background-color: #eeeeee;
+    }
+    
+    .respec-cmd-icon {
+      padding-right: .5em;
+    }
+    
+    #respec-ui button.respec-option:last-child {
+      border: none;
+      border-radius: inherit;
+    }
+    
     @media print {
       .removeOnSave {
         display: none;
@@ -256,10 +380,11 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 
   <link rel="webmention" href="https://webmention.io/w3c/webmention">
-  <link href="https://www.w3.org/StyleSheets/TR/2016/W3C-WD" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/W3C-WD">
   <!--[if lt IE 9]><script src='https://www.w3.org/2008/site/js/html5shiv.js'></script><![endif]-->
-  <meta content="ReSpec 5.0.4" name="generator">
-  <script type="application/json" id="initialUserConfig">
+  <link rel="canonical" href="https://www.w3.org/TR/post-type-discovery/">
+  <meta name="generator" content="ReSpec 6.0.0">
+  <script id="initialUserConfig" type="application/json">
     {
       "license": "w3c-software-doc",
       "specStatus": "WD",
@@ -379,16 +504,16 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     }
   </script>
 </head>
-<body id="respecDocument" role="document" class="h-entry">
-  <div id="respecHeader" role="contentinfo" class="head">
+<body class="h-entry toc-inline" role="document" id="respecDocument">
+  <div class="head" role="contentinfo" id="respecHeader">
     <p>
-      <a class="logo" href="https://www.w3.org/"><img src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" alt="W3C" height="48" width="72"></a>
+      <a class="logo" href="https://www.w3.org/"><img src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" alt="W3C" width="72" height="48"></a>
     </p>
     <h1 class="title p-name" id="title" property="dcterms:title">Post Type Discovery</h1>
-    <h2 id="w3c-working-draft-23-september-2016"><abbr title="World Wide Web Consortium">W3C</abbr> Working Draft <time property="dcterms:issued" class="dt-published" datetime="2016-09-23">23 September 2016</time></h2>
+    <h2 id="w3c-working-draft-20-october-2016"><abbr title="World Wide Web Consortium">W3C</abbr> Working Draft <time property="dcterms:issued" class="dt-published" datetime="2016-10-20">20 October 2016</time></h2>
     <dl>
       <dt>This version:</dt>
-      <dd><a class="u-url" href="https://www.w3.org/TR/2016/WD-post-type-discovery-20160923/">https://www.w3.org/TR/2016/WD-post-type-discovery-20160923/</a></dd>
+      <dd><a class="u-url" href="https://www.w3.org/TR/2016/WD-post-type-discovery-20161020/">https://www.w3.org/TR/2016/WD-post-type-discovery-20161020/</a></dd>
       <dt>Latest published version:</dt>
       <dd><a href="https://www.w3.org/TR/post-type-discovery/">https://www.w3.org/TR/post-type-discovery/</a></dd>
       <dt>Latest editor's draft:</dt>
@@ -430,15 +555,15 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     <hr title="Separator for header">
   </div>
 
-  <section property="dc:abstract" class="introductory" id="abstract">
-    <h2 resource="#h-abstract" id="h-abstract"><span property="xhv:role" resource="xhv:heading">Abstract</span></h2>
+  <section id="abstract" class="introductory" property="dc:abstract">
+    <h2 id="h-abstract" resource="#h-abstract"><span property="xhv:role" resource="xhv:heading">Abstract</span></h2>
     <p>
       Post Type Discovery specifies an algorithm for determining the type of a post by what properties it has and potentially what value(s) they have, which helps avoid the need for explicit post types that are being abandoned by modern post creation UIs.
     </p>
   </section>
 
   <section id="sotd" class="introductory">
-    <h2 resource="#h-sotd" id="h-sotd"><span property="xhv:role" resource="xhv:heading">Status of This Document</span></h2>
+    <h2 id="h-sotd" resource="#h-sotd"><span property="xhv:role" resource="xhv:heading">Status of This Document</span></h2>
     <p>
       <em>This section describes the status of this document at the time of its publication. Other documents may supersede this document. A list of current <abbr title="World Wide Web Consortium">W3C</abbr> publications and the latest revision of this technical report can be found in the <a href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> technical reports index</a> at https://www.w3.org/TR/.</em>
     </p>
@@ -472,49 +597,49 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
   </section>
   <nav id="toc">
-    <h2 resource="#table-of-contents" id="table-of-contents" class="introductory"><span property="xhv:role" resource="xhv:heading">Table of Contents</span></h2>
-    <ol role="directory" class="toc">
-      <li class="tocline"><a class="tocxref" href="#introduction"><span class="secno">1. </span>Introduction</a>
+    <h2 class="introductory" id="table-of-contents" resource="#table-of-contents"><span property="xhv:role" resource="xhv:heading">Table of Contents</span></h2>
+    <ol class="toc" role="directory">
+      <li class="tocline"><a href="#introduction" class="tocxref"><span class="secno">1. </span>Introduction</a>
         <ol class="toc">
-          <li class="tocline"><a class="tocxref" href="#usecases"><span class="secno">1.1 </span>Use Cases</a></li>
-          <li class="tocline"><a class="tocxref" href="#synthesizing"><span class="secno">1.2 </span>Synthesizing explicit type formats</a></li>
+          <li class="tocline"><a href="#usecases" class="tocxref"><span class="secno">1.1 </span>Use Cases</a></li>
+          <li class="tocline"><a href="#synthesizing" class="tocxref"><span class="secno">1.2 </span>Synthesizing explicit type formats</a></li>
         </ol>
       </li>
-      <li class="tocline"><a class="tocxref" href="#conform"><span class="secno">2. </span>Conformance</a></li>
-      <li class="tocline"><a class="tocxref" href="#algorithm"><span class="secno">3. </span>Algorithm</a></li>
-      <li class="tocline"><a class="tocxref" href="#methodology"><span class="secno">4. </span>Methodology</a>
+      <li class="tocline"><a href="#conform" class="tocxref"><span class="secno">2. </span>Conformance</a></li>
+      <li class="tocline"><a href="#algorithm" class="tocxref"><span class="secno">3. </span>Algorithm</a></li>
+      <li class="tocline"><a href="#methodology" class="tocxref"><span class="secno">4. </span>Methodology</a>
         <ol class="toc">
-          <li class="tocline"><a class="tocxref" href="#scope"><span class="secno">4.1 </span>Scope</a></li>
-          <li class="tocline"><a class="tocxref" href="#order"><span class="secno">4.2 </span>Order</a></li>
+          <li class="tocline"><a href="#scope" class="tocxref"><span class="secno">4.1 </span>Scope</a></li>
+          <li class="tocline"><a href="#order" class="tocxref"><span class="secno">4.2 </span>Order</a></li>
         </ol>
       </li>
-      <li class="tocline"><a class="tocxref" href="#othertypes"><span class="secno">5. </span>Other Types Under Consideration</a></li>
-      <li class="tocline"><a class="tocxref" href="#examples"><span class="secno">6. </span>Examples</a>
+      <li class="tocline"><a href="#othertypes" class="tocxref"><span class="secno">5. </span>Other Types Under Consideration</a></li>
+      <li class="tocline"><a href="#examples" class="tocxref"><span class="secno">6. </span>Examples</a>
         <ol class="toc">
-          <li class="tocline"><a class="tocxref" href="#ex-like"><span class="secno">6.1 </span>Like Post</a></li>
+          <li class="tocline"><a href="#ex-like" class="tocxref"><span class="secno">6.1 </span>Like Post</a></li>
         </ol>
       </li>
-      <li class="tocline"><a class="tocxref" href="#faq"><span class="secno">7. </span>FAQ</a>
+      <li class="tocline"><a href="#faq" class="tocxref"><span class="secno">7. </span>FAQ</a>
         <ol class="toc">
-          <li class="tocline"><a class="tocxref" href="#what-about-a-photo-reply"><span class="secno">7.1 </span>What about a photo reply</a></li>
+          <li class="tocline"><a href="#what-about-a-photo-reply" class="tocxref"><span class="secno">7.1 </span>What about a photo reply</a></li>
         </ol>
       </li>
-      <li class="tocline"><a class="tocxref" href="#implementations"><span class="secno">8. </span>Implementations</a>
+      <li class="tocline"><a href="#implementations" class="tocxref"><span class="secno">8. </span>Implementations</a>
         <ol class="toc">
-          <li class="tocline"><a class="tocxref" href="#granary"><span class="secno">8.1 </span>Granary</a></li>
-          <li class="tocline"><a class="tocxref" href="#p3k"><span class="secno">8.2 </span>p3k</a></li>
-          <li class="tocline"><a class="tocxref" href="#mf2util"><span class="secno">8.3 </span>mf2util</a></li>
+          <li class="tocline"><a href="#granary" class="tocxref"><span class="secno">8.1 </span>Granary</a></li>
+          <li class="tocline"><a href="#p3k" class="tocxref"><span class="secno">8.2 </span>p3k</a></li>
+          <li class="tocline"><a href="#mf2util" class="tocxref"><span class="secno">8.3 </span>mf2util</a></li>
         </ol>
       </li>
-      <li class="tocline"><a class="tocxref" href="#change-log"><span class="secno">A. </span>Change Log</a>
+      <li class="tocline"><a href="#change-log" class="tocxref"><span class="secno">A. </span>Change Log</a>
         <ol class="toc">
-          <li class="tocline"><a class="tocxref" href="#substantive-changes-from-28-july-2016-fpwd-to-this-version"><span class="secno">A.1 </span>Substantive changes from 28 July 2016 FPWD to this version</a></li>
+          <li class="tocline"><a href="#substantive-changes-from-28-july-2016-fpwd-to-this-version" class="tocxref"><span class="secno">A.1 </span>Substantive changes from 28 July 2016 FPWD to this version</a></li>
         </ol>
       </li>
-      <li class="tocline"><a class="tocxref" href="#references"><span class="secno">B. </span>References</a>
+      <li class="tocline"><a href="#references" class="tocxref"><span class="secno">B. </span>References</a>
         <ol class="toc">
-          <li class="tocline"><a class="tocxref" href="#normative-references"><span class="secno">B.1 </span>Normative references</a></li>
-          <li class="tocline"><a class="tocxref" href="#informative-references"><span class="secno">B.2 </span>Informative references</a></li>
+          <li class="tocline"><a href="#normative-references" class="tocxref"><span class="secno">B.1 </span>Normative references</a></li>
+          <li class="tocline"><a href="#informative-references" class="tocxref"><span class="secno">B.2 </span>Informative references</a></li>
         </ol>
       </li>
     </ol>
@@ -522,20 +647,20 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 
 
-  <section property="bibo:hasPart" resource="#introduction" typeof="bibo:Chapter" id="introduction" class="informative">
+  <section class="informative" id="introduction" typeof="bibo:Chapter" resource="#introduction" property="bibo:hasPart">
     <!--OddPage-->
-    <h2 resource="#h-introduction" id="h-introduction"><span property="xhv:role" resource="xhv:heading"><span class="secno">1. </span>Introduction</span>
+    <h2 id="h-introduction" resource="#h-introduction"><span property="xhv:role" resource="xhv:heading"><span class="secno">1. </span>Introduction</span>
     </h2>
     <p><em>This section is non-normative.</em></p>
     <p>
       Post type discovery is an explicit algorithm for inferring the type of a post from other properties of that post.
     </p>
     <p>
-      Inferring the type of a post helps provide a bridge between systems without explicit post types (e.g. [<cite><a href="#bib-micropub" class="bibref">micropub</a></cite>], jf2) to systems with explicit post types (e.g. [<cite><a href="#bib-ActivityPub" class="bibref">ActivityPub</a></cite>], [<cite><a href="#bib-AS2" class="bibref">AS2</a></cite>]).
+      Inferring the type of a post helps provide a bridge between systems without explicit post types (e.g. [<cite><a class="bibref" href="#bib-micropub">micropub</a></cite>], jf2) to systems with explicit post types (e.g. [<cite><a class="bibref" href="#bib-ActivityPub">ActivityPub</a></cite>], [<cite><a class="bibref" href="#bib-AS2">AS2</a></cite>]).
     </p>
 
-    <section property="bibo:hasPart" resource="#usecases" typeof="bibo:Chapter" id="usecases" class="informative">
-      <h3 resource="#h-usecases" id="h-usecases"><span property="xhv:role" resource="xhv:heading"><span class="secno">1.1 </span>Use Cases</span>
+    <section id="usecases" class="informative" typeof="bibo:Chapter" resource="#usecases" property="bibo:hasPart">
+      <h3 id="h-usecases" resource="#h-usecases"><span property="xhv:role" resource="xhv:heading"><span class="secno">1.1 </span>Use Cases</span>
       </h3>
       <p><em>This section is non-normative.</em></p>
       <p>
@@ -543,33 +668,33 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       </p>
     </section>
 
-    <section property="bibo:hasPart" resource="#synthesizing" typeof="bibo:Chapter" id="synthesizing" class="informative">
-      <h3 resource="#h-synthesizing" id="h-synthesizing"><span property="xhv:role" resource="xhv:heading"><span class="secno">1.2 </span>Synthesizing explicit type formats</span>
+    <section id="synthesizing" class="informative" typeof="bibo:Chapter" resource="#synthesizing" property="bibo:hasPart">
+      <h3 id="h-synthesizing" resource="#h-synthesizing"><span property="xhv:role" resource="xhv:heading"><span class="secno">1.2 </span>Synthesizing explicit type formats</span>
       </h3>
       <p><em>This section is non-normative.</em></p>
       <p>
-        There are existing formats that require explicit post types (e.g. ActivityStreams [<cite><a href="#bib-AS1" class="bibref">AS1</a></cite>]), or are based on explicit post types, (e.g. ActivityStreams2 [<cite><a href="#bib-AS2" class="bibref">AS2</a></cite>]), and code that consumes them expects explicit post types. Post type discovery enabling automatic synthesizing of such formats from posts that merely have a set of content related properties.
+        There are existing formats that require explicit post types (e.g. ActivityStreams [<cite><a class="bibref" href="#bib-AS1">AS1</a></cite>]), or are based on explicit post types, (e.g. ActivityStreams2 [<cite><a class="bibref" href="#bib-AS2">AS2</a></cite>]), and code that consumes them expects explicit post types. Post type discovery enabling automatic synthesizing of such formats from posts that merely have a set of content related properties.
       </p>
     </section>
   </section>
 
-  <section property="bibo:hasPart" resource="#conform" typeof="bibo:Chapter" id="conform">
+  <section id="conform" typeof="bibo:Chapter" resource="#conform" property="bibo:hasPart">
     <!--OddPage-->
-    <h2 resource="#h-conform" id="h-conform"><span property="xhv:role" resource="xhv:heading"><span class="secno">2. </span>Conformance</span>
+    <h2 id="h-conform" resource="#h-conform"><span property="xhv:role" resource="xhv:heading"><span class="secno">2. </span>Conformance</span>
     </h2>
     <p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p>
-    <p>The key words "<em title="MAY" class="rfc2119">MAY</em>", "<em title="MUST" class="rfc2119">MUST</em>", "<em title="MUST NOT" class="rfc2119">MUST NOT</em>", "<em title="OPTIONAL" class="rfc2119">OPTIONAL</em>", "<em title="RECOMMENDED" class="rfc2119">RECOMMENDED</em>", "<em title="REQUIRED" class="rfc2119">REQUIRED</em>", "
-      <em title="SHALL" class="rfc2119">SHALL</em>", "<em title="SHALL NOT" class="rfc2119">SHALL NOT</em>", "<em title="SHOULD" class="rfc2119">SHOULD</em>", and "<em title="SHOULD NOT" class="rfc2119">SHOULD NOT</em>" are to be interpreted as described in [
-      <cite><a href="#bib-RFC2119" class="bibref">RFC2119</a></cite>].</p>
+    <p>The key words "<em class="rfc2119" title="MAY">MAY</em>", "<em class="rfc2119" title="MUST">MUST</em>", "<em class="rfc2119" title="MUST NOT">MUST NOT</em>", "<em class="rfc2119" title="OPTIONAL">OPTIONAL</em>", "<em class="rfc2119" title="RECOMMENDED">RECOMMENDED</em>", "<em class="rfc2119" title="REQUIRED">REQUIRED</em>", "
+      <em class="rfc2119" title="SHALL">SHALL</em>", "<em class="rfc2119" title="SHALL NOT">SHALL NOT</em>", "<em class="rfc2119" title="SHOULD">SHOULD</em>", and "<em class="rfc2119" title="SHOULD NOT">SHOULD NOT</em>" are to be interpreted as described in [
+      <cite><a class="bibref" href="#bib-RFC2119">RFC2119</a></cite>].</p>
   </section>
 
-  <section property="bibo:hasPart" resource="#algorithm" typeof="bibo:Chapter" id="algorithm">
+  <section id="algorithm" typeof="bibo:Chapter" resource="#algorithm" property="bibo:hasPart">
     <!--OddPage-->
-    <h2 resource="#h-algorithm" id="h-algorithm"><span property="xhv:role" resource="xhv:heading"><span class="secno">3. </span>Algorithm</span>
+    <h2 id="h-algorithm" resource="#h-algorithm"><span property="xhv:role" resource="xhv:heading"><span class="secno">3. </span>Algorithm</span>
     </h2>
     <p>
       The Post Type Discovery algorithm ("the algorithm") discovers the type of a post given a data structure representing a post with a flat set of properties (e.g. Activity Streams (1.0 or 2.0) JSON, or JSON output from [
-      <cite><a href="#bib-microformats2-parsing" class="bibref">microformats2-parsing</a></cite>]), each with one or more values, by following these steps until reaching the first "it is a(n) ... post" statement at which point the "..." is the discovered post type.
+      <cite><a class="bibref" href="#bib-microformats2-parsing">microformats2-parsing</a></cite>]), each with one or more values, by following these steps until reaching the first "it is a(n) ... post" statement at which point the "..." is the discovered post type.
     </p>
 
     <p>
@@ -608,30 +733,30 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     <p></p>
 
     <p>
-      Quoted property names in the algorithm are defined in [<cite><a href="#bib-h-entry" class="bibref">h-entry</a></cite>].
+      Quoted property names in the algorithm are defined in [<cite><a class="bibref" href="#bib-h-entry">h-entry</a></cite>].
     </p>
 
   </section>
 
-  <section property="bibo:hasPart" resource="#methodology" typeof="bibo:Chapter" id="methodology" class="informative">
+  <section id="methodology" class="informative" typeof="bibo:Chapter" resource="#methodology" property="bibo:hasPart">
     <!--OddPage-->
-    <h2 resource="#h-methodology" id="h-methodology"><span property="xhv:role" resource="xhv:heading"><span class="secno">4. </span>Methodology</span>
+    <h2 id="h-methodology" resource="#h-methodology"><span property="xhv:role" resource="xhv:heading"><span class="secno">4. </span>Methodology</span>
     </h2>
     <p><em>This section is non-normative.</em></p>
     <p>
       There are two important aspects to the methodology of the Post Type Discovery algorithm: scope (why is something explicitly in the algorithm), and order (why is something where it is in the algorithm).
     </p>
 
-    <section property="bibo:hasPart" resource="#scope" typeof="bibo:Chapter" id="scope">
-      <h3 resource="#h-scope" id="h-scope"><span property="xhv:role" resource="xhv:heading"><span class="secno">4.1 </span>Scope</span>
+    <section id="scope" typeof="bibo:Chapter" resource="#scope" property="bibo:hasPart">
+      <h3 id="h-scope" resource="#h-scope"><span property="xhv:role" resource="xhv:heading"><span class="secno">4.1 </span>Scope</span>
       </h3>
       <p>
         The algorithm could attempt to cover innumerable potential hypothetical post types, or take an evidence based approach, focusing on real world publishing practices. This specification does the latter, specifically by placing a minimum bar of documented real world publishing practices of different visually apparent post types on the open web at recent (&lt; 1 year old) permalinks, each with at least three independent implementations that have converged on what properties (and potentially values thereof) they have to imply their visually apparent post types. As a result of being evidence based, it is likely this specification will expand over time as more apparent post types are published by more convergent implementations.
       </p>
     </section>
 
-    <section property="bibo:hasPart" resource="#order" typeof="bibo:Chapter" id="order">
-      <h3 resource="#h-order" id="h-order"><span property="xhv:role" resource="xhv:heading"><span class="secno">4.2 </span>Order</span>
+    <section id="order" typeof="bibo:Chapter" resource="#order" property="bibo:hasPart">
+      <h3 id="h-order" resource="#h-order"><span property="xhv:role" resource="xhv:heading"><span class="secno">4.2 </span>Order</span>
       </h3>
       <p>
         The algorithm must also specify an order (e.g. of precedence) that various properties (and their values) imply various post types. The algorithm is ordered by post types that are in general "richer" in terms of content as well as show greater cognitive effort by the author.
@@ -639,9 +764,9 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     </section>
   </section>
 
-  <section property="bibo:hasPart" resource="#othertypes" typeof="bibo:Chapter" id="othertypes" class="informative">
+  <section id="othertypes" class="informative" typeof="bibo:Chapter" resource="#othertypes" property="bibo:hasPart">
     <!--OddPage-->
-    <h2 resource="#h-othertypes" id="h-othertypes"><span property="xhv:role" resource="xhv:heading"><span class="secno">5. </span>Other Types Under Consideration</span>
+    <h2 id="h-othertypes" resource="#h-othertypes"><span property="xhv:role" resource="xhv:heading"><span class="secno">5. </span>Other Types Under Consideration</span>
     </h2>
     <p><em>This section is non-normative.</em></p>
     <p>
@@ -674,18 +799,18 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     <p></p>
   </section>
 
-  <section property="bibo:hasPart" resource="#examples" typeof="bibo:Chapter" id="examples" class="informative">
+  <section id="examples" class="informative" typeof="bibo:Chapter" resource="#examples" property="bibo:hasPart">
     <!--OddPage-->
-    <h2 resource="#h-examples" id="h-examples"><span property="xhv:role" resource="xhv:heading"><span class="secno">6. </span>Examples</span>
+    <h2 id="h-examples" resource="#h-examples"><span property="xhv:role" resource="xhv:heading"><span class="secno">6. </span>Examples</span>
     </h2>
     <p><em>This section is non-normative.</em></p>
 
-    <section property="bibo:hasPart" resource="#ex-like" typeof="bibo:Chapter" id="ex-like">
-      <h3 resource="#h-ex-like" id="h-ex-like"><span property="xhv:role" resource="xhv:heading"><span class="secno">6.1 </span>Like Post</span>
+    <section id="ex-like" typeof="bibo:Chapter" resource="#ex-like" property="bibo:hasPart">
+      <h3 id="h-ex-like" resource="#h-ex-like"><span property="xhv:role" resource="xhv:heading"><span class="secno">6.1 </span>Like Post</span>
       </h3>
       <p>
-        Here is an example [<cite><a href="#bib-h-entry" class="bibref">h-entry</a></cite>] post from
-        <a href="http://www.w3.org/TR/activitystreams-vocabulary/#dfn-like">Activity Streams 2.0 Vocabulary examples</a> [<cite><a href="#bib-AS2-vocab" class="bibref">AS2-vocab</a></cite>]:
+        Here is an example [<cite><a class="bibref" href="#bib-h-entry">h-entry</a></cite>] post from
+        <a href="http://www.w3.org/TR/activitystreams-vocabulary/#dfn-like">Activity Streams 2.0 Vocabulary examples</a> [<cite><a class="bibref" href="#bib-AS2-vocab">AS2-vocab</a></cite>]:
       </p>
       <pre class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"h-entry p-name"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"p-author h-card"</span>&gt;</span>Sally<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
@@ -716,14 +841,14 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   </section>
 
 
-  <section property="bibo:hasPart" resource="#faq" typeof="bibo:Chapter" id="faq" class="informative">
+  <section id="faq" class="informative" typeof="bibo:Chapter" resource="#faq" property="bibo:hasPart">
     <!--OddPage-->
-    <h2 resource="#h-faq" id="h-faq"><span property="xhv:role" resource="xhv:heading"><span class="secno">7. </span>FAQ</span>
+    <h2 id="h-faq" resource="#h-faq"><span property="xhv:role" resource="xhv:heading"><span class="secno">7. </span>FAQ</span>
     </h2>
     <p><em>This section is non-normative.</em></p>
 
-    <section property="bibo:hasPart" resource="#what-about-a-photo-reply" typeof="bibo:Chapter" id="what-about-a-photo-reply">
-      <h3 resource="#h-what-about-a-photo-reply" id="h-what-about-a-photo-reply"><span property="xhv:role" resource="xhv:heading"><span class="secno">7.1 </span>What about a photo reply</span>
+    <section id="what-about-a-photo-reply" typeof="bibo:Chapter" resource="#what-about-a-photo-reply" property="bibo:hasPart">
+      <h3 id="h-what-about-a-photo-reply" resource="#h-what-about-a-photo-reply"><span property="xhv:role" resource="xhv:heading"><span class="secno">7.1 </span>What about a photo reply</span>
       </h3>
 
       <p>
@@ -756,21 +881,21 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   </section>
 
 
-  <section property="bibo:hasPart" resource="#implementations" typeof="bibo:Chapter" id="implementations" class="informative">
+  <section id="implementations" class="informative" typeof="bibo:Chapter" resource="#implementations" property="bibo:hasPart">
     <!--OddPage-->
-    <h2 resource="#h-implementations" id="h-implementations"><span property="xhv:role" resource="xhv:heading"><span class="secno">8. </span>Implementations</span>
+    <h2 id="h-implementations" resource="#h-implementations"><span property="xhv:role" resource="xhv:heading"><span class="secno">8. </span>Implementations</span>
     </h2>
     <p><em>This section is non-normative.</em></p>
     <p>
       Implementations, in progress, partial, or complete, of Post Type Discovery.
     </p>
 
-    <section property="bibo:hasPart" resource="#granary" typeof="bibo:Chapter" id="granary">
-      <h3 resource="#h-granary" id="h-granary"><span property="xhv:role" resource="xhv:heading"><span class="secno">8.1 </span>Granary</span>
+    <section id="granary" typeof="bibo:Chapter" resource="#granary" property="bibo:hasPart">
+      <h3 id="h-granary" resource="#h-granary"><span property="xhv:role" resource="xhv:heading"><span class="secno">8.1 </span>Granary</span>
       </h3>
       <p>
-        <a href="https://github.com/snarfed/granary/">Granary</a> synthesizes ActivityStreams [<cite><a href="#bib-AS1" class="bibref">AS1</a></cite>], [
-        <cite><a href="#bib-microformats2" class="bibref">microformats2</a></cite>], and Atom [<cite><a href="#bib-RFC4287" class="bibref">RFC4287</a></cite>] from various input feeds and sources, and as such has some code that can be considered in progress or even a partial implementation of Post Type Discovery:
+        <a href="https://github.com/snarfed/granary/">Granary</a> synthesizes ActivityStreams [<cite><a class="bibref" href="#bib-AS1">AS1</a></cite>], [
+        <cite><a class="bibref" href="#bib-microformats2">microformats2</a></cite>], and Atom [<cite><a class="bibref" href="#bib-RFC4287">RFC4287</a></cite>] from various input feeds and sources, and as such has some code that can be considered in progress or even a partial implementation of Post Type Discovery:
       </p>
       <p>
       </p>
@@ -782,11 +907,11 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       <p></p>
     </section>
 
-    <section property="bibo:hasPart" resource="#p3k" typeof="bibo:Chapter" id="p3k">
-      <h3 resource="#h-p3k" id="h-p3k"><span property="xhv:role" resource="xhv:heading"><span class="secno">8.2 </span>p3k</span>
+    <section id="p3k" typeof="bibo:Chapter" resource="#p3k" property="bibo:hasPart">
+      <h3 id="h-p3k" resource="#h-p3k"><span property="xhv:role" resource="xhv:heading"><span class="secno">8.2 </span>p3k</span>
       </h3>
       <p>
-        <a href="https://indiewebcamp.com/p3k">p3k</a> (a CMS) implements Post Type Discovery internally within its [<cite><a href="#bib-micropub" class="bibref">micropub</a></cite>] endpoint to automatically add posts to various collections. E.g.: if this post is a reply, it goes in the "replies" collection. if it's an RSVP, it goes in the "rsvps" and "replies" collections.
+        <a href="https://indiewebcamp.com/p3k">p3k</a> (a CMS) implements Post Type Discovery internally within its [<cite><a class="bibref" href="#bib-micropub">micropub</a></cite>] endpoint to automatically add posts to various collections. E.g.: if this post is a reply, it goes in the "replies" collection. if it's an RSVP, it goes in the "rsvps" and "replies" collections.
       </p>
       <p>
       </p>
@@ -796,8 +921,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       <p></p>
     </section>
 
-    <section property="bibo:hasPart" resource="#mf2util" typeof="bibo:Chapter" id="mf2util">
-      <h3 resource="#h-mf2util" id="h-mf2util"><span property="xhv:role" resource="xhv:heading"><span class="secno">8.3 </span>mf2util</span>
+    <section id="mf2util" typeof="bibo:Chapter" resource="#mf2util" property="bibo:hasPart">
+      <h3 id="h-mf2util" resource="#h-mf2util"><span property="xhv:role" resource="xhv:heading"><span class="secno">8.3 </span>mf2util</span>
       </h3>
       <p>
         mf2util exposes a function for post_type_discovery that takes an h-entry and returns "like", "reply", "note", "article", etc.
@@ -811,58 +936,58 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     </section>
   </section>
 
-  <section property="bibo:hasPart" resource="#change-log" typeof="bibo:Chapter" id="change-log" class="appendix informative">
+  <section class="appendix informative" id="change-log" typeof="bibo:Chapter" resource="#change-log" property="bibo:hasPart">
     <!--OddPage-->
-    <h2 resource="#h-change-log" id="h-change-log"><span property="xhv:role" resource="xhv:heading"><span class="secno">A. </span>Change Log</span>
+    <h2 id="h-change-log" resource="#h-change-log"><span property="xhv:role" resource="xhv:heading"><span class="secno">A. </span>Change Log</span>
     </h2>
     <p><em>This section is non-normative.</em></p>
 
-    <section property="bibo:hasPart" resource="#substantive-changes-from-28-july-2016-fpwd-to-this-version" typeof="bibo:Chapter" id="substantive-changes-from-28-july-2016-fpwd-to-this-version">
-      <h3 resource="#h-substantive-changes-from-28-july-2016-fpwd-to-this-version" id="h-substantive-changes-from-28-july-2016-fpwd-to-this-version"><span property="xhv:role" resource="xhv:heading"><span class="secno">A.1 </span>Substantive changes from 28 July 2016 FPWD to this version</span>
+    <section id="substantive-changes-from-28-july-2016-fpwd-to-this-version" typeof="bibo:Chapter" resource="#substantive-changes-from-28-july-2016-fpwd-to-this-version" property="bibo:hasPart">
+      <h3 id="h-substantive-changes-from-28-july-2016-fpwd-to-this-version" resource="#h-substantive-changes-from-28-july-2016-fpwd-to-this-version"><span property="xhv:role" resource="xhv:heading"><span class="secno">A.1 </span>Substantive changes from 28 July 2016 FPWD to this version</span>
       </h3>
 
       <ul>
-        <li>Explicitly list of valid rsvp values</li>
+        <li>Explicit list of valid rsvp property values</li>
       </ul>
     </section>
   </section>
 
 
-  <section property="bibo:hasPart" resource="#references" typeof="bibo:Chapter" id="references" class="appendix">
+  <section id="references" class="appendix" typeof="bibo:Chapter" resource="#references" property="bibo:hasPart">
     <!--OddPage-->
-    <h2 resource="#h-references" id="h-references"><span property="xhv:role" resource="xhv:heading"><span class="secno">B. </span>References</span>
+    <h2 id="h-references" resource="#h-references"><span property="xhv:role" resource="xhv:heading"><span class="secno">B. </span>References</span>
     </h2>
 
-    <section property="bibo:hasPart" resource="#normative-references" typeof="bibo:Chapter" id="normative-references">
-      <h3 resource="#h-normative-references" id="h-normative-references"><span property="xhv:role" resource="xhv:heading"><span class="secno">B.1 </span>Normative references</span>
+    <section id="normative-references" typeof="bibo:Chapter" resource="#normative-references" property="bibo:hasPart">
+      <h3 id="h-normative-references" resource="#h-normative-references"><span property="xhv:role" resource="xhv:heading"><span class="secno">B.1 </span>Normative references</span>
       </h3>
-      <dl resource="" class="bibliography"><dt id="bib-RFC2119">[RFC2119]</dt>
-        <dd>S. Bradner. IETF. <a property="dc:requires" href="https://tools.ietf.org/html/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. March 1997. Best Current Practice. URL: <a property="dc:requires" href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a>
+      <dl class="bibliography" resource=""><dt id="bib-RFC2119">[RFC2119]</dt>
+        <dd>S. Bradner. IETF. <a href="https://tools.ietf.org/html/rfc2119" property="dc:requires"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119" property="dc:requires">https://tools.ietf.org/html/rfc2119</a>
         </dd><dt id="bib-h-entry">[h-entry]</dt>
-        <dd>Tantek Çelik. http://microformats.org. <a property="dc:requires" href="http://microformats.org/wiki/h-entry"><cite>h-entry</cite></a>. Living Specification. URL: <a property="dc:requires" href="http://microformats.org/wiki/h-entry">http://microformats.org/wiki/h-entry</a>
+        <dd>Tantek Çelik. http://microformats.org. <a href="http://microformats.org/wiki/h-entry" property="dc:requires"><cite>h-entry</cite></a>. Living Specification. URL: <a href="http://microformats.org/wiki/h-entry" property="dc:requires">http://microformats.org/wiki/h-entry</a>
         </dd>
       </dl>
     </section>
 
-    <section property="bibo:hasPart" resource="#informative-references" typeof="bibo:Chapter" id="informative-references">
-      <h3 resource="#h-informative-references" id="h-informative-references"><span property="xhv:role" resource="xhv:heading"><span class="secno">B.2 </span>Informative references</span>
+    <section id="informative-references" typeof="bibo:Chapter" resource="#informative-references" property="bibo:hasPart">
+      <h3 id="h-informative-references" resource="#h-informative-references"><span property="xhv:role" resource="xhv:heading"><span class="secno">B.2 </span>Informative references</span>
       </h3>
-      <dl resource="" class="bibliography"><dt id="bib-AS1">[AS1]</dt>
-        <dd>J. Snell; M. Atkins; W. Norris; C. Messina; M. Wilkinson; R. Dolin. http://activitystrea.ms. <a property="dc:references" href="http://activitystrea.ms/specs/json/1.0/"><cite>JSON Activity Streams 1.0</cite></a>. unofficial. URL: <a property="dc:references" href="http://activitystrea.ms/specs/json/1.0/">http://activitystrea.ms/specs/json/1.0/</a>
+      <dl class="bibliography" resource=""><dt id="bib-AS1">[AS1]</dt>
+        <dd>J. Snell; M. Atkins; W. Norris; C. Messina; M. Wilkinson; R. Dolin. http://activitystrea.ms. <a href="http://activitystrea.ms/specs/json/1.0/" property="dc:references"><cite>JSON Activity Streams 1.0</cite></a>. unofficial. URL: <a href="http://activitystrea.ms/specs/json/1.0/" property="dc:references">http://activitystrea.ms/specs/json/1.0/</a>
         </dd><dt id="bib-AS2">[AS2]</dt>
-        <dd>J. Snell; E. Prodromou. https://www.w3.org/. <a property="dc:references" href="https://www.w3.org/TR/activitystreams-core/"><cite>Activity Streams 2.0</cite></a>. Candidate Recommendation. URL: <a property="dc:references" href="https://www.w3.org/TR/activitystreams-core/">https://www.w3.org/TR/activitystreams-core/</a>
+        <dd>J. Snell; E. Prodromou. https://www.w3.org/. <a href="https://www.w3.org/TR/activitystreams-core/" property="dc:references"><cite>Activity Streams 2.0</cite></a>. Candidate Recommendation. URL: <a href="https://www.w3.org/TR/activitystreams-core/" property="dc:references">https://www.w3.org/TR/activitystreams-core/</a>
         </dd><dt id="bib-AS2-vocab">[AS2-vocab]</dt>
-        <dd>J. Snell; E. Prodromou. https://www.w3.org/. <a property="dc:references" href="http://www.w3.org/TR/activitystreams-vocabulary"><cite>Activity Vocabulary</cite></a>. Candidate Recommendation. URL: <a property="dc:references" href="http://www.w3.org/TR/activitystreams-vocabulary">http://www.w3.org/TR/activitystreams-vocabulary</a>
+        <dd>J. Snell; E. Prodromou. https://www.w3.org/. <a href="http://www.w3.org/TR/activitystreams-vocabulary" property="dc:references"><cite>Activity Vocabulary</cite></a>. Candidate Recommendation. URL: <a href="http://www.w3.org/TR/activitystreams-vocabulary" property="dc:references">http://www.w3.org/TR/activitystreams-vocabulary</a>
         </dd><dt id="bib-ActivityPub">[ActivityPub]</dt>
-        <dd>Christopher Webber; Jessica Tallon; Owen Shepherd. W3C. <a property="dc:references" href="https://www.w3.org/TR/activitypub/"><cite>ActivityPub</cite></a>. 13 September 2016. W3C Working Draft. URL: <a property="dc:references" href="https://www.w3.org/TR/activitypub/">https://www.w3.org/TR/activitypub/</a>
+        <dd>Christopher Webber; Jessica Tallon; Owen Shepherd. W3C. <a href="https://www.w3.org/TR/activitypub/" property="dc:references"><cite>ActivityPub</cite></a>. 4 October 2016. W3C Working Draft. URL: <a href="https://www.w3.org/TR/activitypub/" property="dc:references">https://www.w3.org/TR/activitypub/</a>
         </dd><dt id="bib-RFC4287">[RFC4287]</dt>
-        <dd>M. Nottingham, Ed.; R. Sayre, Ed.. IETF. <a property="dc:references" href="https://tools.ietf.org/html/rfc4287"><cite>The Atom Syndication Format</cite></a>. December 2005. Proposed Standard. URL: <a property="dc:references" href="https://tools.ietf.org/html/rfc4287">https://tools.ietf.org/html/rfc4287</a>
+        <dd>M. Nottingham, Ed.; R. Sayre, Ed.. IETF. <a href="https://tools.ietf.org/html/rfc4287" property="dc:references"><cite>The Atom Syndication Format</cite></a>. December 2005. Proposed Standard. URL: <a href="https://tools.ietf.org/html/rfc4287" property="dc:references">https://tools.ietf.org/html/rfc4287</a>
         </dd><dt id="bib-microformats2">[microformats2]</dt>
-        <dd>Tantek Çelik. http://microformats.org. <a property="dc:references" href="http://microformats.org/wiki/microformats2"><cite>Microformats2</cite></a>. Living Specification. URL: <a property="dc:references" href="http://microformats.org/wiki/microformats2">http://microformats.org/wiki/microformats2</a>
+        <dd>Tantek Çelik. http://microformats.org. <a href="http://microformats.org/wiki/microformats2" property="dc:references"><cite>Microformats2</cite></a>. Living Specification. URL: <a href="http://microformats.org/wiki/microformats2" property="dc:references">http://microformats.org/wiki/microformats2</a>
         </dd><dt id="bib-microformats2-parsing">[microformats2-parsing]</dt>
-        <dd>Tantek Çelik. http://microformats.org. <a property="dc:references" href="http://microformats.org/wiki/microformats2-parsing"><cite>Microformats2 Parsing</cite></a>. Living Specification. URL: <a property="dc:references" href="http://microformats.org/wiki/microformats2-parsing">http://microformats.org/wiki/microformats2-parsing</a>
+        <dd>Tantek Çelik. http://microformats.org. <a href="http://microformats.org/wiki/microformats2-parsing" property="dc:references"><cite>Microformats2 Parsing</cite></a>. Living Specification. URL: <a href="http://microformats.org/wiki/microformats2-parsing" property="dc:references">http://microformats.org/wiki/microformats2-parsing</a>
         </dd><dt id="bib-micropub">[micropub]</dt>
-        <dd>Aaron Parecki. W3C. <a property="dc:references" href="https://www.w3.org/TR/micropub/"><cite>Micropub</cite></a>. 16 August 2016. W3C Candidate Recommendation. URL: <a property="dc:references" href="https://www.w3.org/TR/micropub/">https://www.w3.org/TR/micropub/</a>
+        <dd>Aaron Parecki. W3C. <a href="https://www.w3.org/TR/micropub/" property="dc:references"><cite>Micropub</cite></a>. 18 October 2016. W3C Candidate Recommendation. URL: <a href="https://www.w3.org/TR/micropub/" property="dc:references">https://www.w3.org/TR/micropub/</a>
         </dd>
       </dl>
     </section>
