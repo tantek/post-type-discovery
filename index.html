@@ -119,7 +119,6 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     
     em.rfc2119 {
       text-transform: lowercase;
-      font-variant: small-caps;
       font-style: normal;
       color: #900;
     }
@@ -363,8 +362,98 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       color: white;
     }
     
+    .respec-warning-list,
+    .respec-error-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-family: sans-serif;
+      background-color: rgb(255, 251, 230);
+      font-size: .9em;
+    }
+    
+    .respec-warning-list li,
+    .respec-error-list li {
+      padding: 0.4em 0.7em;
+    }
+    
+    .respec-warning-list li::before {
+      content: "⚠️";
+      padding-right: .5em;
+    }
+    
+    .respec-warning-list li {
+      color: rgb(92, 59, 0);
+      border-bottom: thin solid rgb(255, 245, 194);
+    }
+    
+    .respec-error-list,
+    .respec-error-list li {
+      background-color: rgb(255, 240, 240);
+    }
+    
+    .respec-error-list li::before {
+      content: "💥";
+      padding-right: .5em;
+    }
+    
+    .respec-error-list li {
+      padding: 0.4em 0.7em;
+      color: rgb(92, 59, 0);
+      border-bottom: thin solid rgb(255, 215, 215);
+    }
+    
+    #respec-overlay {
+      display: block;
+      opacity: 0;
+      position: fixed;
+      z-index: 10000;
+      top: 0px;
+      left: 0px;
+      height: 100%;
+      width: 100%;
+      background: #000;
+    }
+    
+    .respec-modal {
+      display: block;
+      position: fixed;
+      opacity: 0;
+      z-index: 11000;
+      margin: auto;
+      top: 10%;
+      background: #fff;
+      border: 5px solid #666;
+      min-width: 20%;
+      width: 85%;
+      padding: 0;
+      max-height: 80%;
+      overflow-y: auto;
+      margin: 0 -.5cm
+    }
+    
+    @media screen and (min-width: 78em) {
+      .respec-modal {
+        width: 64%;
+      }
+    }
+    
+    .respec-modal h3 {
+      margin: 0;
+      padding: .2em;
+      text-align: center;
+      color: black;
+      background: linear-gradient(to bottom, rgba(238, 238, 238, 1) 0%, rgba(238, 238, 238, 1) 50%, rgba(204, 204, 204, 1) 100%);
+      font-size: 1em;
+    }
+    
+    .respec-modal .inside p {
+      padding-left: 1cm;
+    }
+    
     #respec-menu button.respec-option {
       background: white;
+      padding: 0 .2cm;
       border: none;
       width: 100%;
       text-align: left;
@@ -392,6 +481,16 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       background: url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x;
     }
     
+    #issue-summary>ul,
+    .respec-dfn-list {
+      column-count: 2;
+    }
+    
+    #issue-summary li,
+    .respec-dfn-list li {
+      list-style: none;
+    }
+    
     @media print {
       .removeOnSave {
         display: none;
@@ -406,7 +505,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   <!--[if lt IE 9]><script src='https://www.w3.org/2008/site/js/html5shiv.js'></script><![endif]-->
   <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/W3C-ED">
   <link rel="canonical" href="https://www.w3.org/TR/post-type-discovery/">
-  <meta name="generator" content="ReSpec 10.1.7">
+  <meta name="generator" content="ReSpec 10.5.3">
   <script id="initialUserConfig" type="application/json">
     {
       "license": "w3c-software-doc",
@@ -525,10 +624,10 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     }
   </script>
 </head>
-<body aria-busy="false" class="h-entry toc-inline" role="document" id="respecDocument">
+<body aria-busy="false" class="h-entry" role="document" id="respecDocument">
   <div class="head" role="contentinfo" id="respecHeader">
     <p>
-      <a class="logo" href="https://www.w3.org/"><img src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" alt="W3C" width="72" height="48"></a>
+      <a class="logo" href="https://www.w3.org/"><img src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" alt="W3C" height="48" width="72"></a>
     </p>
     <h1 class="title p-name" id="title" property="dcterms:title">Post Type Discovery</h1>
     <h2 id="w3c-editor-s-draft-13-february-2017"><abbr title="World Wide Web Consortium">W3C</abbr> Editor's Draft <time property="dcterms:issued" class="dt-published" datetime="2017-02-13">13 February 2017</time></h2>
@@ -821,7 +920,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
         Here is an example [<cite><a class="bibref" href="#bib-h-entry">h-entry</a></cite>] post from
         <a href="http://www.w3.org/TR/activitystreams-vocabulary/#dfn-like">Activity Streams 2.0 Vocabulary examples</a> [<cite><a class="bibref" href="#bib-AS2-vocab">AS2-vocab</a></cite>]:
       </p>
-      <pre aria-busy="false" aria-live="polite" class="hljs"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"h-entry p-name"</span>&gt;</span>
+      <pre aria-busy="false" aria-live="polite" class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"h-entry p-name"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"p-author h-card"</span>&gt;</span>Sally<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
   liked
   <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"u-like-of"</span>
@@ -838,7 +937,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       <p>
         Given this semantic, an implementation can generate (or process as if generated and consumed) the following AS2 JSON, in particular the <code>"@type": "Like"</code> in this output is what is determined by this algorithm:
       </p>
-      <pre aria-busy="false" aria-live="polite" class="hljs">{
+      <pre aria-busy="false" aria-live="polite" class="hljs json">{
   <span class="hljs-attr">"@type"</span>: <span class="hljs-string">"Like"</span>,
   <span class="hljs-attr">"actor"</span>: {
     <span class="hljs-attr">"@type"</span>: <span class="hljs-string">"Person"</span>,
@@ -963,9 +1062,9 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       <h3 id="h-normative-references" resource="#h-normative-references"><span property="xhv:role" resource="xhv:heading"><span class="secno">B.1 </span>Normative references</span>
       </h3>
       <dl class="bibliography" resource=""><dt id="bib-RFC2119">[RFC2119]</dt>
-        <dd>S. Bradner. IETF. <a href="https://tools.ietf.org/html/rfc2119" property="dc:requires"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119" property="dc:requires">https://tools.ietf.org/html/rfc2119</a>
+        <dd><a href="https://tools.ietf.org/html/rfc2119" property="dc:requires"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner. IETF. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119" property="dc:requires">https://tools.ietf.org/html/rfc2119</a>
         </dd><dt id="bib-h-entry">[h-entry]</dt>
-        <dd>Tantek Çelik. http://microformats.org. <a href="http://microformats.org/wiki/h-entry" property="dc:requires"><cite>h-entry</cite></a>. Living Specification. URL: <a href="http://microformats.org/wiki/h-entry" property="dc:requires">http://microformats.org/wiki/h-entry</a>
+        <dd><a href="http://microformats.org/wiki/h-entry" property="dc:requires"><cite>h-entry</cite></a>. Tantek Çelik. http://microformats.org. Living Specification. URL: <a href="http://microformats.org/wiki/h-entry" property="dc:requires">http://microformats.org/wiki/h-entry</a>
         </dd>
       </dl>
     </section>
@@ -974,25 +1073,25 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       <h3 id="h-informative-references" resource="#h-informative-references"><span property="xhv:role" resource="xhv:heading"><span class="secno">B.2 </span>Informative references</span>
       </h3>
       <dl class="bibliography" resource=""><dt id="bib-AS1">[AS1]</dt>
-        <dd>J. Snell; M. Atkins; W. Norris; C. Messina; M. Wilkinson; R. Dolin. http://activitystrea.ms. <a href="http://activitystrea.ms/specs/json/1.0/" property="dc:references"><cite>JSON Activity Streams 1.0</cite></a>. unofficial. URL: <a href="http://activitystrea.ms/specs/json/1.0/" property="dc:references">http://activitystrea.ms/specs/json/1.0/</a>
+        <dd><a href="http://activitystrea.ms/specs/json/1.0/" property="dc:references"><cite>JSON Activity Streams 1.0</cite></a>. J. Snell; M. Atkins; W. Norris; C. Messina; M. Wilkinson; R. Dolin. http://activitystrea.ms. unofficial. URL: <a href="http://activitystrea.ms/specs/json/1.0/" property="dc:references">http://activitystrea.ms/specs/json/1.0/</a>
         </dd><dt id="bib-AS2">[AS2]</dt>
-        <dd>J. Snell; E. Prodromou. https://www.w3.org/. <a href="https://www.w3.org/TR/activitystreams-core/" property="dc:references"><cite>Activity Streams 2.0</cite></a>. Candidate Recommendation. URL: <a href="https://www.w3.org/TR/activitystreams-core/" property="dc:references">https://www.w3.org/TR/activitystreams-core/</a>
+        <dd><a href="https://www.w3.org/TR/activitystreams-core/" property="dc:references"><cite>Activity Streams 2.0</cite></a>. J. Snell; E. Prodromou. https://www.w3.org/. Candidate Recommendation. URL: <a href="https://www.w3.org/TR/activitystreams-core/" property="dc:references">https://www.w3.org/TR/activitystreams-core/</a>
         </dd><dt id="bib-AS2-vocab">[AS2-vocab]</dt>
-        <dd>J. Snell; E. Prodromou. https://www.w3.org/. <a href="http://www.w3.org/TR/activitystreams-vocabulary" property="dc:references"><cite>Activity Vocabulary</cite></a>. Candidate Recommendation. URL: <a href="http://www.w3.org/TR/activitystreams-vocabulary" property="dc:references">http://www.w3.org/TR/activitystreams-vocabulary</a>
+        <dd><a href="http://www.w3.org/TR/activitystreams-vocabulary" property="dc:references"><cite>Activity Vocabulary</cite></a>. J. Snell; E. Prodromou. https://www.w3.org/. Candidate Recommendation. URL: <a href="http://www.w3.org/TR/activitystreams-vocabulary" property="dc:references">http://www.w3.org/TR/activitystreams-vocabulary</a>
         </dd><dt id="bib-ActivityPub">[ActivityPub]</dt>
-        <dd>Christopher Webber; Jessica Tallon. W3C. <a href="https://www.w3.org/TR/activitypub/" property="dc:references"><cite>ActivityPub</cite></a>. 17 November 2016. W3C Candidate Recommendation. URL: <a href="https://www.w3.org/TR/activitypub/" property="dc:references">https://www.w3.org/TR/activitypub/</a>
+        <dd><a href="https://www.w3.org/TR/activitypub/" property="dc:references"><cite>ActivityPub</cite></a>. Christopher Webber; Jessica Tallon. W3C. 17 November 2016. W3C Candidate Recommendation. URL: <a href="https://www.w3.org/TR/activitypub/" property="dc:references">https://www.w3.org/TR/activitypub/</a>
         </dd><dt id="bib-RFC4287">[RFC4287]</dt>
-        <dd>M. Nottingham, Ed.; R. Sayre, Ed.. IETF. <a href="https://tools.ietf.org/html/rfc4287" property="dc:references"><cite>The Atom Syndication Format</cite></a>. December 2005. Proposed Standard. URL: <a href="https://tools.ietf.org/html/rfc4287" property="dc:references">https://tools.ietf.org/html/rfc4287</a>
+        <dd><a href="https://tools.ietf.org/html/rfc4287" property="dc:references"><cite>The Atom Syndication Format</cite></a>. M. Nottingham, Ed.; R. Sayre, Ed.. IETF. December 2005. Proposed Standard. URL: <a href="https://tools.ietf.org/html/rfc4287" property="dc:references">https://tools.ietf.org/html/rfc4287</a>
         </dd><dt id="bib-jf2">[jf2]</dt>
-        <dd>Benjamin Roberts; Kevin Marks. W3C. <a href="https://www.w3.org/TR/jf2/" property="dc:references"><cite>JF2 Post Serialization Format</cite></a>. 28 July 2016. W3C Working Draft. URL: <a href="https://www.w3.org/TR/jf2/" property="dc:references">https://www.w3.org/TR/jf2/</a>
+        <dd><a href="https://www.w3.org/TR/jf2/" property="dc:references"><cite>JF2 Post Serialization Format</cite></a>. Benjamin Roberts; Kevin Marks. W3C. 28 July 2016. W3C Working Draft. URL: <a href="https://www.w3.org/TR/jf2/" property="dc:references">https://www.w3.org/TR/jf2/</a>
         </dd><dt id="bib-microformats2">[microformats2]</dt>
-        <dd>Tantek Çelik. http://microformats.org. <a href="http://microformats.org/wiki/microformats2" property="dc:references"><cite>Microformats2</cite></a>. Living Specification. URL: <a href="http://microformats.org/wiki/microformats2" property="dc:references">http://microformats.org/wiki/microformats2</a>
+        <dd><a href="http://microformats.org/wiki/microformats2" property="dc:references"><cite>Microformats2</cite></a>. Tantek Çelik. http://microformats.org. Living Specification. URL: <a href="http://microformats.org/wiki/microformats2" property="dc:references">http://microformats.org/wiki/microformats2</a>
         </dd><dt id="bib-microformats2-parsing">[microformats2-parsing]</dt>
-        <dd>Tantek Çelik. http://microformats.org. <a href="http://microformats.org/wiki/microformats2-parsing" property="dc:references"><cite>Microformats2 Parsing</cite></a>. Living Specification. URL: <a href="http://microformats.org/wiki/microformats2-parsing" property="dc:references">http://microformats.org/wiki/microformats2-parsing</a>
+        <dd><a href="http://microformats.org/wiki/microformats2-parsing" property="dc:references"><cite>Microformats2 Parsing</cite></a>. Tantek Çelik. http://microformats.org. Living Specification. URL: <a href="http://microformats.org/wiki/microformats2-parsing" property="dc:references">http://microformats.org/wiki/microformats2-parsing</a>
         </dd><dt id="bib-micropub">[micropub]</dt>
-        <dd>Aaron Parecki. W3C. <a href="https://www.w3.org/TR/micropub/" property="dc:references"><cite>Micropub</cite></a>. 18 October 2016. W3C Candidate Recommendation. URL: <a href="https://www.w3.org/TR/micropub/" property="dc:references">https://www.w3.org/TR/micropub/</a>
+        <dd><a href="https://www.w3.org/TR/micropub/" property="dc:references"><cite>Micropub</cite></a>. Aaron Parecki. W3C. 18 October 2016. W3C Candidate Recommendation. URL: <a href="https://www.w3.org/TR/micropub/" property="dc:references">https://www.w3.org/TR/micropub/</a>
         </dd><dt id="bib-social-web-protocols">[social-web-protocols]</dt>
-        <dd>Amy Guy. W3C. <a href="https://www.w3.org/TR/social-web-protocols/" property="dc:references"><cite>Social Web Protocols</cite></a>. 2 November 2016. W3C Working Draft. URL: <a href="https://www.w3.org/TR/social-web-protocols/" property="dc:references">https://www.w3.org/TR/social-web-protocols/</a>
+        <dd><a href="https://www.w3.org/TR/social-web-protocols/" property="dc:references"><cite>Social Web Protocols</cite></a>. Amy Guy. W3C. 2 November 2016. W3C Working Draft. URL: <a href="https://www.w3.org/TR/social-web-protocols/" property="dc:references">https://www.w3.org/TR/social-web-protocols/</a>
         </dd>
       </dl>
     </section>
