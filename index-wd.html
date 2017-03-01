@@ -119,7 +119,6 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     
     em.rfc2119 {
       text-transform: lowercase;
-      font-variant: small-caps;
       font-style: normal;
       color: #900;
     }
@@ -247,6 +246,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     
     #respec-ui {
       position: fixed;
+      display: flex;
+      flex-direction: row-reverse;
       top: 20px;
       right: 20px;
       width: 202px;
@@ -264,22 +265,26 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     
     .respec-info-button {
       border: none;
+      opacity: .5;
       border-radius: 2em;
       margin-right: 1em;
       min-width: 3.5em;
     }
     
+    .respec-info-button:focus {
+      opacity: 1;
+      transition: opacity .2s;
+    }
+    
     #respec-pill:disabled {
-      margin: 10px auto;
       font-size: 2.8px;
-      position: relative;
       text-indent: -9999em;
       border-top: 1.1em solid rgba(40, 40, 40, 0.2);
       border-right: 1.1em solid rgba(40, 40, 40, 0.2);
       border-bottom: 1.1em solid rgba(40, 40, 40, 0.2);
       border-left: 1.1em solid #ffffff;
       transform: translateZ(0);
-      animation: respec-spin 1.1s infinite linear;
+      animation: respec-spin .5s infinite linear;
       box-shadow: none;
     }
     
@@ -302,18 +307,28 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     #respec-pill:hover,
     #respec-pill:focus {
       color: rgb(0, 0, 0);
-      transition: color .2s
+      background-color: rgb(245, 245, 245);
+      transition: color .2s;
     }
     
     #respec-menu {
+      position: absolute;
+      margin: 0;
+      padding: 0;
       font-family: sans-serif;
       background: #fff;
       box-shadow: 1px 1px 8px 0 rgba(100, 100, 100, .5);
       width: 200px;
       display: none;
       text-align: left;
-      margin-top: 5px;
+      margin-top: 32px;
       font-size: .8em;
+    }
+    
+    #respec-menu li {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
     }
     
     .respec-save-button {
@@ -337,18 +352,108 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       outline-style: none;
     }
     
-    #respec-ui button.respec-pill-error {
+    #respec-pill-error {
       background-color: red;
       color: white;
     }
     
-    #respec-ui button.respec-pill-warning {
+    #respec-pill-warning {
       background-color: orange;
       color: white;
     }
     
+    .respec-warning-list,
+    .respec-error-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-family: sans-serif;
+      background-color: rgb(255, 251, 230);
+      font-size: .9em;
+    }
+    
+    .respec-warning-list li,
+    .respec-error-list li {
+      padding: 0.4em 0.7em;
+    }
+    
+    .respec-warning-list li::before {
+      content: "⚠️";
+      padding-right: .5em;
+    }
+    
+    .respec-warning-list li {
+      color: rgb(92, 59, 0);
+      border-bottom: thin solid rgb(255, 245, 194);
+    }
+    
+    .respec-error-list,
+    .respec-error-list li {
+      background-color: rgb(255, 240, 240);
+    }
+    
+    .respec-error-list li::before {
+      content: "💥";
+      padding-right: .5em;
+    }
+    
+    .respec-error-list li {
+      padding: 0.4em 0.7em;
+      color: rgb(92, 59, 0);
+      border-bottom: thin solid rgb(255, 215, 215);
+    }
+    
+    #respec-overlay {
+      display: block;
+      opacity: 0;
+      position: fixed;
+      z-index: 10000;
+      top: 0px;
+      left: 0px;
+      height: 100%;
+      width: 100%;
+      background: #000;
+    }
+    
+    .respec-modal {
+      display: block;
+      position: fixed;
+      opacity: 0;
+      z-index: 11000;
+      margin: auto;
+      top: 10%;
+      background: #fff;
+      border: 5px solid #666;
+      min-width: 20%;
+      width: 85%;
+      padding: 0;
+      max-height: 80%;
+      overflow-y: auto;
+      margin: 0 -.5cm
+    }
+    
+    @media screen and (min-width: 78em) {
+      .respec-modal {
+        width: 64%;
+      }
+    }
+    
+    .respec-modal h3 {
+      margin: 0;
+      padding: .2em;
+      text-align: center;
+      color: black;
+      background: linear-gradient(to bottom, rgba(238, 238, 238, 1) 0%, rgba(238, 238, 238, 1) 50%, rgba(204, 204, 204, 1) 100%);
+      font-size: 1em;
+    }
+    
+    .respec-modal .inside p {
+      padding-left: 1cm;
+    }
+    
     #respec-menu button.respec-option {
       background: white;
+      padding: 0 .2cm;
       border: none;
       width: 100%;
       text-align: left;
@@ -356,7 +461,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       padding: 1.2em 1.2em;
     }
     
-    #respec-menu button.respec-option:hover {
+    #respec-menu button.respec-option:hover,
+    #respec-menu button:focus {
       background-color: #eeeeee;
     }
     
@@ -367,6 +473,22 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     #respec-ui button.respec-option:last-child {
       border: none;
       border-radius: inherit;
+    }
+    
+    .respec-offending-element {
+      display: inline-block;
+      position: relative;
+      background: url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x;
+    }
+    
+    #issue-summary>ul,
+    .respec-dfn-list {
+      column-count: 2;
+    }
+    
+    #issue-summary li,
+    .respec-dfn-list li {
+      list-style: none;
     }
     
     @media print {
@@ -380,17 +502,17 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 
   <link rel="webmention" href="https://webmention.io/w3c/webmention">
-  <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/W3C-WD">
   <!--[if lt IE 9]><script src='https://www.w3.org/2008/site/js/html5shiv.js'></script><![endif]-->
+  <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/W3C-WD">
   <link rel="canonical" href="https://www.w3.org/TR/post-type-discovery/">
-  <meta name="generator" content="ReSpec 6.0.0">
+  <meta name="generator" content="ReSpec 10.5.3">
   <script id="initialUserConfig" type="application/json">
     {
       "license": "w3c-software-doc",
       "specStatus": "WD",
-      "publishDate": "2016-10-28",
-      "previousMaturity": "FPWD",
-      "previousPublishDate": "2016-07-28",
+      "publishDate": "2017-03-01",
+      "previousMaturity": "WD",
+      "previousPublishDate": "2016-10-28",
       "shortName": "post-type-discovery",
       "edDraftURI": "https://tantek.github.io/post-type-discovery/",
       "editors": [
@@ -400,7 +522,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
         "w3cid": "1464"
       }],
       "wg": "Social Web Working Group",
-      "wgURI": "http://www.w3.org/Social/WG",
+      "wgURI": "https://www.w3.org/Social/WG",
       "wgPublicList": "public-socialweb",
       "wgPatentURI": "https://www.w3.org/2004/01/pp-impl/72531/status",
       "otherLinks": [
@@ -505,22 +627,22 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     }
   </script>
 </head>
-<body class="h-entry toc-inline" role="document" id="respecDocument">
+<body aria-busy="false" class="h-entry" role="document" id="respecDocument">
   <div class="head" role="contentinfo" id="respecHeader">
     <p>
       <a class="logo" href="https://www.w3.org/"><img src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" alt="W3C" height="48" width="72"></a>
     </p>
     <h1 class="title p-name" id="title" property="dcterms:title">Post Type Discovery</h1>
-    <h2 id="w3c-working-draft-28-october-2016"><abbr title="World Wide Web Consortium">W3C</abbr> Working Draft <time property="dcterms:issued" class="dt-published" datetime="2016-10-28">28 October 2016</time></h2>
+    <h2 id="w3c-working-draft-01-march-2017"><abbr title="World Wide Web Consortium">W3C</abbr> Working Draft <time property="dcterms:issued" class="dt-published" datetime="2017-03-01">01 March 2017</time></h2>
     <dl>
       <dt>This version:</dt>
-      <dd><a class="u-url" href="https://www.w3.org/TR/2016/WD-post-type-discovery-20161028/">https://www.w3.org/TR/2016/WD-post-type-discovery-20161028/</a></dd>
+      <dd><a class="u-url" href="https://www.w3.org/TR/2017/WD-post-type-discovery-20170301/">https://www.w3.org/TR/2017/WD-post-type-discovery-20170301/</a></dd>
       <dt>Latest published version:</dt>
       <dd><a href="https://www.w3.org/TR/post-type-discovery/">https://www.w3.org/TR/post-type-discovery/</a></dd>
       <dt>Latest editor's draft:</dt>
       <dd><a href="https://tantek.github.io/post-type-discovery/">https://tantek.github.io/post-type-discovery/</a></dd>
       <dt>Previous version:</dt>
-      <dd><a rel="dcterms:replaces" href="https://www.w3.org/TR/2016/WD-post-type-discovery-20160728/">https://www.w3.org/TR/2016/WD-post-type-discovery-20160728/</a></dd>
+      <dd><a rel="dcterms:replaces" href="https://www.w3.org/TR/2016/WD-post-type-discovery-20161028/">https://www.w3.org/TR/2016/WD-post-type-discovery-20161028/</a></dd>
       <dt>Editor:</dt>
       <dd class="p-author h-card vcard" property="bibo:editor" resource="_:editor0" data-editor-id="1464"><span property="rdf:first" typeof="foaf:Person"><meta property="foaf:name" content="Tantek Çelik"><a class="u-url url p-name fn" property="foaf:homepage" href="http://tantek.com/">Tantek Çelik</a></span>
         <span property="rdf:rest" resource="rdf:nil"></span>
@@ -544,7 +666,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       </dd>
     </dl>
     <p class="copyright">
-      <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2016
+      <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2017
 
       <a href="https://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
       <a href="https://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
@@ -559,7 +681,9 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   <section id="abstract" class="introductory" property="dc:abstract">
     <h2 id="h-abstract" resource="#h-abstract"><span property="xhv:role" resource="xhv:heading">Abstract</span></h2>
     <p>
-      Post Type Discovery specifies an algorithm for determining the type of a post by what properties it has and potentially what value(s) they have, which helps avoid the need for explicit post types that are being abandoned by modern post creation UIs.
+      Post Type Discovery specifies an algorithm for determining the type of a post (related issue:
+      <a href="https://github.com/tantek/post-type-discovery/issues/9">
+          #9: Use AS2 specific language for post types</a>) by what properties it has and potentially what value(s) they have, which helps avoid the need for explicit post types that are being abandoned by modern post creation UIs.
     </p>
   </section>
 
@@ -569,13 +693,13 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       <em>This section describes the status of this document at the time of its publication. Other documents may supersede this document. A list of current <abbr title="World Wide Web Consortium">W3C</abbr> publications and the latest revision of this technical report can be found in the <a href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> technical reports index</a> at https://www.w3.org/TR/.</em>
     </p>
 
-    <p>
-      This is a <abbr title="World Wide Web Consortium">W3C</abbr> specification, derived from the
-      <a href="https://indieweb.org/post-type-discovery">IndieWeb specification</a> of the same name.
+    <p>This specification was contributed to the <abbr title="World Wide Web Consortium">W3C</abbr> from the
+      <a href="https://indieweb.org/">IndieWeb</a> community and is one of several related specifications being produced by the Social Web Working Group. More history and evolution of Post Type Discovery can be found on the
+      <a href="https://indieweb.org/post-type-discovery">IndieWeb wiki</a>.
     </p>
 
     <p>
-      This document was published by the <a href="http://www.w3.org/Social/WG">Social Web Working Group</a> as a Working Draft. This document is intended to become a <abbr title="World Wide Web Consortium">W3C</abbr> Recommendation. If you wish to make comments regarding this document, please send them to
+      This document was published by the <a href="https://www.w3.org/Social/WG">Social Web Working Group</a> as a Working Draft. This document is intended to become a <abbr title="World Wide Web Consortium">W3C</abbr> Recommendation. If you wish to make comments regarding this document, please send them to
       <a href="mailto:public-socialweb@w3.org">public-socialweb@w3.org</a> (<a href="mailto:public-socialweb-request@w3.org?subject=subscribe">subscribe</a>,
       <a href="https://lists.w3.org/Archives/Public/public-socialweb/">archives</a>). All comments are welcome.
     </p>
@@ -632,11 +756,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
           <li class="tocline"><a href="#mf2util" class="tocxref"><span class="secno">8.3 </span>mf2util</a></li>
         </ol>
       </li>
-      <li class="tocline"><a href="#change-log" class="tocxref"><span class="secno">A. </span>Change Log</a>
-        <ol class="toc">
-          <li class="tocline"><a href="#substantive-changes-from-28-july-2016-fpwd-to-this-version" class="tocxref"><span class="secno">A.1 </span>Substantive changes from 28 July 2016 FPWD to this version</a></li>
-        </ol>
-      </li>
+      <li class="tocline"><a href="#change-log" class="tocxref"><span class="secno">A. </span>Change Log</a></li>
       <li class="tocline"><a href="#references" class="tocxref"><span class="secno">B. </span>References</a>
         <ol class="toc">
           <li class="tocline"><a href="#normative-references" class="tocxref"><span class="secno">B.1 </span>Normative references</a></li>
@@ -657,7 +777,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       Post type discovery is an explicit algorithm for inferring the type of a post from other properties of that post.
     </p>
     <p>
-      Inferring the type of a post helps provide a bridge between systems without explicit post types (e.g. [<cite><a class="bibref" href="#bib-micropub">micropub</a></cite>], jf2) to systems with explicit post types (e.g. [<cite><a class="bibref" href="#bib-ActivityPub">ActivityPub</a></cite>], [<cite><a class="bibref" href="#bib-AS2">AS2</a></cite>]).
+      Inferring the type of a post helps provide a bridge between systems without explicit post types (e.g. [<cite><a class="bibref" href="#bib-h-entry">h-entry</a></cite>], [<cite><a class="bibref" href="#bib-jf2">jf2</a></cite>], [<cite><a class="bibref" href="#bib-micropub">micropub</a></cite>]) to systems with explicit post types (e.g. [<cite><a class="bibref" href="#bib-ActivityPub">ActivityPub</a></cite>], [<cite><a class="bibref" href="#bib-AS2">AS2</a></cite>]). For more details on those specifications see references, and for how they relate, see the overview document [<cite><a class="bibref" href="#bib-social-web-protocols">social-web-protocols</a></cite>]. Post type discovery can apply to any post data structure independent of serialization (e.g. HTML, JSON, etc.)
     </p>
 
     <section id="usecases" class="informative" typeof="bibo:Chapter" resource="#usecases" property="bibo:hasPart">
@@ -698,8 +818,6 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       <cite><a class="bibref" href="#bib-microformats2-parsing">microformats2-parsing</a></cite>]), each with one or more values, by following these steps until reaching the first "it is a(n) ... post" statement at which point the "..." is the discovered post type.
     </p>
 
-    <p>
-    </p>
     <ul>
       <li>If the post has an "rsvp" property with a valid value (one of "yes", "no", "maybe", "interested"),
         <br>Then it is an RSVP post.</li>
@@ -727,11 +845,9 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       <li>Do the same with the content</li>
       <li>If this processed "name" property value is NOT a prefix of the processed content,
         <br>Then it is an article post.</li>
-      <li>It is a note post.</li>
+      <li>Else it is a note post.</li>
 
     </ul>
-
-    <p></p>
 
     <p>
       Quoted property names in the algorithm are defined in [<cite><a class="bibref" href="#bib-h-entry">h-entry</a></cite>].
@@ -774,8 +890,6 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       Other types are being considered and will be included in the future iterations of the algorithm based on convergence of publishing patterns and critical mass of adoption thereof.
     </p>
 
-    <p>
-    </p>
     <ul>
       <li><a href="http://indiewebcamp.com/delete">delete</a>
       </li>
@@ -796,8 +910,6 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       <li><a href="http://indiewebcamp.com/tag-of">tag-of</a>
       </li>
     </ul>
-
-    <p></p>
   </section>
 
   <section id="examples" class="informative" typeof="bibo:Chapter" resource="#examples" property="bibo:hasPart">
@@ -813,7 +925,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
         Here is an example [<cite><a class="bibref" href="#bib-h-entry">h-entry</a></cite>] post from
         <a href="http://www.w3.org/TR/activitystreams-vocabulary/#dfn-like">Activity Streams 2.0 Vocabulary examples</a> [<cite><a class="bibref" href="#bib-AS2-vocab">AS2-vocab</a></cite>]:
       </p>
-      <pre class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"h-entry p-name"</span>&gt;</span>
+      <pre aria-busy="false" aria-live="polite" class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"h-entry p-name"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"p-author h-card"</span>&gt;</span>Sally<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
   liked
   <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"u-like-of"</span>
@@ -830,13 +942,13 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       <p>
         Given this semantic, an implementation can generate (or process as if generated and consumed) the following AS2 JSON, in particular the <code>"@type": "Like"</code> in this output is what is determined by this algorithm:
       </p>
-      <pre class="hljs xquery">{
-  <span class="hljs-string">"@type"</span>: <span class="hljs-string">"Like"</span>,
-  <span class="hljs-string">"actor"</span>: {
-    <span class="hljs-string">"@type"</span>: <span class="hljs-string">"Person"</span>,
-    <span class="hljs-string">"displayName"</span>: <span class="hljs-string">"Sally"</span>
+      <pre aria-busy="false" aria-live="polite" class="hljs json">{
+  <span class="hljs-attr">"@type"</span>: <span class="hljs-string">"Like"</span>,
+  <span class="hljs-attr">"actor"</span>: {
+    <span class="hljs-attr">"@type"</span>: <span class="hljs-string">"Person"</span>,
+    <span class="hljs-attr">"displayName"</span>: <span class="hljs-string">"Sally"</span>
   },
-  <span class="hljs-string">"object"</span>: <span class="hljs-string">"http://example.org/notes/1"</span>
+  <span class="hljs-attr">"object"</span>: <span class="hljs-string">"http://example.org/notes/1"</span>
 } </pre>
     </section>
   </section>
@@ -898,14 +1010,11 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
         <a href="https://github.com/snarfed/granary/">Granary</a> synthesizes ActivityStreams [<cite><a class="bibref" href="#bib-AS1">AS1</a></cite>], [
         <cite><a class="bibref" href="#bib-microformats2">microformats2</a></cite>], and Atom [<cite><a class="bibref" href="#bib-RFC4287">RFC4287</a></cite>] from various input feeds and sources, and as such has some code that can be considered in progress or even a partial implementation of Post Type Discovery:
       </p>
-      <p>
-      </p>
       <ul>
         <li>Live public demo site: https://granary-demo.appspot.com/ </li>
         <li>Issue(s) related to implementing Post Type Discovery:
           <a href="https://github.com/snarfed/granary/issues/41">#41</a></li>
       </ul>
-      <p></p>
     </section>
 
     <section id="p3k" typeof="bibo:Chapter" resource="#p3k" property="bibo:hasPart">
@@ -914,12 +1023,9 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       <p>
         <a href="https://indiewebcamp.com/p3k">p3k</a> (a CMS) implements Post Type Discovery internally within its [<cite><a class="bibref" href="#bib-micropub">micropub</a></cite>] endpoint to automatically add posts to various collections. E.g.: if this post is a reply, it goes in the "replies" collection. if it's an RSVP, it goes in the "rsvps" and "replies" collections.
       </p>
-      <p>
-      </p>
       <ul>
         <li>Live example: http://aaronparecki.com/</li>
       </ul>
-      <p></p>
     </section>
 
     <section id="mf2util" typeof="bibo:Chapter" resource="#mf2util" property="bibo:hasPart">
@@ -928,12 +1034,9 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       <p>
         mf2util exposes a function for post_type_discovery that takes an h-entry and returns "like", "reply", "note", "article", etc.
       </p>
-      <p>
-      </p>
       <ul>
         <li>Live demo: https://kylewm.com/services/mf2util</li>
       </ul>
-      <p></p>
     </section>
   </section>
 
@@ -943,14 +1046,15 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     </h2>
     <p><em>This section is non-normative.</em></p>
 
-    <section id="substantive-changes-from-28-july-2016-fpwd-to-this-version" typeof="bibo:Chapter" resource="#substantive-changes-from-28-july-2016-fpwd-to-this-version" property="bibo:hasPart">
-      <h3 id="h-substantive-changes-from-28-july-2016-fpwd-to-this-version" resource="#h-substantive-changes-from-28-july-2016-fpwd-to-this-version"><span property="xhv:role" resource="xhv:heading"><span class="secno">A.1 </span>Substantive changes from 28 July 2016 FPWD to this version</span>
-      </h3>
+    <h2 id="changes-from-28-october-2016-wd-to-this-version">Changes from <a href="https://www.w3.org/TR/post-type-discovery/">28 October 2016 WD</a> to this version</h2>
 
-      <ul>
-        <li>Explicit list of valid rsvp property values</li>
-      </ul>
-    </section>
+    <ul>
+      <li>Explicitly note applies to any post data structure independent of serialization (#13)</li>
+      <li>Reference Social Web Protocols (#16)</li>
+      <li>End algorithm with explicit "Else" (#18)</li>
+      <li>Editorial improvements</li>
+    </ul>
+
   </section>
 
 
@@ -963,9 +1067,9 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       <h3 id="h-normative-references" resource="#h-normative-references"><span property="xhv:role" resource="xhv:heading"><span class="secno">B.1 </span>Normative references</span>
       </h3>
       <dl class="bibliography" resource=""><dt id="bib-RFC2119">[RFC2119]</dt>
-        <dd>S. Bradner. IETF. <a href="https://tools.ietf.org/html/rfc2119" property="dc:requires"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119" property="dc:requires">https://tools.ietf.org/html/rfc2119</a>
+        <dd><a href="https://tools.ietf.org/html/rfc2119" property="dc:requires"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner. IETF. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119" property="dc:requires">https://tools.ietf.org/html/rfc2119</a>
         </dd><dt id="bib-h-entry">[h-entry]</dt>
-        <dd>Tantek Çelik. http://microformats.org. <a href="http://microformats.org/wiki/h-entry" property="dc:requires"><cite>h-entry</cite></a>. Living Specification. URL: <a href="http://microformats.org/wiki/h-entry" property="dc:requires">http://microformats.org/wiki/h-entry</a>
+        <dd><a href="http://microformats.org/wiki/h-entry" property="dc:requires"><cite>h-entry</cite></a>. Tantek Çelik. http://microformats.org. Living Specification. URL: <a href="http://microformats.org/wiki/h-entry" property="dc:requires">http://microformats.org/wiki/h-entry</a>
         </dd>
       </dl>
     </section>
@@ -974,21 +1078,25 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       <h3 id="h-informative-references" resource="#h-informative-references"><span property="xhv:role" resource="xhv:heading"><span class="secno">B.2 </span>Informative references</span>
       </h3>
       <dl class="bibliography" resource=""><dt id="bib-AS1">[AS1]</dt>
-        <dd>J. Snell; M. Atkins; W. Norris; C. Messina; M. Wilkinson; R. Dolin. http://activitystrea.ms. <a href="http://activitystrea.ms/specs/json/1.0/" property="dc:references"><cite>JSON Activity Streams 1.0</cite></a>. unofficial. URL: <a href="http://activitystrea.ms/specs/json/1.0/" property="dc:references">http://activitystrea.ms/specs/json/1.0/</a>
+        <dd><a href="http://activitystrea.ms/specs/json/1.0/" property="dc:references"><cite>JSON Activity Streams 1.0</cite></a>. J. Snell; M. Atkins; W. Norris; C. Messina; M. Wilkinson; R. Dolin. http://activitystrea.ms. unofficial. URL: <a href="http://activitystrea.ms/specs/json/1.0/" property="dc:references">http://activitystrea.ms/specs/json/1.0/</a>
         </dd><dt id="bib-AS2">[AS2]</dt>
-        <dd>J. Snell; E. Prodromou. https://www.w3.org/. <a href="https://www.w3.org/TR/activitystreams-core/" property="dc:references"><cite>Activity Streams 2.0</cite></a>. Candidate Recommendation. URL: <a href="https://www.w3.org/TR/activitystreams-core/" property="dc:references">https://www.w3.org/TR/activitystreams-core/</a>
+        <dd><a href="https://www.w3.org/TR/activitystreams-core/" property="dc:references"><cite>Activity Streams 2.0</cite></a>. J. Snell; E. Prodromou. https://www.w3.org/. Candidate Recommendation. URL: <a href="https://www.w3.org/TR/activitystreams-core/" property="dc:references">https://www.w3.org/TR/activitystreams-core/</a>
         </dd><dt id="bib-AS2-vocab">[AS2-vocab]</dt>
-        <dd>J. Snell; E. Prodromou. https://www.w3.org/. <a href="http://www.w3.org/TR/activitystreams-vocabulary" property="dc:references"><cite>Activity Vocabulary</cite></a>. Candidate Recommendation. URL: <a href="http://www.w3.org/TR/activitystreams-vocabulary" property="dc:references">http://www.w3.org/TR/activitystreams-vocabulary</a>
+        <dd><a href="http://www.w3.org/TR/activitystreams-vocabulary" property="dc:references"><cite>Activity Vocabulary</cite></a>. J. Snell; E. Prodromou. https://www.w3.org/. Candidate Recommendation. URL: <a href="http://www.w3.org/TR/activitystreams-vocabulary" property="dc:references">http://www.w3.org/TR/activitystreams-vocabulary</a>
         </dd><dt id="bib-ActivityPub">[ActivityPub]</dt>
-        <dd>Christopher Webber; Jessica Tallon; Owen Shepherd. W3C. <a href="https://www.w3.org/TR/activitypub/" property="dc:references"><cite>ActivityPub</cite></a>. 4 October 2016. W3C Working Draft. URL: <a href="https://www.w3.org/TR/activitypub/" property="dc:references">https://www.w3.org/TR/activitypub/</a>
+        <dd><a href="https://www.w3.org/TR/activitypub/" property="dc:references"><cite>ActivityPub</cite></a>. Christopher Webber; Jessica Tallon. W3C. 17 November 2016. W3C Candidate Recommendation. URL: <a href="https://www.w3.org/TR/activitypub/" property="dc:references">https://www.w3.org/TR/activitypub/</a>
         </dd><dt id="bib-RFC4287">[RFC4287]</dt>
-        <dd>M. Nottingham, Ed.; R. Sayre, Ed.. IETF. <a href="https://tools.ietf.org/html/rfc4287" property="dc:references"><cite>The Atom Syndication Format</cite></a>. December 2005. Proposed Standard. URL: <a href="https://tools.ietf.org/html/rfc4287" property="dc:references">https://tools.ietf.org/html/rfc4287</a>
+        <dd><a href="https://tools.ietf.org/html/rfc4287" property="dc:references"><cite>The Atom Syndication Format</cite></a>. M. Nottingham, Ed.; R. Sayre, Ed.. IETF. December 2005. Proposed Standard. URL: <a href="https://tools.ietf.org/html/rfc4287" property="dc:references">https://tools.ietf.org/html/rfc4287</a>
+        </dd><dt id="bib-jf2">[jf2]</dt>
+        <dd><a href="https://www.w3.org/TR/jf2/" property="dc:references"><cite>JF2 Post Serialization Format</cite></a>. Benjamin Roberts; Kevin Marks. W3C. 28 July 2016. W3C Working Draft. URL: <a href="https://www.w3.org/TR/jf2/" property="dc:references">https://www.w3.org/TR/jf2/</a>
         </dd><dt id="bib-microformats2">[microformats2]</dt>
-        <dd>Tantek Çelik. http://microformats.org. <a href="http://microformats.org/wiki/microformats2" property="dc:references"><cite>Microformats2</cite></a>. Living Specification. URL: <a href="http://microformats.org/wiki/microformats2" property="dc:references">http://microformats.org/wiki/microformats2</a>
+        <dd><a href="http://microformats.org/wiki/microformats2" property="dc:references"><cite>Microformats2</cite></a>. Tantek Çelik. http://microformats.org. Living Specification. URL: <a href="http://microformats.org/wiki/microformats2" property="dc:references">http://microformats.org/wiki/microformats2</a>
         </dd><dt id="bib-microformats2-parsing">[microformats2-parsing]</dt>
-        <dd>Tantek Çelik. http://microformats.org. <a href="http://microformats.org/wiki/microformats2-parsing" property="dc:references"><cite>Microformats2 Parsing</cite></a>. Living Specification. URL: <a href="http://microformats.org/wiki/microformats2-parsing" property="dc:references">http://microformats.org/wiki/microformats2-parsing</a>
+        <dd><a href="http://microformats.org/wiki/microformats2-parsing" property="dc:references"><cite>Microformats2 Parsing</cite></a>. Tantek Çelik. http://microformats.org. Living Specification. URL: <a href="http://microformats.org/wiki/microformats2-parsing" property="dc:references">http://microformats.org/wiki/microformats2-parsing</a>
         </dd><dt id="bib-micropub">[micropub]</dt>
-        <dd>Aaron Parecki. W3C. <a href="https://www.w3.org/TR/micropub/" property="dc:references"><cite>Micropub</cite></a>. 18 October 2016. W3C Candidate Recommendation. URL: <a href="https://www.w3.org/TR/micropub/" property="dc:references">https://www.w3.org/TR/micropub/</a>
+        <dd><a href="https://www.w3.org/TR/micropub/" property="dc:references"><cite>Micropub</cite></a>. Aaron Parecki. W3C. 18 October 2016. W3C Candidate Recommendation. URL: <a href="https://www.w3.org/TR/micropub/" property="dc:references">https://www.w3.org/TR/micropub/</a>
+        </dd><dt id="bib-social-web-protocols">[social-web-protocols]</dt>
+        <dd><a href="https://www.w3.org/TR/social-web-protocols/" property="dc:references"><cite>Social Web Protocols</cite></a>. Amy Guy. W3C. 2 November 2016. W3C Working Draft. URL: <a href="https://www.w3.org/TR/social-web-protocols/" property="dc:references">https://www.w3.org/TR/social-web-protocols/</a>
         </dd>
       </dl>
     </section>
