@@ -9,9 +9,9 @@
       var respecConfig = {
         license: "w3c-software-doc",
         specStatus: "WD",
-        publishDate: "2016-10-28",
-        previousMaturity: "FPWD",
-        previousPublishDate: "2016-07-28",
+        publishDate: "2017-03-01",
+        previousMaturity: "WD",
+        previousPublishDate: "2016-10-28", 
         shortName:  "post-type-discovery",
         edDraftURI: "https://tantek.github.io/post-type-discovery/",
         editors: [
@@ -20,7 +20,7 @@
                   w3cid:      "1464" },
         ],
         wg:           "Social Web Working Group",
-        wgURI:        "http://www.w3.org/Social/WG",
+        wgURI:        "https://www.w3.org/Social/WG",
         wgPublicList: "public-socialweb",
         wgPatentURI:  "https://www.w3.org/2004/01/pp-impl/72531/status",
         license: "w3c-software-doc",
@@ -117,6 +117,9 @@
     <section id='abstract'>
       <p>
         Post Type Discovery specifies an algorithm for determining the type of a post
+        (related issue: 
+        <a href="https://github.com/tantek/post-type-discovery/issues/9">
+          #9: Use AS2 specific language for post types</a>)
         by what properties it has and potentially what value(s) they have, which helps 
         avoid the need for explicit post types that are being abandoned by modern post 
         creation UIs. 
@@ -124,10 +127,11 @@
     </section>
 
     <section id='sotd'>
-      <p>
-        This is a W3C specification, derived from the 
-        <a href="https://indieweb.org/post-type-discovery">IndieWeb specification</a> 
-        of the same name. 
+      <p>This specification was contributed to the W3C from the
+         <a href="https://indieweb.org/">IndieWeb</a> community
+        and is one of several related specifications being produced by the Social Web Working Group.
+        More history and evolution of Post Type Discovery can be found on the
+         <a href="https://indieweb.org/post-type-discovery">IndieWeb wiki</a>.
       </p>
     </section>
     
@@ -138,7 +142,9 @@
       </p>
       <p>
       Inferring the type of a post helps provide a bridge between systems without explicit post types 
-      (e.g. [[micropub]], jf2) to systems with explicit post types (e.g. [[ActivityPub]], [[AS2]]).
+      (e.g. [[h-entry]], [[jf2]], [[micropub]]) to systems with explicit post types (e.g. [[ActivityPub]], [[AS2]]).
+      For more details on those specifications see references, and for how they relate, see the overview document [[social-web-protocols]].
+      Post type discovery can apply to any post data structure independent of serialization (e.g. HTML, JSON, etc.)
       </p>
       
       <section id='usecases' class='informative'>
@@ -171,7 +177,7 @@
       "SHALL", "SHALL NOT", "SHOULD", and "SHOULD NOT" are to be interpreted as described in 
       [[!RFC2119]].</p>
     </section>
-    <section id='algorithm' >
+    <section id='algorithm'>
       <h2>Algorithm</h2>
       <p>
         The Post Type Discovery algorithm ("the algorithm") discovers the type of a 
@@ -182,7 +188,6 @@
         "..." is the discovered post type.
       </p>
 
-      <p>
         <ul>
           <li>If the post has an "rsvp" property with a valid value (one of "yes", "no", "maybe", "interested"), 
             <br>Then it is an RSVP post.</li>
@@ -210,11 +215,9 @@
           <li>Do the same with the content</li>
           <li>If this processed "name" property value is NOT a prefix of the processed content, 
             <br>Then it is an article post.</li>
-          <li>It is a note post.</li>
+          <li>Else it is a note post.</li>
 
         </ul>
-
-      </p>
 
       <p>
         Quoted property names in the algorithm are defined in [[!h-entry]].
@@ -265,7 +268,6 @@
         of adoption thereof.
       </p>
 
-      <p>
         <ul>
           <li><a href="http://indiewebcamp.com/delete">delete</a>
           <li><a href="http://indiewebcamp.com/event">event</a>
@@ -277,8 +279,6 @@
           <li><a href="http://indiewebcamp.com/invitation">invitation</a>
           <li><a href="http://indiewebcamp.com/tag-of">tag-of</a>
         </ul>
-
-      </p>
     </section>
     <section id='examples' class='informative'>
       <h2>Examples</h2>
@@ -379,13 +379,11 @@
           as such has some code that can be considered in progress or even a partial 
           implementation of Post Type Discovery:
         </p>
-        <p>
-          <ul>
+        <ul>
             <li>Live public demo site: https://granary-demo.appspot.com/ </li>
             <li>Issue(s) related to implementing Post Type Discovery: 
               <a href="https://github.com/snarfed/granary/issues/41">#41</a></li>
-          </ul>
-        </p>
+        </ul>
       </section>
 
       <section id="p3k">
@@ -397,11 +395,9 @@
           "replies" collection. if it's an RSVP, it goes in the "rsvps" and "replies" 
           collections.
         </p>
-        <p>
-          <ul>
+        <ul>
             <li>Live example: http://aaronparecki.com/</li>
-          </ul>
-        </p>
+        </ul>
       </section>
        <section id="mf2util">
         <h3>mf2util</h3>
@@ -409,23 +405,23 @@
           mf2util exposes a function for post_type_discovery that takes an h-entry and 
           returns "like", "reply", "note", "article", etc.
         </p>
-        <p>
-          <ul>
+        <ul>
             <li>Live demo: https://kylewm.com/services/mf2util</li>
-          </ul>
-        </p>
+        </ul>
       </section>
     </section>
     <section class="appendix informative">
       <h2>Change Log</h2>
 
-      <section>
-        <h3>Substantive changes from 28 July 2016 FPWD to this version</h3>
+      <h3>Changes from <a href="https://www.w3.org/TR/post-type-discovery/">28 October 2016 WD</a> to this version</h3>
 
-        <ul>
-          <li>Explicit list of valid rsvp property values</li>
-        </ul>
-      </section>
+      <ul>
+        <li>Explicitly note applies to any post data structure independent of serialization (#13)</li>
+        <li>Reference Social Web Protocols (#16)</li>
+        <li>End algorithm with explicit "Else" (#18)</li>
+        <li>Editorial improvements</li>
+      </ul>
+
     </section>
   </body>
 </html>
