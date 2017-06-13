@@ -174,10 +174,33 @@
       "SHALL", "SHALL NOT", "SHOULD", and "SHOULD NOT" are to be interpreted as described in 
       [[!RFC2119]].</p>
     </section>
-    <section id='algorithm'>
-      <h2>Algorithm</h2>
+    <section id='response-algorithm'>
+      <h2>Response Type Algorithm</h2>
       <p>
-        The Post Type Discovery algorithm ("the algorithm") discovers the type of a 
+        The Response Type Algorithm ("the response algorithm") is for specifically discovering the type of a response, 
+        in particular as a result of receiving a [[!Webmention]], by analyzing the "source" from the Webmention, 
+        called the "response" in the response algorithm.
+        It is a proper subset of the general Post Type Algorithm (defined below).
+      </p>
+      <ul>
+          <li>If the response has an "rsvp" property with a valid value (one of "yes", "no", "maybe", "interested"), 
+            <br>Then it is an RSVP.</li>
+          <li>If the response has an "in-reply-to" property with a valid URL, 
+            <br>Then it is a reply (AKA comment).</li>
+          <li>If the response has a "repost-of" property with a valid URL, 
+            <br>Then it is a repost (AKA share).</li>
+          <li>If the response has a "like-of" property with a valid URL, 
+            <br>Then it is a like (AKA favorite).</li>
+          <li>Else it is a mention.</li>
+         </ul>
+      <p>
+        Quoted property names in the response algorithm are defined in [[!h-entry]].
+      </p>   
+
+    <section id='algorithm'>
+      <h2>Post Type Algorithm</h2>
+      <p>
+        The Post Type Algorithm ("the algorithm") discovers the type of a 
         post given a data structure representing a post with a flat set of properties 
         (e.g. Activity Streams (1.0 or 2.0) JSON, or JSON output from 
         [[microformats2-parsing]]), each with one or more values, by following these steps 
@@ -266,15 +289,15 @@
       </p>
 
         <ul>
-          <li><a href="http://indiewebcamp.com/delete">delete</a>
-          <li><a href="http://indiewebcamp.com/event">event</a>
-          <li><a href="http://indiewebcamp.com/checkin">checkin</a>
-          <li><a href="http://indiewebcamp.com/bookmark">bookmark</a>
-          <li><a href="http://indiewebcamp.com/quotation">quotation</a>
-          <li><a href="http://indiewebcamp.com/audio">audio</a>
-          <li><a href="http://indiewebcamp.com/jam">jam</a>
-          <li><a href="http://indiewebcamp.com/invitation">invitation</a>
-          <li><a href="http://indiewebcamp.com/tag-of">tag-of</a>
+          <li><a href="https://indieweb.org/delete">delete</a>
+          <li><a href="https://indieweb.org/event">event</a>
+          <li><a href="https://indieweb.org/checkin">checkin</a>
+          <li><a href="https://indieweb.org/bookmark">bookmark</a>
+          <li><a href="https://indieweb.org/quotation">quotation</a>
+          <li><a href="https://indieweb.org/audio">audio</a>
+          <li><a href="https://indieweb.org/jam">jam</a>
+          <li><a href="https://indieweb.org/invitation">invitation</a>
+          <li><a href="https://indieweb.org/tag-of">tag-of</a>
         </ul>
     </section>
     <section id='examples' class='informative'>
@@ -298,7 +321,7 @@
         <p>
           Following the algorithm, the step "If the post has a "like-of" property with 
           a valid URL" is satisfied and thus the algorithm returns that the post is a 
-          "<a href="http://indiewebcamp.com/like">like</a>" post.
+          "<a href="https://indieweb.org/like">like</a>" post.
         </p>
 
         <p>
@@ -386,7 +409,7 @@
       <section id="p3k">
         <h3>p3k</h3>
         <p>
-          <a href="https://indiewebcamp.com/p3k">p3k</a> (a CMS) implements Post Type 
+          <a href="https://indieweb.org/p3k">p3k</a> (a CMS) implements Post Type 
           Discovery internally within its [[micropub]] endpoint to automatically add 
           posts to various collections. E.g.: if this post is a reply, it goes in the 
           "replies" collection. if it's an RSVP, it goes in the "rsvps" and "replies" 
@@ -410,7 +433,15 @@
     <section class="appendix informative">
       <h2>Change Log</h2>
 
-      <h3>Changes from <a href="https://www.w3.org/TR/post-type-discovery/">28 October 2016 WD</a> to this version</h3>
+      <h3>Changes from <a href="https://www.w3.org/TR/2017/WD-post-type-discovery-20170301/">1 March 2017 WD</a> to this version</h3>
+
+      <ul>
+        <li>Added new section Response Type Algorithm (#14)</li>
+        <li>Editorial improvements</li>
+      </ul>
+      
+      <h3>Changes from <a href="https://www.w3.org/TR/2016/WD-post-type-discovery-20161028/">28 October 2016 WD</a> to 
+        <a href="https://www.w3.org/TR/2017/WD-post-type-discovery-20170301/">1 March 2017 WD</a></h3>
 
       <ul>
         <li>Explicitly note applies to any post data structure independent of serialization (#13)</li>
