@@ -8,5 +8,6 @@ View staged working draft: https://tantek.github.io/post-type-discovery/index-wd
 
 The "Post Type Discovery" specification was developed on the IndieWebCamp wiki:
 * https://indiewebcamp.com/post-type-discovery
- * copy on w3.org: https://www.w3.org/wiki/Post-type-discovery
+
+Latest published draft on w3.org TR: https://www.w3.org/TR/post-type-discovery
 
