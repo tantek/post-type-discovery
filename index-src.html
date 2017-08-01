@@ -185,12 +185,12 @@
       <ul>
           <li>If the response has an "rsvp" property with a valid value (one of "yes", "no", "maybe", "interested"), 
             <br>Then it is an RSVP.</li>
-          <li>If the response has an "in-reply-to" property with a valid URL, 
-            <br>Then it is a reply (AKA comment).</li>
           <li>If the response has a "repost-of" property with a valid URL, 
             <br>Then it is a repost (AKA share).</li>
           <li>If the response has a "like-of" property with a valid URL, 
             <br>Then it is a like (AKA favorite).</li>
+          <li>If the response has an "in-reply-to" property with a valid URL, 
+            <br>Then it is a reply (AKA comment).</li>
           <li>Else it is a mention.</li>
          </ul>
       <p>
@@ -211,12 +211,12 @@
         <ul>
           <li>If the post has an "rsvp" property with a valid value (one of "yes", "no", "maybe", "interested"), 
             <br>Then it is an RSVP post.</li>
-          <li>If the post has an "in-reply-to" property with a valid URL, 
-            <br>Then it is a reply post.</li>
           <li>If the post has a "repost-of" property with a valid URL, 
             <br>Then it is a repost (AKA "share") post.</li>
           <li>If the post has a "like-of" property with a valid URL, 
             <br>Then it is a like (AKA "favorite") post.</li>
+          <li>If the post has an "in-reply-to" property with a valid URL, 
+            <br>Then it is a reply post.</li>
           <li>If the post has a "video" property with a valid URL, 
             <br>Then it is a video post. </li>
           <li>If the post has a "photo" property with a valid URL, 
@@ -435,10 +435,18 @@
     <section class="appendix informative">
       <h2>Change Log</h2>
 
-      <h3>Changes from <a href="https://www.w3.org/TR/2017/WD-post-type-discovery-20170301/">1 March 2017 WD</a> to this version</h3>
+      <h3>Changes from <a href="https://www.w3.org/TR/2017/WD-post-type-discovery-20170614/">14 June 2017 WD</a> to this version</h3>
+      <ul>
+        <li>Response Type: move "reply" to last explicitly recognized response type to enable p-summary fallback use-cases 
+          (<a href="https://github.com/tantek/post-type-discovery/issues/25">#25</a>)</li>
+      </ul>
+
+      <h3>Changes from <a href="https://www.w3.org/TR/2017/WD-post-type-discovery-20170301/">1 March 2017 WD</a> to 
+        <a href="https://www.w3.org/TR/2017/WD-post-type-discovery-20170614/">14 June 2017 WD</a></h3>
 
       <ul>
-        <li>Added new section Response Type Algorithm (#24)</li>
+        <li>Added new section Response Type Algorithm 
+          (<a href="https://github.com/tantek/post-type-discovery/issues/24">#24</a>)</li>
         <li>Editorial improvements</li>
       </ul>
       
@@ -446,9 +454,12 @@
         <a href="https://www.w3.org/TR/2017/WD-post-type-discovery-20170301/">1 March 2017 WD</a></h3>
 
       <ul>
-        <li>Explicitly note applies to any post data structure independent of serialization (#13)</li>
-        <li>Reference Social Web Protocols (#16)</li>
-        <li>End algorithm with explicit "Else" (#18)</li>
+        <li>Explicitly note applies to any post data structure independent of serialization 
+          (<a href="https://github.com/tantek/post-type-discovery/issues/13">#13</a>)</li>
+        <li>Reference Social Web Protocols 
+          (<a href="https://github.com/tantek/post-type-discovery/issues/16">#16</a>)</li>
+        <li>End algorithm with explicit "Else" 
+          (<a href="https://github.com/tantek/post-type-discovery/issues/18">#18</a>)</li>
         <li>Editorial improvements</li>
       </ul>
 
