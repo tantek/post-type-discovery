@@ -11,3 +11,26 @@ The "Post Type Discovery" specification was developed on the IndieWebCamp wiki:
 
 Latest published draft on w3.org TR: https://www.w3.org/TR/post-type-discovery
 
+----
+
+Editing workflow:
+* File issues for improvements and non-trivial fixes 
+* Update index-src.html with editorial changes and issue resolutions
+* View https://tantek.github.io/post-type-discovery/index-src.html
+* Choose Save as HTML from the Respec menu, open in browser, view source, select all / copy / commit into index.html
+
+WD Publishing workflow:
+* Edit index-src.html and copy & paste it in its entirety into index-wd-src.html
+* Restore specStatus: "ED", to specStatus: "WD", and add:
+* publishDate: "2017-08-08", (today's date)
+* previousMaturity: "WD",
+* previousPublishDate: "2017-08-01", (previous WD publication date)
+* Commit index-src.html
+* View https://tantek.github.io/post-type-discovery/index-wd-src.html
+* Choose Save as HTML from the Respec menu, open in browser, view source, select all / copy / commit into index-wd.html
+* check Specberus: https://www.w3.org/pubrules/?url=https%3A%2F%2Ftantek.github.io%2Fpost-type-discovery%2Findex-wd.html&profile=WD-Echidna&validation=simple-validation&noRecTrack=false&informativeOnly=false&echidnaReady=true&patentPolicy=pp2004
+* Go https://pin13.net/echidna/
+* Spec URL: https://tantek.github.io/post-type-discovery/index-wd.html
+* Decision URL: (get from minutes, with fragment to resolution)
+* Token: (get from private copy)
+* check Status accordingly
