@@ -34,3 +34,11 @@ WD Publishing workflow:
 * Decision URL: (get from minutes, with fragment to resolution)
 * Token: (get from private copy)
 * check Status accordingly
+
+
+Other to do:
+* Read https://github.com/tabatkins/bikeshed
+* Document step-by-step how to convert a respec document to bikeshed
+* Note any difficulties / challenges encountered
+* Note improvements (or worsenings) in workflow as a result
+* Note any other advantages / problems
