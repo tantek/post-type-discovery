@@ -167,12 +167,34 @@
     </section>
     <section id='conform'>
       <h2>Conformance</h2>
+      <section id='conformance-keywords'>
+        <h3>Conformance Keywords</h3>
       <p>As well as sections marked as non-normative, all authoring guidelines, diagrams, 
       examples, and notes in this specification are non-normative. 
       Everything else in this specification is normative.</p>
       <p>The key words "MAY", "MUST", "MUST NOT", "OPTIONAL", "RECOMMENDED", "REQUIRED", 
       "SHALL", "SHALL NOT", "SHOULD", and "SHOULD NOT" are to be interpreted as described in 
       [[!RFC2119]].</p>
+      </section>
+      <section id='conformance-classes'>
+        <h3>Conformance Classes</h3>
+        <p>There are many possible ways a Post Type Discovery implementation can be used and tested.
+          This section describes possible conformance classes from existing implementations and use-cases.
+        </p>
+        <h4>Type Discovery Function</h4>
+        <p>A Type Discovery Function consumes untyped posts from an untyped format or protocol,
+          (e.g. the h-entry microformat) and outputs the type output 
+          (e.g. a simple one-word string like "note" or "article")
+          of the algorithm implemented 
+          (either the Response Type Algorithm or the Post Type Algorithm).</p>
+        <h4>AS2 Proxy</h4>
+        <p>An AS2 Proxy consumes untyped posts from an untyped format or protocol, 
+           and outputs valid [[!AS2]] JSON using the equivalent AS2 Activity and/or Object Types.
+          (related issue: 
+          <a href="https://github.com/tantek/post-type-discovery/issues/9">
+          #9: Use AS2 specific language for post types</a>)
+        </p>
+      </section>
     </section>
     <section id='response-algorithm'>
       <h2>Response Type Algorithm</h2>
