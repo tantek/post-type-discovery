@@ -80,6 +80,13 @@
             status: "Living Specification",
             publisher: "http://microformats.org"
           },
+          "h-event": {
+            title: "h-event",
+            href: "http://microformats.org/wiki/h-event",
+            authors: ["Tantek Çelik"],
+            status: "Living Specification",
+            publisher: "http://microformats.org"
+          },
           "microformats2": {
             title: "Microformats2",
             href: "http://microformats.org/wiki/microformats2",
@@ -138,8 +145,8 @@
       Post type discovery is an explicit algorithm for inferring the type of a post from other properties of that post.
       </p>
       <p>
-      Inferring the type of a post helps provide a bridge between systems without explicit post types 
-      (e.g. [[h-entry]], [[jf2]], [[micropub]]) to systems with explicit post types (e.g. [[ActivityPub]], [[AS2]]).
+      Inferring the type of a post helps provide a bridge between formats and protocols without explicit post types 
+      (e.g. [[h-entry]], [[jf2]], [[micropub]]) to those with explicit post types (e.g. [[ActivityPub]], [[AS2]]).
       For more details on those specifications see references, and for how they relate, see the overview document [[social-web-protocols]].
       Post type discovery can apply to any post data structure independent of serialization (e.g. HTML, JSON, etc.)
       </p>
@@ -182,7 +189,7 @@
           This section describes possible conformance classes from existing implementations and use-cases.
         </p>
         <h4>Type Discovery Function</h4>
-        <p>A Type Discovery Function consumes untyped posts from an untyped format or protocol,
+        <p>A Type Discovery Function consumes untyped posts from a possibly untyped format or protocol,
           (e.g. the h-entry microformat) and outputs the type output 
           (e.g. a simple one-word string like "note" or "article")
           of the algorithm implemented 
@@ -223,14 +230,16 @@
       <h2>Post Type Algorithm</h2>
       <p>
         The Post Type Algorithm ("the algorithm") discovers the type of a 
-        post given a data structure representing a post with a flat set of properties 
-        (e.g. Activity Streams (1.0 or 2.0) JSON, or JSON output from 
-        [[microformats2-parsing]]), each with one or more values, by following these steps 
+        post given a data structure representing an item with a flat set of properties 
+        (e.g. JSON output from [[microformats2-parsing]], [[RSS]], [[Atom]]), 
+        each with one or more values, by following these steps 
         until reaching the first "it is a(n) ... post" statement at which point the 
         "..." is the discovered post type.
       </p>
 
         <ul>
+          <li>If the post is an "event" item (may be a [[microformats2]] root class name of [[!h-event]]),
+            <br>Then it is an event.</li>
           <li>If the post has an "rsvp" property with a valid value (one of "yes", "no", "maybe", "interested"), 
             <br>Then it is an RSVP post.</li>
           <li>If the post has a "repost-of" property with a valid URL, 
@@ -303,24 +312,16 @@
     </section>
 
     <section id='othertypes' class='informative'>
-      <h2>Other Types Under Consideration</h2>
+      <h2>Other Types To Consider</h2>
       <p>
-        Other types are being considered and will be included in the future iterations 
-        of the algorithm based on convergence of publishing patterns and critical mass 
+        Other types may be included in future iterations 
+        of the algorithms based on convergence of publishing patterns and critical mass 
         of adoption thereof.
       </p>
-
-        <ul>
-          <li><a href="https://indieweb.org/delete">delete</a>
-          <li><a href="https://indieweb.org/event">event</a>
-          <li><a href="https://indieweb.org/checkin">checkin</a>
-          <li><a href="https://indieweb.org/bookmark">bookmark</a>
-          <li><a href="https://indieweb.org/quotation">quotation</a>
-          <li><a href="https://indieweb.org/audio">audio</a>
-          <li><a href="https://indieweb.org/jam">jam</a>
-          <li><a href="https://indieweb.org/invitation">invitation</a>
-          <li><a href="https://indieweb.org/tag-of">tag-of</a>
-        </ul>
+      <p>
+        See: <a href="https://indieweb.org/posts#Kinds_of_Posts">IndieWeb wiki: Kinds of Posts</a> 
+        for a list of additional possible post types that have growing adoption.
+      </p>
     </section>
     <section id='examples' class='informative'>
       <h2>Examples</h2>
