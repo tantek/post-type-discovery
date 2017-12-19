@@ -168,8 +168,8 @@
         bother discovering a post type in the first place? This section documents the 
         (few) use-case(s) that is/are known to date.
       </p>
-      <section>
-      <h3 id='synthesizing'>Synthesizing explicit type formats</h3>
+      <section id='synthesizing'>
+      <h3>Synthesizing explicit type formats</h3>
       <p>
         There are existing formats that require explicit post types 
         (e.g. ActivityStreams [[AS1]]), or are based on explicit post types,
@@ -178,16 +178,16 @@
         formats from posts that merely have a set of content related properties.
       </p>
       </section>
-      <section>
-      <h3 id='aggregating-responses'>Aggregating responses by type</h3>
+      <section id='aggregating-responses'>
+      <h3>Aggregating responses by type</h3>
       <p>
         Modern social web posting systems implement multiple types of responses
         and provide user interfaces that show aggregate counts or collections of 
         those responses grouped by type, e.g. number of likes, reposts, replies.
       </p>
       </section>
-      <section>
-      <h3 id='notifications-wording'>Notifications wording and filtering</h3>
+      <section id='notifications-wording'>
+      <h3>Notifications wording and filtering</h3>
       <p>
         Many social web implementations provide notifications to a user 
         with response type specific wording, e.g. 
@@ -214,12 +214,15 @@
         <p>There are many possible ways a Post Type Discovery implementation can be used and tested.
           This section describes possible conformance classes from existing implementations and use-cases.
         </p>
+        <section id='type-discovery-function'>
         <h4>Type Discovery Function</h4>
         <p>A Type Discovery Function consumes untyped posts from a possibly untyped format or protocol,
           (e.g. the h-entry microformat) and outputs the type output 
           (e.g. a simple one-word string like "note" or "article")
           of the algorithm implemented 
           (either the Response Type Algorithm or the Post Type Algorithm).</p>
+        </section>
+        <section id='as2-proxy'>
         <h4>AS2 Proxy</h4>
         <p>An AS2 Proxy consumes untyped posts from an untyped format or protocol, 
            and outputs valid [[!AS2]] JSON using the equivalent AS2 Activity and/or Object Types.
@@ -227,6 +230,7 @@
           <a href="https://github.com/tantek/post-type-discovery/issues/9">
           #9: Use AS2 specific language for post types</a>)
         </p>
+        </section>
       </section>
     </section>
     <section id='response-algorithm'>
