@@ -157,27 +157,40 @@
       For more details on those specifications see references, and for how they relate, see the overview document [[social-web-protocols]].
       Post type discovery can apply to any post data structure independent of serialization (e.g. HTML, JSON, etc.)
       </p>
-      
-      <section id='usecases' class='informative'>
-        <h3>Use Cases</h3>
-        <p>
+    </section>
+ 
+    <section id='usecases' class='informative'>
+      <h2>Use Cases</h2>
+      <p>
         Both creation user interfaces, and post presentation designs are evolving to 
         directly use the presence or absence of specific properties (and their values) 
         directly, rather than depending on any kind of explicit "post type", thus why 
         bother discovering a post type in the first place? This section documents the 
         (few) use-case(s) that is/are known to date.
-        </p>
-      </section>
-      <section id='synthesizing' class='informative'>
-        <h3>Synthesizing explicit type formats</h3>
-        <p>
-          There are existing formats that require explicit post types 
-          (e.g. ActivityStreams [[AS1]]), or are based on explicit post types,
-          (e.g. ActivityStreams2 [[AS2]]), and code that consumes them expects explicit 
-          post types. Post type discovery enabling automatic synthesizing of such 
-          formats from posts that merely have a set of content related properties.
-        </p>
-      </section>
+      </p>
+      <h3 id='synthesizing'>Synthesizing explicit type formats</h3>
+      <p>
+        There are existing formats that require explicit post types 
+        (e.g. ActivityStreams [[AS1]]), or are based on explicit post types,
+        (e.g. ActivityStreams2 [[AS2]]), and code that consumes them expects explicit 
+        post types. Post type discovery enabling automatic synthesizing of such 
+        formats from posts that merely have a set of content related properties.
+      </p>
+      <h3 id='aggregating-responses'>Aggregating Responses By Type</h3>
+      <p>
+        Modern social web posting systems implement multiple types of responses
+        and provide user interfaces that show aggregate counts or collections of 
+        those responses grouped by type, e.g. number of likes, reposts, replies.
+      </p>
+      <h3 id='notifications'>Notifications Wording And Filtering</h3>
+      <p>
+        Many social web implementations provide notifications to a user 
+        with response type specific wording, e.g. 
+        "Alice commented on your photo", "7 people liked your video".
+        Automatically generating both the specific wording of these notifications, 
+        and deciding which to provide to the user, based on preferences and/or filtering, 
+        requires determining the specific response type.
+      </p>
     </section>
     <section id='conform'>
       <h2>Conformance</h2>
@@ -485,6 +498,9 @@
         <li>Add informative Atom and RSS handling of their known/unchanging elements for determining
           at least "note" vs "article", generalizing beyond mf2
           (<a href="https://github.com/tantek/post-type-discovery/issues/2">#2</a>)
+        </li>
+        <li>Additional use cases for Response Type Discovery
+          (<a href="https://github.com/tantek/post-type-discovery/issues/33">#33</a>)
         </li>
       </ul>
       <h3>Changes from <a href="https://www.w3.org/TR/2017/WD-post-type-discovery-20170614/">14 June 2017 WD</a> to this version</h3>
