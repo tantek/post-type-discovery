@@ -314,7 +314,23 @@
         and the RSS item description for the content as mentioned in the algorithm.
       </p>
     </section>
-
+    <section id='post-types-table'>
+      <h2>Post Types Table</h2>
+      <p>The following table documents the conversion from
+        the output of the algorithms to [[!AS2]] equivalents.</p>
+      <table>
+        <tr><th>Post Type</th> <th>AS2 equivalent</th></tr>
+        <tr><td>event</td>     <td><a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-event">Event</a></td></tr>
+        <tr><td>rsvp</td>      <td><a href="https://www.w3.org/TR/activitystreams-vocabulary/#motivations-rsvp">Event RSVP</a></td></tr>
+        <tr><td>repost</td>    <td>No direct equivalent.</td></tr>
+        <tr><td>like</td>      <td><a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-like">Like</a></td></tr>
+        <tr><td>reply</td>     <td><a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-note">Note</a> with <a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-inreplyto">inReplyTo</a></td></tr>
+        <tr><td>video</td>     <td><a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-video">Video</a></td></tr>
+        <tr><td>photo</td>     <td><a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-photo">Photo</a></td></tr>
+        <tr><td>note</td>      <td><a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-note">Note</a></td></tr>
+        <tr><td>article</td>   <td><a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-article">Article</a></td></tr>
+      </table>
+    </section>
     <section id='methodology' class='informative'>
       <h2>Methodology</h2>
       <p>
@@ -511,6 +527,10 @@
         </li>
         <li>Additional use cases for Response Type Discovery
           (<a href="https://github.com/tantek/post-type-discovery/issues/33">#33</a>)
+        </li>
+        <li>Add post types to AS2 equivalents table
+          (<a href="https://github.com/tantek/post-type-discovery/issues/9">#9</a>)
+          (<a href="https://github.com/tantek/post-type-discovery/issues/15">#15</a>)          
         </li>
       </ul>
       <h3>Changes from <a href="https://www.w3.org/TR/2017/WD-post-type-discovery-20170614/">14 June 2017 WD</a> to this version</h3>
