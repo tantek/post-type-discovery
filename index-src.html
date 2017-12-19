@@ -112,6 +112,13 @@
             status: "Working Draft",
             publisher: "https://www.w3.org"
           },
+          "RSS-2.0": {
+            title: "RSS 2.0",
+            href: "http://www.rssboard.org/rss-specification",
+            authors: ["Dave Winer"],
+            status: "Stable",
+            publisher: "RSS Board"
+          },
         }
       };
     </script>
@@ -474,6 +481,10 @@
         </li>
         <li>Add "event" discovery per sufficient implementations 
           (<a href="https://github.com/tantek/post-type-discovery/issues/19">#19</a>)
+        </li>
+        <li>Add informative Atom and RSS handling of their known/unchanging elements for determining
+          at least "note" vs "article", generalizing beyond mf2
+          (<a href="https://github.com/tantek/post-type-discovery/issues/2">#2</a>)
         </li>
       </ul>
       <h3>Changes from <a href="https://www.w3.org/TR/2017/WD-post-type-discovery-20170614/">14 June 2017 WD</a> to this version</h3>
