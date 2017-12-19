@@ -146,7 +146,7 @@
       </p>
       <p>
       Inferring the type of a post helps provide a bridge between formats and protocols without explicit post types 
-      (e.g. [[h-entry]], [[jf2]], [[micropub]]) to those with explicit post types (e.g. [[ActivityPub]], [[AS2]]).
+      (e.g. [[h-entry]], [[jf2]], [[micropub]], Atom ([[RFC4287]]), [[RSS-2.0]]) to those with explicit post types (e.g. [[ActivityPub]], [[AS2]]).
       For more details on those specifications see references, and for how they relate, see the overview document [[social-web-protocols]].
       Post type discovery can apply to any post data structure independent of serialization (e.g. HTML, JSON, etc.)
       </p>
@@ -231,7 +231,7 @@
       <p>
         The Post Type Algorithm ("the algorithm") discovers the type of a 
         post given a data structure representing an item with a flat set of properties 
-        (e.g. JSON output from [[microformats2-parsing]], [[RSS]], [[Atom]]), 
+        (e.g. JSON output from [[microformats2-parsing]]), 
         each with one or more values, by following these steps 
         until reaching the first "it is a(n) ... post" statement at which point the 
         "..." is the discovered post type.
@@ -273,7 +273,16 @@
       <p>
         Quoted property names in the algorithm are defined in [[!h-entry]].
       </p>
-
+      
+      <p class="note">Note: for [[RFC4287]], 
+        use the Atom entry title for the "name" property,
+        and the Atom entry content for the content as mentioned in the algorithm.
+      </p>
+      
+      <p class="note">Note: for [[RSS-2.0]], 
+        use the RSS item title for the "name" property,
+        and the RSS item description for the content as mentioned in the algorithm.
+      </p>
     </section>
 
     <section id='methodology' class='informative'>
