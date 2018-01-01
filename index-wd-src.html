@@ -8,12 +8,12 @@
     <script class='remove'>
       var respecConfig = {
         license: "w3c-software-doc",
-        specStatus: "WD",
-        publishDate: "2017-08-01",
+        specStatus: "Note",
+        publishDate: "2017-12-31",
         previousMaturity: "WD",
-        previousPublishDate: "2017-06-14", 
+        previousPublishDate: "2017-08-01", 
         shortName:  "post-type-discovery",
-        edDraftURI: "https://tantek.github.io/post-type-discovery/",
+        edDraftURI: "http://ptd.spec.indieweb.org/",
         editors: [
               {   name:       "Tantek Çelik",
                   url:        "http://tantek.com/",
@@ -83,6 +83,13 @@
             status: "Living Specification",
             publisher: "http://microformats.org"
           },
+          "h-event": {
+            title: "h-event",
+            href: "http://microformats.org/wiki/h-event",
+            authors: ["Tantek Çelik"],
+            status: "Living Specification",
+            publisher: "http://microformats.org"
+          },
           "microformats2": {
             title: "Microformats2",
             href: "http://microformats.org/wiki/microformats2",
@@ -108,6 +115,13 @@
             status: "Working Draft",
             publisher: "https://www.w3.org"
           },
+          "RSS-2.0": {
+            title: "RSS 2.0",
+            href: "http://www.rssboard.org/rss-specification",
+            authors: ["Dave Winer"],
+            status: "Stable",
+            publisher: "RSS Board"
+          },
         }
       };
     </script>
@@ -116,10 +130,7 @@
   <body>
     <section id='abstract'>
       <p>
-        Post Type Discovery specifies an algorithm for determining the type of a post
-        (related issue: 
-        <a href="https://github.com/tantek/post-type-discovery/issues/9">
-          #9: Use AS2 specific language for post types</a>)
+        Post Type Discovery specifies an algorithm for determining the type of a post 
         by what properties it has and potentially what value(s) they have, which helps 
         avoid the need for explicit post types that are being abandoned by modern post 
         creation UIs. 
@@ -129,7 +140,9 @@
     <section id='sotd'>
       <p>This specification was contributed to the W3C from the
          <a href="https://indieweb.org/">IndieWeb</a> community
-        and is one of several related specifications being produced by the Social Web Working Group.
+        and was one of several related specifications being produced by the Social Web Working Group. 
+        Now published as a W3C Note, the Post Type Discovery living specification is 
+        maintained at <a href="http://ptd.spec.indieweb.org">ptd.spec.indieweb.org</a>.
         More history and evolution of Post Type Discovery can be found on the
          <a href="https://indieweb.org/post-type-discovery">IndieWeb wiki</a>.
       </p>
@@ -141,41 +154,83 @@
       Post type discovery is an explicit algorithm for inferring the type of a post from other properties of that post.
       </p>
       <p>
-      Inferring the type of a post helps provide a bridge between systems without explicit post types 
-      (e.g. [[h-entry]], [[jf2]], [[micropub]]) to systems with explicit post types (e.g. [[ActivityPub]], [[AS2]]).
+      Inferring the type of a post helps provide a bridge between formats and protocols without explicit post types 
+      (e.g. [[h-entry]], [[jf2]], [[micropub]], Atom ([[RFC4287]]), [[RSS-2.0]]) to those with explicit post types (e.g. [[ActivityPub]], [[AS2]]).
       For more details on those specifications see references, and for how they relate, see the overview document [[social-web-protocols]].
       Post type discovery can apply to any post data structure independent of serialization (e.g. HTML, JSON, etc.)
       </p>
-      
-      <section id='usecases' class='informative'>
-        <h3>Use Cases</h3>
-        <p>
+    </section>
+ 
+    <section id='usecases' class='informative'>
+      <h2>Use Cases</h2>
+      <p>
         Both creation user interfaces, and post presentation designs are evolving to 
         directly use the presence or absence of specific properties (and their values) 
         directly, rather than depending on any kind of explicit "post type", thus why 
         bother discovering a post type in the first place? This section documents the 
         (few) use-case(s) that is/are known to date.
-        </p>
+      </p>
+      <section id='synthesizing'>
+      <h3>Synthesizing explicit type formats</h3>
+      <p>
+        There are existing formats that require explicit post types 
+        (e.g. ActivityStreams [[AS1]]), or are based on explicit post types,
+        (e.g. ActivityStreams2 [[AS2]]), and code that consumes them expects explicit 
+        post types. Post type discovery enabling automatic synthesizing of such 
+        formats from posts that merely have a set of content related properties.
+      </p>
       </section>
-      <section id='synthesizing' class='informative'>
-        <h3>Synthesizing explicit type formats</h3>
-        <p>
-          There are existing formats that require explicit post types 
-          (e.g. ActivityStreams [[AS1]]), or are based on explicit post types,
-          (e.g. ActivityStreams2 [[AS2]]), and code that consumes them expects explicit 
-          post types. Post type discovery enabling automatic synthesizing of such 
-          formats from posts that merely have a set of content related properties.
-        </p>
+      <section id='aggregating-responses'>
+      <h3>Aggregating responses by type</h3>
+      <p>
+        Modern social web posting systems implement multiple types of responses
+        and provide user interfaces that show aggregate counts or collections of 
+        those responses grouped by type, e.g. number of likes, reposts, replies.
+      </p>
+      </section>
+      <section id='notifications-wording'>
+      <h3>Notifications wording and filtering</h3>
+      <p>
+        Many social web implementations provide notifications to a user 
+        with response type specific wording, e.g. 
+        "Alice commented on your photo", "7 people liked your video".
+        Automatically generating both the specific wording of these notifications, 
+        and deciding which to provide to the user, based on preferences and/or filtering, 
+        requires determining the specific response type.
+      </p>
       </section>
     </section>
     <section id='conform'>
       <h2>Conformance</h2>
+      <section id='conformance-keywords'>
+        <h3>Conformance Keywords</h3>
       <p>As well as sections marked as non-normative, all authoring guidelines, diagrams, 
       examples, and notes in this specification are non-normative. 
       Everything else in this specification is normative.</p>
       <p>The key words "MAY", "MUST", "MUST NOT", "OPTIONAL", "RECOMMENDED", "REQUIRED", 
       "SHALL", "SHALL NOT", "SHOULD", and "SHOULD NOT" are to be interpreted as described in 
       [[!RFC2119]].</p>
+      </section>
+      <section id='conformance-classes'>
+        <h3>Conformance Classes</h3>
+        <p>There are many possible ways a Post Type Discovery implementation can be used and tested.
+          This section describes possible conformance classes from existing implementations and use-cases.
+        </p>
+        <section id='type-discovery-function'>
+        <h4>Type Discovery Function</h4>
+        <p>A Type Discovery Function consumes untyped posts from a possibly untyped format or protocol,
+          (e.g. the h-entry microformat) and outputs the type output 
+          (e.g. a simple one-word string like "note" or "article")
+          of the algorithm implemented 
+          (either the Response Type Algorithm or the Post Type Algorithm).</p>
+        </section>
+        <section id='as2-proxy'>
+        <h4>AS2 Proxy</h4>
+        <p>An AS2 Proxy consumes untyped posts from an untyped format or protocol, 
+           and outputs valid [[!AS2]] JSON using the equivalent AS2 Activity and/or Object Types.
+        </p>
+        </section>
+      </section>
     </section>
     <section id='response-algorithm'>
       <h2>Response Type Algorithm</h2>
@@ -204,14 +259,16 @@
       <h2>Post Type Algorithm</h2>
       <p>
         The Post Type Algorithm ("the algorithm") discovers the type of a 
-        post given a data structure representing a post with a flat set of properties 
-        (e.g. Activity Streams (1.0 or 2.0) JSON, or JSON output from 
-        [[microformats2-parsing]]), each with one or more values, by following these steps 
+        post given a data structure representing an item with a flat set of properties 
+        (e.g. JSON output from [[microformats2-parsing]]), 
+        each with one or more values, by following these steps 
         until reaching the first "it is a(n) ... post" statement at which point the 
         "..." is the discovered post type.
       </p>
 
         <ul>
+          <li>If the post is an "event" item (may be a [[microformats2]] root class name of [[!h-event]]),
+            <br>Then it is an event.</li>
           <li>If the post has an "rsvp" property with a valid value (one of "yes", "no", "maybe", "interested"), 
             <br>Then it is an RSVP post.</li>
           <li>If the post has a "repost-of" property with a valid URL, 
@@ -245,9 +302,34 @@
       <p>
         Quoted property names in the algorithm are defined in [[!h-entry]].
       </p>
-
+      
+      <p class="note">Note: for [[RFC4287]], 
+        use the Atom entry title for the "name" property,
+        and the Atom entry content for the content as mentioned in the algorithm.
+      </p>
+      
+      <p class="note">Note: for [[RSS-2.0]], 
+        use the RSS item title for the "name" property,
+        and the RSS item description for the content as mentioned in the algorithm.
+      </p>
     </section>
-
+    <section id='post-types-table'>
+      <h2>Post Types Table</h2>
+      <p>The following table documents the conversion from
+        the output of the algorithms to [[!AS2]] equivalents.</p>
+      <table>
+        <tr><th>Post Type</th> <th>AS2 equivalent</th></tr>
+        <tr><td>event</td>     <td><a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-event">Event</a></td></tr>
+        <tr><td>rsvp</td>      <td><a href="https://www.w3.org/TR/activitystreams-vocabulary/#motivations-rsvp">Event RSVP</a></td></tr>
+        <tr><td>repost</td>    <td><a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-announce">Announce</a></td></tr>
+        <tr><td>like</td>      <td><a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-like">Like</a></td></tr>
+        <tr><td>reply</td>     <td><a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-note">Note</a> with <a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-inreplyto">inReplyTo</a></td></tr>
+        <tr><td>video</td>     <td><a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-video">Video</a></td></tr>
+        <tr><td>photo</td>     <td><a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-image">Image</a></td></tr>
+        <tr><td>note</td>      <td><a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-note">Note</a></td></tr>
+        <tr><td>article</td>   <td><a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-article">Article</a></td></tr>
+      </table>
+    </section>
     <section id='methodology' class='informative'>
       <h2>Methodology</h2>
       <p>
@@ -284,24 +366,16 @@
     </section>
 
     <section id='othertypes' class='informative'>
-      <h2>Other Types Under Consideration</h2>
+      <h2>Other Types To Consider</h2>
       <p>
-        Other types are being considered and will be included in the future iterations 
-        of the algorithm based on convergence of publishing patterns and critical mass 
+        Other types may be included in future iterations 
+        of the algorithms based on convergence of publishing patterns and critical mass 
         of adoption thereof.
       </p>
-
-        <ul>
-          <li><a href="https://indieweb.org/delete">delete</a>
-          <li><a href="https://indieweb.org/event">event</a>
-          <li><a href="https://indieweb.org/checkin">checkin</a>
-          <li><a href="https://indieweb.org/bookmark">bookmark</a>
-          <li><a href="https://indieweb.org/quotation">quotation</a>
-          <li><a href="https://indieweb.org/audio">audio</a>
-          <li><a href="https://indieweb.org/jam">jam</a>
-          <li><a href="https://indieweb.org/invitation">invitation</a>
-          <li><a href="https://indieweb.org/tag-of">tag-of</a>
-        </ul>
+      <p>
+        See: <a href="https://indieweb.org/posts#Kinds_of_Posts">IndieWeb wiki: Kinds of Posts</a> 
+        for a list of additional possible post types that have growing adoption.
+      </p>
     </section>
     <section id='examples' class='informative'>
       <h2>Examples</h2>
@@ -437,25 +511,49 @@
     </section>
     <section class="appendix informative">
       <h2>Change Log</h2>
-
-      <h3>Changes from <a href="https://www.w3.org/TR/2017/WD-post-type-discovery-20170614/">14 June 2017 WD</a> to this version</h3>
+      <section>
+      <h3>Changes from <a href="https://www.w3.org/TR/2017/WD-post-type-discovery-20170801/">1 August 2017 WD</a> to 
+        this version</h3>
+      <ul>
+        <li>Add Conformance Classes
+          (<a href="https://github.com/tantek/post-type-discovery/issues/10">#10</a>)
+        </li>
+        <li>Add "event" discovery per sufficient implementations 
+          (<a href="https://github.com/tantek/post-type-discovery/issues/19">#19</a>)
+        </li>
+        <li>Add informative Atom and RSS handling of their known/unchanging elements for determining
+          at least "note" vs "article", generalizing beyond mf2
+          (<a href="https://github.com/tantek/post-type-discovery/issues/2">#2</a>)
+        </li>
+        <li>Additional use cases for Response Type Discovery
+          (<a href="https://github.com/tantek/post-type-discovery/issues/33">#33</a>)
+        </li>
+        <li>Add post types to AS2 equivalents table
+          (<a href="https://github.com/tantek/post-type-discovery/issues/9">#9</a>)
+          (<a href="https://github.com/tantek/post-type-discovery/issues/15">#15</a>)          
+        </li>
+      </ul>
+      </section>
+      <section>
+      <h3>Changes from <a href="https://www.w3.org/TR/2017/WD-post-type-discovery-20170614/">14 June 2017 WD</a> to 
+        <a href="https://www.w3.org/TR/2017/WD-post-type-discovery-20170801/">1 August 2017 WD</a></h3>
       <ul>
         <li>Response Type: move "reply" to last explicitly recognized response type to enable p-summary fallback use-cases 
           (<a href="https://github.com/tantek/post-type-discovery/issues/25">#25</a>)</li>
       </ul>
-
+      </section>
+      <section>
       <h3>Changes from <a href="https://www.w3.org/TR/2017/WD-post-type-discovery-20170301/">1 March 2017 WD</a> to 
         <a href="https://www.w3.org/TR/2017/WD-post-type-discovery-20170614/">14 June 2017 WD</a></h3>
-
       <ul>
         <li>Added new section Response Type Algorithm 
           (<a href="https://github.com/tantek/post-type-discovery/issues/24">#24</a>)</li>
         <li>Editorial improvements</li>
       </ul>
-      
+      </section>
+      <section>
       <h3>Changes from <a href="https://www.w3.org/TR/2016/WD-post-type-discovery-20161028/">28 October 2016 WD</a> to 
         <a href="https://www.w3.org/TR/2017/WD-post-type-discovery-20170301/">1 March 2017 WD</a></h3>
-
       <ul>
         <li>Explicitly note applies to any post data structure independent of serialization 
           (<a href="https://github.com/tantek/post-type-discovery/issues/13">#13</a>)</li>
@@ -465,7 +563,7 @@
           (<a href="https://github.com/tantek/post-type-discovery/issues/18">#18</a>)</li>
         <li>Editorial improvements</li>
       </ul>
-
+      </section>
     </section>
   </body>
 </html>
