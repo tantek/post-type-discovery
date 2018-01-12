@@ -125,12 +125,17 @@
     <link rel="webmention" href="https://webmention.io/w3c/webmention">
   </head>
   <body>
-    <section id='abstract'>
+    <section id='abstract' class='informative'>
       <p>
-        Post Type Discovery specifies an algorithm for determining the type of a post 
+        Post Type Discovery specifies algorithms for determining the type of a post 
         by what properties it has and potentially what value(s) they have, which helps 
         avoid the need for explicit post types that are being abandoned by modern post 
         creation UIs. 
+      </p>
+      <p>The <a href="#response-algorithm">Response Type Algorithm</a> in particular specifies 
+        how a [[Webmention]] receiver determines whether a webmention is a comment, like, repost, RSVP, 
+        or other type of mention, widely implemented in practice by Webmention receivers 
+        to determine what and how to display various peer-to-peer social responses.
       </p>
     </section>
 
@@ -148,7 +153,7 @@
     <section class='informative'>
       <h2>Introduction</h2>
       <p>
-      Post type discovery is an explicit algorithm for inferring the type of a post from other properties of that post.
+      Post type discovery defines explicit algorithms for inferring the type of a post from other properties of that post.
       </p>
       <p>
       Inferring the type of a post helps provide a bridge between formats and protocols without explicit post types 
