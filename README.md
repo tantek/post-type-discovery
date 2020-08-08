@@ -1,7 +1,7 @@
 # Post Type Discovery
 
-View editor's draft: http://ptd.spec.indieweb.org/
-* Live generated from respec source: http://ptd.spec.indieweb.org/index-src.html
+View editor's draft: https://ptd.spec.indieweb.org/
+* Live generated from respec source: https://ptd.spec.indieweb.org/index-src.html
 
 View staged note: https://tantek.github.io/post-type-discovery/index-wd.html
 * Live generated from respec source: https://tantek.github.io/post-type-discovery/index-wd-src.html
@@ -16,7 +16,7 @@ Latest published draft on w3.org TR: https://www.w3.org/TR/post-type-discovery
 Editing workflow:
 * File issues for improvements and non-trivial fixes 
 * Update index-src.html with editorial changes and issue resolutions
-* View http://ptd.spec.indieweb.org/index-src.html
+* View https://ptd.spec.indieweb.org/index-src.html
 * Choose Save as HTML from the Respec menu, open in browser, view source, select all / copy / commit into index.html
 
 WD Publishing workflow:
